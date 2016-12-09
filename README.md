@@ -1,0 +1,2 @@
+# Maakboekingen
+Maakboekingen in gnucash
