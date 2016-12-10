@@ -1,0 +1,6 @@
+<binding name="binding" package="nl.fz.maakboekingen.config" trim-whitespace="true">
+  <namespace uri="http://fz.nl/maakboekingen/config" default="elements"/>
+  <mapping class="nl.fz.maakboekingen.config.Config" name="config">
+    <value style="element" name="PadEnFileNaamGnuCash" get-method="getPadEnFileNaamGnuCash" set-method="setPadEnFileNaamGnuCash"/>
+  </mapping>
+</binding>
