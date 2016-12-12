@@ -12,12 +12,13 @@ import java.util.regex.Pattern;
 
 public class LeesBoekingen {
 
-	ArrayList<String[]> boekingen=new ArrayList<String[]>();
+	private ArrayList<String[]> boekingen=new ArrayList<String[]>();
+	private Double beginSaldo;
+	private Double eindSaldo;
 	
 	
 	public void inlezenBestand(String file,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
 		FileInputStream fis=new FileInputStream(file);
-		String regel[];
 		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
 		String line=null;
 		
@@ -35,6 +36,10 @@ public class LeesBoekingen {
 		Boolean bBoekingsOmschrijving;
 		Boolean bEindSaldo;
 		
+		Boolean bBeginSaldoGevonden=false;
+		
+		String[] boeking=new String[3];
+		
 		while ((line=br.readLine())!=null){
 			mBeginSaldo = pBeginSaldo.matcher(line);
 			bBeginSaldo=mBeginSaldo.matches();
@@ -45,34 +50,42 @@ public class LeesBoekingen {
 			mEindSaldo = pEindSaldo.matcher(line);
 			bEindSaldo=mEindSaldo.matches();
 
-			if (bBeginSaldo==true){
-				
+			if (bBeginSaldo==true && bBeginSaldoGevonden==false){
+				beginSaldo=Double.valueOf(mBeginSaldo.group(1));
+				bBeginSaldoGevonden=true;
+				System.out.printf("BeginSaldo:",beginSaldo);
 			} else if (bBoekingsDatumEnBedrag==true){
-				
+				boeking[0]="20"+mBoekingsDatumEnBedrag.group(1)+"000000";
+				boeking[1]=mBoekingsDatumEnBedrag.group(2);
 			} else if (bBoekingsOmschrijving==true){
-			
+				boeking[2]=mBoekingsOmschrijving.group(1);
+				boekingen.add(boeking);
+				System.out.printf("%s|%s|%s",boeking[0],boeking[1],boeking[3]);
 			} else if (bEindSaldo==true){
-				
+				eindSaldo=Double.valueOf(mEindSaldo.group(1));				
 			} else{
 				continue;
 			}
-				
-			
 			
 		}
+		
+		System.out.printf("EindSaldo:",eindSaldo);
+
 	
 	}
 	
 	public Double getBeginSaldo(){
 		
-		return 1.00;
+		return beginSaldo;
 	}
 	
 	public Double getEindSaldo(){
 		
-		return 1.00;
+		return eindSaldo;
 	}
 	
-	
+	public ArrayList<String[]> getBoekingen(){
+		return boekingen;
+	}
 	
 }
