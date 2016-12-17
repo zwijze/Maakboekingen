@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import nl.fzit.sql.Sql;
 
 /**
  * Unit test for simple App.

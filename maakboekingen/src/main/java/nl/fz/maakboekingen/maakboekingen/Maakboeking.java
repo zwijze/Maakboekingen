@@ -1,6 +1,6 @@
 package nl.fz.maakboekingen.maakboekingen;
 
-import nl.fz.maakboekingen.sql.*;
+import nl.fzit.sql.*;
 
 public class Maakboeking {
 

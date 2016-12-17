@@ -17,6 +17,7 @@ public class LeesBoekingen {
 	private Double eindSaldo;
 	
 	
+
 	public void inlezenBestand(String file,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
 		FileInputStream fis=new FileInputStream(file);
 		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
@@ -39,6 +40,8 @@ public class LeesBoekingen {
 		Boolean bBeginSaldoGevonden=false;
 		
 		String[] boeking=new String[3];
+	
+		System.out.printf("Inlezenbestand:",file);
 		
 		while ((line=br.readLine())!=null){
 			mBeginSaldo = pBeginSaldo.matcher(line);

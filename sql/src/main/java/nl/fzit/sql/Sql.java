@@ -1,4 +1,4 @@
-package nl.fz.maakboekingen.sql;
+package nl.fzit.sql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
