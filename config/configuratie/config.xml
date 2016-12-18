@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://fz.nl/maakboekingen/config">
-  <PadEnFileNaamGnuCash>../GnuCashSqlite/fz-it-jaar-2016.gnucash</PadEnFileNaamGnuCash>
-  </config>
+  <FileNameGnuCash>../GnuCashSqlite/fz-it-jaar-2016.gnucash</FileNameGnuCash>
+  <TransactionsFiles>
+	<DirectoryTransactionFiles>../transactions</DirectoryTransactionFiles>
+	<RegexTransactionFilesToRead>../transactions</RegexTransactionFilesToRead>
+  </TransactionsFiles>
+  
+ </config>
 
 
 
