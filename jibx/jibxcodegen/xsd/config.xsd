@@ -4,7 +4,7 @@
 		<xsd:sequence>
 			<xsd:element type="xsd:string" name="FileNameGnuCash"/>
 			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
-			<xsd:element type="AccoutnsType" name="Accounts"/>		
+			<xsd:element type="BoekingenType" name="Boekingen"/>		
 		</xsd:sequence>		
 	</xsd:complexType>					
 </xsd:element>
@@ -12,9 +12,13 @@
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="DirectoryTransactionFiles"/>
 	  <xsd:element type="xsd:string" name="RegexTransactionFilesToRead"/>
+	  <xsd:element type="xsd:string" name="RegexBeginSaldo"/>
+	  <xsd:element type="xsd:string" name="RegexBoekingsDatumEnBedrag"/>	  
+	  <xsd:element type="xsd:string" name="RegexEindSaldo"/>	  
+	  <xsd:element type="xsd:string" name="regexBoekingsOmschrijving"/>
     </xsd:sequence>
   </xsd:complexType>
-    <xsd:complexType name="AccountsType">
+    <xsd:complexType name="BookingsType">
     <xsd:sequence>
 	  <xsd:element minOccurs="0" type="AccountType" name="Account"/>
     </xsd:sequence>
@@ -22,8 +26,40 @@
     </xsd:complexType>
     <xsd:complexType name="AccountType">
     <xsd:sequence>
-	  <xsd:element minOccurs="0" type="xsd:string" name="regexxyx"/>
+	  <xsd:element minOccurs="1" type="xsd:string" name="BookingAccount"/>	
+	  <xsd:element minOccurs="0" type="BookingType" name="Booking"/>
     </xsd:sequence>
     <xsd:attribute name="AccountNumber" type="xsd:string" use="required"/>	
   </xsd:complexType>
+  <xsd:complexType name="BookingType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="RegexBookingDescription"/>
+	  <xsd:element minOccurs="0" type="BooleanType" name="AddDateToBookingDescription"/>
+	  <xsd:element minOccurs="0" maxOccurs="unbounded" type="BookingLineType" name="BookingLine"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BookingLineType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="BookingAccount"/>
+	  <xsd:element type="DebitCreditType" name="DebitCredit"/>	  
+	  <xsd:element minOccurs="0" type="N11_2Type" name="PercentageOfTotalAmount"/>
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:simpleType name="BooleanType">
+	<xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+  <xsd:simpleType name="DebitCreditType">
+	<xsd:restriction base="xsd:string">
+      <xsd:enumeration value="D"/>
+      <xsd:enumeration value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>    
+  <xsd:simpleType name="N11_2Type">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:pattern value="-?\d{1,11}\.\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
 </xsd:schema>
