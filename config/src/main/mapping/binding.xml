@@ -1,6 +1,46 @@
-<binding name="binding" package="nl.fz.maakboekingen.config" trim-whitespace="true">
-  <namespace uri="http://fz.nl/maakboekingen/config" default="elements"/>
-  <mapping class="nl.fz.maakboekingen.config.Config" name="config">
-    <value style="element" name="PadEnFileNaamGnuCash" get-method="getPadEnFileNaamGnuCash" set-method="setPadEnFileNaamGnuCash"/>
+<binding xmlns:ns1="http://fzit.nl/maakboekingen/config" name="binding" package="nl.fzit.maakboekingen.config" trim-whitespace="true">
+  <namespace uri="http://fzit.nl/maakboekingen/config" default="elements"/>
+  <format label="ns1:BooleanType" type="nl.fzit.maakboekingen.config.BooleanType"/>
+  <format label="ns1:DebitCreditType" type="nl.fzit.maakboekingen.config.DebitCreditType"/>
+  <mapping class="nl.fzit.maakboekingen.config.Config" name="config">
+    <structure map-as="ns1:TransactionsFilesType" get-method="getTransactionsFiles" set-method="setTransactionsFiles" name="TransactionsFiles"/>
+    <structure map-as="ns1:DatabaseType" get-method="getDatabaseBookingProgram" set-method="setDatabaseBookingProgram" name="DatabaseBookingProgram"/>
+    <structure map-as="ns1:BookingsType" get-method="getBookings" set-method="setBookings" name="Bookings"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:TransactionsFilesType" class="nl.fzit.maakboekingen.config.TransactionsFilesType">
+    <value style="element" name="DirectoryTransactionFiles" get-method="getDirectoryTransactionFiles" set-method="setDirectoryTransactionFiles"/>
+    <value style="element" name="RegexTransactionFilesToRead" get-method="getRegexTransactionFilesToRead" set-method="setRegexTransactionFilesToRead"/>
+    <value style="element" name="RegexBeginBalance" get-method="getRegexBeginBalance" set-method="setRegexBeginBalance"/>
+    <value style="element" name="RegexBookingDateAndAmount" get-method="getRegexBookingDateAndAmount" set-method="setRegexBookingDateAndAmount"/>
+    <value style="element" name="RegexEndBalance" get-method="getRegexEndBalance" set-method="setRegexEndBalance"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:DatabaseType" class="nl.fzit.maakboekingen.config.DatabaseType">
+    <value style="element" name="Dbms" get-method="getDbms" set-method="setDbms"/>
+    <value style="element" name="ServerName" get-method="getServerName" set-method="setServerName" usage="optional"/>
+    <value style="element" name="PortNumber" get-method="getPortNumber" set-method="setPortNumber" usage="optional"/>
+    <value style="element" name="DbName" get-method="getDbName" set-method="setDbName"/>
+    <value style="element" name="User" get-method="getUser" set-method="setUser" usage="optional"/>
+    <value style="element" name="Password" get-method="getPassword" set-method="setPassword" usage="optional"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:BookingsType" class="nl.fzit.maakboekingen.config.BookingsType">
+    <structure map-as="ns1:AccountType" get-method="getAccount" set-method="setAccount" usage="optional" name="Account"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:AccountType" class="nl.fzit.maakboekingen.config.AccountType">
+    <value style="element" name="BookingAccount" get-method="getBookingAccount" set-method="setBookingAccount"/>
+    <structure map-as="ns1:BookingType" get-method="getBooking" set-method="setBooking" usage="optional" name="Booking"/>
+    <value style="attribute" name="AccountNumber" get-method="getAccountNumber" set-method="setAccountNumber"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:BookingType" class="nl.fzit.maakboekingen.config.BookingType">
+    <value style="element" name="RegexBookingDescription" get-method="getRegexBookingDescription" set-method="setRegexBookingDescription"/>
+    <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription"/>
+    <value style="element" name="AddDateToBookingDescription" get-method="getAddDateToBookingDescription" set-method="setAddDateToBookingDescription" usage="optional" format="ns1:BooleanType"/>
+    <collection get-method="getBookingLineList" set-method="setBookingLineList" create-type="java.util.ArrayList">
+      <structure map-as="ns1:BookingLineType" name="BookingLine"/>
+    </collection>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:BookingLineType" class="nl.fzit.maakboekingen.config.BookingLineType">
+    <value style="element" name="BookingAccount" get-method="getBookingAccount" set-method="setBookingAccount"/>
+    <value style="element" name="DebitCredit" get-method="getDebitCredit" set-method="setDebitCredit" format="ns1:DebitCreditType"/>
+    <value style="element" name="PercentageOfTotalAmount" get-method="getPercentageOfTotalAmount" set-method="setPercentageOfTotalAmount" usage="optional"/>
   </mapping>
 </binding>

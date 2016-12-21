@@ -1,4 +1,4 @@
-package nl.fz.maakboekingen.maakboekingen;
+package nl.fzit.maakboekingen.maakboekingen;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

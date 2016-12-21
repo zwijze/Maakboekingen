@@ -1,10 +1,14 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fz.nl/maakboekingen/config">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fzit.nl/maakboekingen/config">
 <xsd:element name="config">
 	<xsd:complexType>
 		<xsd:sequence>
-			<xsd:element type="xsd:string" name="FileNameGnuCash"/>
 			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
-			<xsd:element type="BoekingenType" name="Boekingen"/>		
+			<xsd:element name="DatabaseBookingProgram" type="DatabaseType">
+			  <xsd:annotation>
+			    <xsd:documentation>Database booking program.</xsd:documentation>
+			  </xsd:annotation>
+		    </xsd:element>			
+			<xsd:element type="BookingsType" name="Bookings"/>		
 		</xsd:sequence>		
 	</xsd:complexType>					
 </xsd:element>
@@ -12,19 +16,27 @@
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="DirectoryTransactionFiles"/>
 	  <xsd:element type="xsd:string" name="RegexTransactionFilesToRead"/>
-	  <xsd:element type="xsd:string" name="RegexBeginSaldo"/>
-	  <xsd:element type="xsd:string" name="RegexBoekingsDatumEnBedrag"/>	  
-	  <xsd:element type="xsd:string" name="RegexEindSaldo"/>	  
-	  <xsd:element type="xsd:string" name="regexBoekingsOmschrijving"/>
+	  <xsd:element type="xsd:string" name="RegexBeginBalance"/>
+	  <xsd:element type="xsd:string" name="RegexBookingDateAndAmount"/>	  
+	  <xsd:element type="xsd:string" name="RegexEndBalance"/>	  
     </xsd:sequence>
   </xsd:complexType>
-    <xsd:complexType name="BookingsType">
+  <xsd:complexType name="DatabaseType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="Dbms"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="ServerName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="PortNumber"/>
+	  <xsd:element type="xsd:string" name="DbName"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="User"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="Password"/>	  
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="BookingsType">
     <xsd:sequence>
 	  <xsd:element minOccurs="0" type="AccountType" name="Account"/>
     </xsd:sequence>
   </xsd:complexType>
-    </xsd:complexType>
-    <xsd:complexType name="AccountType">
+  <xsd:complexType name="AccountType">
     <xsd:sequence>
 	  <xsd:element minOccurs="1" type="xsd:string" name="BookingAccount"/>	
 	  <xsd:element minOccurs="0" type="BookingType" name="Booking"/>
@@ -34,8 +46,9 @@
   <xsd:complexType name="BookingType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="RegexBookingDescription"/>
+	  <xsd:element type="xsd:string" name="BookingDescription"/>	  
 	  <xsd:element minOccurs="0" type="BooleanType" name="AddDateToBookingDescription"/>
-	  <xsd:element minOccurs="0" maxOccurs="unbounded" type="BookingLineType" name="BookingLine"/>
+	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="BookingLineType" name="BookingLine"/>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="BookingLineType">

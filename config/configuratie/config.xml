@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://fz.nl/maakboekingen/config">
-  <FileNameGnuCash>../GnuCashSqlite/fz-it-jaar-2016.gnucash</FileNameGnuCash>
+  <DatabaseBookingProgram>	
+	<Dbms>sqlite</Dbms>
+	<ServerName></ServerName>
+	<PortNumber></PortNumber>
+	<DbName>../GnuCashSqlite/fz-it-jaar-2016.gnucash</DbName>
+	<User></User>
+	<Password></Password>	
+  </DatabaseBookingProgram>  
+  <DatabaseBookingProgram>
   <TransactionsFiles>
 	<DirectoryTransactionFiles>../transactions</DirectoryTransactionFiles>
-	<RegexTransactionFilesToRead>../transactions</RegexTransactionFilesToRead>
+	<RegexTransactionFilesToRead>*940</RegexTransactionFilesToRead>
+	<RegexBeginSaldo>:60F:([CD])\d{6}EUR(\d+,\d{2})</RegexBeginSaldo>
+	<RegexBoekingsDatumEnBedrag>:61:(\d{6})\d{4}([CD])(\d+,\d{2})</RegexBoekingsDatumEnBedrag>
+	<RegexEindSaldo>:62F:([CD])\d{6}EUR(\d+,\d{2})</RegexEindSaldo>
+	<RegexBoekingsOmschrijving></RegexBoekingsOmschrijving>
   </TransactionsFiles>
-  
+  <Bookings>
+	<Account AccountNumber="NL82ING0617676267"></Account>
+	<BookingAccount></BookingAccount>
+	<Booking>
+		<RegexBookingDescription></RegexBookingDescription>
+		<BookingDescription></BookingDescription>
+		<AddDateToBookingDescription></AddDateToBookingDescription>
+		<BookingLine>
+			<BookingAccount></BookingAccount>
+			<DebitCredit></DebitCredit>
+			<PercentageOfTotalAmount></PercentageOfTotalAmount>
+		</BookingLine>
+	</Booking>
+  </Bookings>
  </config>
 
 
