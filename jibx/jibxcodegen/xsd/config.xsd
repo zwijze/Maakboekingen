@@ -2,12 +2,17 @@
 <xsd:element name="config">
 	<xsd:complexType>
 		<xsd:sequence>
-			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
 			<xsd:element name="DatabaseBookingProgram" type="DatabaseType">
 			  <xsd:annotation>
 			    <xsd:documentation>Database booking program.</xsd:documentation>
 			  </xsd:annotation>
 		    </xsd:element>			
+			<xsd:element name="ClassNamePluginBookingProgram" type="xsd:string">
+			  <xsd:annotation>
+			    <xsd:documentation>Classname plugin booking program that creates a booking.</xsd:documentation>
+			  </xsd:annotation>
+		    </xsd:element>						
+			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
 			<xsd:element type="BookingsType" name="Bookings"/>		
 		</xsd:sequence>		
 	</xsd:complexType>					
@@ -38,7 +43,7 @@
   </xsd:complexType>
   <xsd:complexType name="AccountType">
     <xsd:sequence>
-	  <xsd:element minOccurs="1" type="xsd:string" name="BookingAccount"/>	
+	  <xsd:element minOccurs="1" type="xsd:string" name="BookingAccountForAccountNumber"/>	
 	  <xsd:element minOccurs="0" type="BookingType" name="Booking"/>
     </xsd:sequence>
     <xsd:attribute name="AccountNumber" type="xsd:string" use="required"/>	

@@ -19,7 +19,7 @@ java -cp "%jibxlib%\jibx-tools.jar" org.jibx.schema.codegen.CodeGen -t "%gendir%
 
 ::echo "Copying generated java files to package location"->Kopieer zelf de bestanden de 1e keer anders zegt eclipse bij importen in het project dat e bestanden al bestaan.
 ::echo "Copying generated java files to package location"
-::xcopy /y "%packagedir%\*.java" "%srcdir%"
+xcopy /y "%packagedir%\*.java" "%srcdir%"
 
 echo "Copying generated binding.xml file to mapping location"
 xcopy /y "%gendir%\*.xml" "%mappingdir%"

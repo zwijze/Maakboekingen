@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config xmlns="http://fz.nl/maakboekingen/config">
-  <PadEnFileNaamGnuCash>../GnuCashSqlite/fz-it-jaar-2016.gnucash</PadEnFileNaamGnuCash>
+<config xmlns="http://fzit.nl/maakboekingen/config">
+  <DatabaseBookingProgram>
+    <Dbms>sqlite</Dbms>
+    <ServerName/>
+    <PortNumber/>
+    <DbName>../GnuCashSqlite/fz-it-jaar-2016.gnucash</DbName>
+    <User/>
+    <Password/>
+  </DatabaseBookingProgram>
+  <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
+  <TransactionsFiles>
+    <DirectoryTransactionFiles>../transactions</DirectoryTransactionFiles>
+    <RegexTransactionFilesToRead>*940</RegexTransactionFilesToRead>
+    <RegexBeginBalance>:60F:([CD])\d{6}EUR(\d+,\d{2})</RegexBeginBalance>
+    <RegexBookingDateAndAmount>:61:(\d{6})\d{4}([CD])(\d+,\d{2})</RegexBookingDateAndAmount>
+    <RegexEndBalance>:62F:([CD])\d{6}EUR(\d+,\d{2})</RegexEndBalance>
+  </TransactionsFiles>
+  <Bookings>
+    <Account AccountNumber="NL72SNSB0898519659">
+      <BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
+      <Booking>
+        <RegexBookingDescription>:86:NL92SNSB0908995105</RegexBookingDescription>
+        <BookingDescription>Overboeking van lopende rekening naar spaarrekening</BookingDescription>
+        <AddDateToBookingDescription>N</AddDateToBookingDescription>
+        <BookingLine>
+          <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+          <DebitCredit>D</DebitCredit>
+          <PercentageOfTotalAmount>100</PercentageOfTotalAmount>
+        </BookingLine>
+      </Booking>
+    </Account>
+  </Bookings>
 </config>
