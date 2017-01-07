@@ -7,6 +7,7 @@
 			    <xsd:documentation>Database booking program.</xsd:documentation>
 			  </xsd:annotation>
 		    </xsd:element>			
+			<xsd:element name="PluginDirectoryBookingProgram" type="xsd:string"/>
 			<xsd:element name="ClassNamePluginBookingProgram" type="xsd:string">
 			  <xsd:annotation>
 			    <xsd:documentation>Classname plugin booking program that creates a booking.</xsd:documentation>

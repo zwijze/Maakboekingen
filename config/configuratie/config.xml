@@ -7,7 +7,8 @@
 	<DbName>../GnuCashSqlite/fz-it-jaar-2016.gnucash</DbName>
 	<User></User>
 	<Password></Password>	
-  </DatabaseBookingProgram>  
+  </DatabaseBookingProgram>
+  <PluginDirectoryBookingProgram>C:\mijn documenten\Maakboekingen\MaakBoekingGnuCash\target\classes\nl\fzit\MaakBoekingGnuCash</PluginDirectoryBookingProgram>
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
   <TransactionsFiles>
 	<DirectoryTransactionFiles>../transactions</DirectoryTransactionFiles>

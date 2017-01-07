@@ -8,6 +8,7 @@ package nl.fzit.maakboekingen.config;
  *   &lt;xs:complexType>
  *     &lt;xs:sequence>
  *       &lt;xs:element type="ns:DatabaseType" name="DatabaseBookingProgram"/>
+ *       &lt;xs:element type="xs:string" name="PluginDirectoryBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
  *       &lt;xs:element type="ns:TransactionsFilesType" name="TransactionsFiles"/>
  *       &lt;xs:element type="ns:BookingsType" name="Bookings"/>
@@ -19,6 +20,7 @@ package nl.fzit.maakboekingen.config;
 public class Config
 {
     private DatabaseType databaseBookingProgram;
+    private String pluginDirectoryBookingProgram;
     private String classNamePluginBookingProgram;
     private TransactionsFilesType transactionsFiles;
     private BookingsType bookings;
@@ -39,6 +41,25 @@ public class Config
      */
     public void setDatabaseBookingProgram(DatabaseType databaseBookingProgram) {
         this.databaseBookingProgram = databaseBookingProgram;
+    }
+
+    /** 
+     * Get the 'PluginDirectoryBookingProgram' element value.
+     * 
+     * @return value
+     */
+    public String getPluginDirectoryBookingProgram() {
+        return pluginDirectoryBookingProgram;
+    }
+
+    /** 
+     * Set the 'PluginDirectoryBookingProgram' element value.
+     * 
+     * @param pluginDirectoryBookingProgram
+     */
+    public void setPluginDirectoryBookingProgram(
+            String pluginDirectoryBookingProgram) {
+        this.pluginDirectoryBookingProgram = pluginDirectoryBookingProgram;
     }
 
     /** 
