@@ -4,8 +4,9 @@
   <format label="ns1:DebitCreditType" type="nl.fzit.maakboekingen.config.DebitCreditType"/>
   <mapping class="nl.fzit.maakboekingen.config.Config" name="config">
     <structure map-as="ns1:DatabaseType" get-method="getDatabaseBookingProgram" set-method="setDatabaseBookingProgram" name="DatabaseBookingProgram"/>
-    <value style="element" name="PluginDirectoryBookingProgram" get-method="getPluginDirectoryBookingProgram" set-method="setPluginDirectoryBookingProgram"/>
+    <value style="element" name="PluginDirectory" get-method="getPluginDirectory" set-method="setPluginDirectory"/>
     <value style="element" name="ClassNamePluginBookingProgram" get-method="getClassNamePluginBookingProgram" set-method="setClassNamePluginBookingProgram"/>
+    <value style="element" name="ClassNamePluginSql" get-method="getClassNamePluginSql" set-method="setClassNamePluginSql"/>
     <structure map-as="ns1:TransactionsFilesType" get-method="getTransactionsFiles" set-method="setTransactionsFiles" name="TransactionsFiles"/>
     <structure map-as="ns1:BookingsType" get-method="getBookings" set-method="setBookings" name="Bookings"/>
   </mapping>

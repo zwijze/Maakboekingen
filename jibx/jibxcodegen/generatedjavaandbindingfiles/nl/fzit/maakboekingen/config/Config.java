@@ -8,8 +8,9 @@ package nl.fzit.maakboekingen.config;
  *   &lt;xs:complexType>
  *     &lt;xs:sequence>
  *       &lt;xs:element type="ns:DatabaseType" name="DatabaseBookingProgram"/>
- *       &lt;xs:element type="xs:string" name="PluginDirectoryBookingProgram"/>
+ *       &lt;xs:element type="xs:string" name="PluginDirectory"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
+ *       &lt;xs:element type="xs:string" name="ClassNamePluginSql"/>
  *       &lt;xs:element type="ns:TransactionsFilesType" name="TransactionsFiles"/>
  *       &lt;xs:element type="ns:BookingsType" name="Bookings"/>
  *     &lt;/xs:sequence>
@@ -20,8 +21,9 @@ package nl.fzit.maakboekingen.config;
 public class Config
 {
     private DatabaseType databaseBookingProgram;
-    private String pluginDirectoryBookingProgram;
+    private String pluginDirectory;
     private String classNamePluginBookingProgram;
+    private String classNamePluginSql;
     private TransactionsFilesType transactionsFiles;
     private BookingsType bookings;
 
@@ -44,22 +46,21 @@ public class Config
     }
 
     /** 
-     * Get the 'PluginDirectoryBookingProgram' element value.
+     * Get the 'PluginDirectory' element value.
      * 
      * @return value
      */
-    public String getPluginDirectoryBookingProgram() {
-        return pluginDirectoryBookingProgram;
+    public String getPluginDirectory() {
+        return pluginDirectory;
     }
 
     /** 
-     * Set the 'PluginDirectoryBookingProgram' element value.
+     * Set the 'PluginDirectory' element value.
      * 
-     * @param pluginDirectoryBookingProgram
+     * @param pluginDirectory
      */
-    public void setPluginDirectoryBookingProgram(
-            String pluginDirectoryBookingProgram) {
-        this.pluginDirectoryBookingProgram = pluginDirectoryBookingProgram;
+    public void setPluginDirectory(String pluginDirectory) {
+        this.pluginDirectory = pluginDirectory;
     }
 
     /** 
@@ -79,6 +80,24 @@ public class Config
     public void setClassNamePluginBookingProgram(
             String classNamePluginBookingProgram) {
         this.classNamePluginBookingProgram = classNamePluginBookingProgram;
+    }
+
+    /** 
+     * Get the 'ClassNamePluginSql' element value. Classname Sql connection.
+     * 
+     * @return value
+     */
+    public String getClassNamePluginSql() {
+        return classNamePluginSql;
+    }
+
+    /** 
+     * Set the 'ClassNamePluginSql' element value. Classname Sql connection.
+     * 
+     * @param classNamePluginSql
+     */
+    public void setClassNamePluginSql(String classNamePluginSql) {
+        this.classNamePluginSql = classNamePluginSql;
     }
 
     /** 

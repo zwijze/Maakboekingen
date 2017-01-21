@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.net.*;
 import nl.fzit.files.*;
 import nl.fzit.maakboekingen.config.*;
-import nl.fzit.makebooking.api.IMaakboeking;
+import nl.fzit.makebooking.api.*;
 import java.io.File;
+import java.io.IOException;
 
 
 public class Maakboekingen {
 
-	public static void main(String[] args) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<String> bestandenList;
 		Config config=new Config();
@@ -18,9 +19,18 @@ public class Maakboekingen {
 		FilesDirectories filesDirectories=new FilesDirectories();
 		bestandenList=filesDirectories.bepaalInTeLezenBestanden("1","2");
 		
+		//LeesBoeking object maken t.b.v. inlezen boekingen uit een bestand
+		LeesBoekingen leesBoekingen=new LeesBoekingen();
+		
+		//MaakBoeking object maken o.b.v. plugin
 		IMaakboeking maakBoeking=maakBoekingObject(config); 
 		
+		//Creer Sql connection naar database waarin de boekingen moet komen
+		ISql sql=maakSqlObject(config);
+		
+		
 		for (String bestand :bestandenList){
+			leesBoekingen.inlezenBestand(bestand,config.getTransactionsFiles().getRegexBeginBalance(),config.getTransactionsFiles().getRegexBookingDateAndAmount(),config.getBookings().getAccount().getBooking().getBookingDescription(),config.getTransactionsFiles().getRegexEndBalance());
 			
 		}
 		
@@ -28,7 +38,7 @@ public class Maakboekingen {
 	
 	private static IMaakboeking maakBoekingObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
 	
-		File dir = new File(config.getPluginDirectoryBookingProgram());
+		File dir = new File(config.getPluginDirectory());
 		URL loadPath = dir.toURI().toURL();
 		URL[] classUrl = new URL[]{loadPath};
 
@@ -42,4 +52,21 @@ public class Maakboekingen {
 		
 	}
 
+	
+	private static ISql maakSqlObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+		
+		File dir = new File(config.getPluginDirectory());
+		URL loadPath = dir.toURI().toURL();
+		URL[] classUrl = new URL[]{loadPath};
+
+		ClassLoader cl = new URLClassLoader(classUrl);
+
+		Class loadedClass = cl.loadClass(config.getClassNamePluginSql()); // must be in package.class name format
+		
+		ISql modInstance = (ISql)loadedClass.newInstance();
+		
+		return modInstance;
+		
+	}
+	
 }

@@ -7,11 +7,16 @@
 			    <xsd:documentation>Database booking program.</xsd:documentation>
 			  </xsd:annotation>
 		    </xsd:element>			
-			<xsd:element name="PluginDirectoryBookingProgram" type="xsd:string"/>
+			<xsd:element name="PluginDirectory" type="xsd:string"/>
 			<xsd:element name="ClassNamePluginBookingProgram" type="xsd:string">
 			  <xsd:annotation>
 			    <xsd:documentation>Classname plugin booking program that creates a booking.</xsd:documentation>
-			  </xsd:annotation>
+			  </xsd:annotation>			
+		    </xsd:element>						
+			<xsd:element name="ClassNamePluginSql" type="xsd:string">			
+			  <xsd:annotation>
+			    <xsd:documentation>Classname Sql connection.</xsd:documentation>
+			  </xsd:annotation>			
 		    </xsd:element>						
 			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
 			<xsd:element type="BookingsType" name="Bookings"/>		

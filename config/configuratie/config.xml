@@ -8,8 +8,9 @@
 	<User></User>
 	<Password></Password>	
   </DatabaseBookingProgram>
-  <PluginDirectoryBookingProgram>C:\mijn documenten\Maakboekingen\MaakBoekingGnuCash\target\classes\nl\fzit\MaakBoekingGnuCash</PluginDirectoryBookingProgram>
+  <PluginDirectory>C:\mijn documenten\Maakboekingen\MaakBoekingGnuCash\target\classes\nl\fzit\MaakBoekingGnuCash</PluginDirectory>
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
+  <ClassNamePluginSql>nl.fzit.sql.Sql</ClassNamePluginSql>
   <TransactionsFiles>
 	<DirectoryTransactionFiles>../transactions</DirectoryTransactionFiles>
 	<RegexTransactionFilesToRead>*940</RegexTransactionFilesToRead>
