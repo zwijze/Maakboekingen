@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.net.*;
 import nl.fzit.files.*;
 import nl.fzit.maakboekingen.config.*;
+import nl.fzit.maakboekingen.makebooking.api.IMaakboeking;
 import nl.fzit.makebooking.api.*;
+import nl.fzit.sql.api.ISql;
+
 import java.io.File;
 import java.io.IOException;
 

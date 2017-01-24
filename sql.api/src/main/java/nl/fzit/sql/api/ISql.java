@@ -1,4 +1,4 @@
-package nl.fzit.makebooking.api;
+package nl.fzit.sql.api;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
