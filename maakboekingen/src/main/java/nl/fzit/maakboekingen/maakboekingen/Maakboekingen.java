@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.net.*;
 import nl.fzit.files.*;
 import nl.fzit.maakboekingen.config.*;
-import nl.fzit.maakboekingen.makebooking.api.IMaakboeking;
-import nl.fzit.makebooking.api.*;
-import nl.fzit.sql.api.ISql;
+import nl.fzit.maakboekingen.makebooking.api.*;
+import nl.fzit.sql.api.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +25,7 @@ public class Maakboekingen {
 		LeesBoekingen leesBoekingen=new LeesBoekingen();
 		
 		//MaakBoeking object maken o.b.v. plugin
-		IMaakboeking maakBoeking=maakBoekingObject(config); 
+		IMakebooking maakBoeking=maakBoekingObject(config); 
 		
 		//Creer Sql connection naar database waarin de boekingen moet komen
 		ISql sql=maakSqlObject(config);
@@ -39,7 +38,7 @@ public class Maakboekingen {
 		
 	}
 	
-	private static IMaakboeking maakBoekingObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+	private static IMakebooking maakBoekingObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
 	
 		File dir = new File(config.getPluginDirectory());
 		URL loadPath = dir.toURI().toURL();
@@ -49,7 +48,7 @@ public class Maakboekingen {
 
 		Class loadedClass = cl.loadClass(config.getClassNamePluginBookingProgram()); // must be in package.class name format
 		
-		IMaakboeking modInstance = (IMaakboeking)loadedClass.newInstance();
+		IMakebooking modInstance = (IMakebooking)loadedClass.newInstance();
 		
 		return modInstance;
 		

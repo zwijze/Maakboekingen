@@ -1,6 +1,8 @@
 package nl.fzit.MaakBoekingGnuCash;
 
-public class MaakBoeking {
+import nl.fzit.makebooking.api.*;
+
+public class MaakBoeking implements IMakebooking {
 
 	
 	
