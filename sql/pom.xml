@@ -26,5 +26,10 @@
     	<artifactId>sqlite-jdbc</artifactId>
     	<version>3.7.2</version>
     </dependency>
+    <dependency>
+    	<groupId>nl.fzit</groupId>
+    	<artifactId>sql.api</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>

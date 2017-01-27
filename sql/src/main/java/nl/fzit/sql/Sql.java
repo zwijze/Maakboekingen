@@ -7,8 +7,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import nl.fzit.sql.api.*;
 
-public class Sql {
+public class Sql implements ISql {
 
 	private Connection conn=null;
 	
