@@ -12,7 +12,7 @@ package nl.fzit.maakboekingen.config;
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginSql"/>
  *       &lt;xs:element type="ns:TransactionsFilesType" name="TransactionsFiles"/>
- *       &lt;xs:element type="ns:BookingsType" name="Bookings"/>
+ *       &lt;xs:element type="ns:AccountsType" name="Accounts"/>
  *     &lt;/xs:sequence>
  *   &lt;/xs:complexType>
  * &lt;/xs:element>
@@ -25,7 +25,7 @@ public class Config
     private String classNamePluginBookingProgram;
     private String classNamePluginSql;
     private TransactionsFilesType transactionsFiles;
-    private BookingsType bookings;
+    private AccountsType accounts;
 
     /** 
      * Get the 'DatabaseBookingProgram' element value. Database booking program.
@@ -119,20 +119,20 @@ public class Config
     }
 
     /** 
-     * Get the 'Bookings' element value.
+     * Get the 'Accounts' element value.
      * 
      * @return value
      */
-    public BookingsType getBookings() {
-        return bookings;
+    public AccountsType getAccounts() {
+        return accounts;
     }
 
     /** 
-     * Set the 'Bookings' element value.
+     * Set the 'Accounts' element value.
      * 
-     * @param bookings
+     * @param accounts
      */
-    public void setBookings(BookingsType bookings) {
-        this.bookings = bookings;
+    public void setAccounts(AccountsType accounts) {
+        this.accounts = accounts;
     }
 }

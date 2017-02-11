@@ -8,14 +8,15 @@
     <value style="element" name="ClassNamePluginBookingProgram" get-method="getClassNamePluginBookingProgram" set-method="setClassNamePluginBookingProgram"/>
     <value style="element" name="ClassNamePluginSql" get-method="getClassNamePluginSql" set-method="setClassNamePluginSql"/>
     <structure map-as="ns1:TransactionsFilesType" get-method="getTransactionsFiles" set-method="setTransactionsFiles" name="TransactionsFiles"/>
-    <structure map-as="ns1:BookingsType" get-method="getBookings" set-method="setBookings" name="Bookings"/>
+    <structure map-as="ns1:AccountsType" get-method="getAccounts" set-method="setAccounts" name="Accounts"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:TransactionsFilesType" class="nl.fzit.maakboekingen.config.TransactionsFilesType">
     <value style="element" name="DirectoryTransactionFiles" get-method="getDirectoryTransactionFiles" set-method="setDirectoryTransactionFiles"/>
-    <value style="element" name="RegexTransactionFilesToRead" get-method="getRegexTransactionFilesToRead" set-method="setRegexTransactionFilesToRead"/>
-    <value style="element" name="RegexBeginBalance" get-method="getRegexBeginBalance" set-method="setRegexBeginBalance"/>
-    <value style="element" name="RegexBookingDateAndAmount" get-method="getRegexBookingDateAndAmount" set-method="setRegexBookingDateAndAmount"/>
-    <value style="element" name="RegexEndBalance" get-method="getRegexEndBalance" set-method="setRegexEndBalance"/>
+    <value style="element" name="TransactionFilesToReadRegex" get-method="getTransactionFilesToReadRegex" set-method="setTransactionFilesToReadRegex"/>
+    <value style="element" name="BeginBalanceRegex" get-method="getBeginBalanceRegex" set-method="setBeginBalanceRegex"/>
+    <value style="element" name="BookingDateAndAmountRegex" get-method="getBookingDateAndAmountRegex" set-method="setBookingDateAndAmountRegex"/>
+    <value style="element" name="EndBalanceRegex" get-method="getEndBalanceRegex" set-method="setEndBalanceRegex"/>
+    <value style="element" name="AccountNumberRegex" get-method="getAccountNumberRegex" set-method="setAccountNumberRegex"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:DatabaseType" class="nl.fzit.maakboekingen.config.DatabaseType">
     <value style="element" name="Dbms" get-method="getDbms" set-method="setDbms"/>
@@ -25,7 +26,7 @@
     <value style="element" name="User" get-method="getUser" set-method="setUser" usage="optional"/>
     <value style="element" name="Password" get-method="getPassword" set-method="setPassword" usage="optional"/>
   </mapping>
-  <mapping abstract="true" type-name="ns1:BookingsType" class="nl.fzit.maakboekingen.config.BookingsType">
+  <mapping abstract="true" type-name="ns1:AccountsType" class="nl.fzit.maakboekingen.config.AccountsType">
     <structure map-as="ns1:AccountType" get-method="getAccount" set-method="setAccount" usage="optional" name="Account"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:AccountType" class="nl.fzit.maakboekingen.config.AccountType">
@@ -34,7 +35,7 @@
     <value style="attribute" name="AccountNumber" get-method="getAccountNumber" set-method="setAccountNumber"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:BookingType" class="nl.fzit.maakboekingen.config.BookingType">
-    <value style="element" name="RegexBookingDescription" get-method="getRegexBookingDescription" set-method="setRegexBookingDescription"/>
+    <value style="element" name="BookingDescriptionRegex" get-method="getBookingDescriptionRegex" set-method="setBookingDescriptionRegex"/>
     <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription"/>
     <value style="element" name="AddDateToBookingDescription" get-method="getAddDateToBookingDescription" set-method="setAddDateToBookingDescription" usage="optional" format="ns1:BooleanType"/>
     <collection get-method="getBookingLineList" set-method="setBookingLineList" create-type="java.util.ArrayList">

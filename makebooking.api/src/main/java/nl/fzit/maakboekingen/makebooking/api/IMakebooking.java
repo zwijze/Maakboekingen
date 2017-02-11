@@ -4,6 +4,5 @@ import nl.fzit.sql.api.*;
 
 public interface IMakebooking {
 
-	public ISql createSqlConnection();
 	
 }

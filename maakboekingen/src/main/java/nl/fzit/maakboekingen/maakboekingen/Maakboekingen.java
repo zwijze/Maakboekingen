@@ -16,6 +16,7 @@ public class Maakboekingen {
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
 		// TODO Auto-generated method stub
 		ArrayList<String> bestandenList;
+		ArrayList<String[]> boekingen=new ArrayList<String[]>();
 		Config config=new Config();
 		
 		FilesDirectories filesDirectories=new FilesDirectories();
@@ -27,15 +28,16 @@ public class Maakboekingen {
 		//MaakBoeking object maken o.b.v. plugin
 		IMakebooking maakBoeking=maakBoekingObject(config); 
 		
-		//Creer Sql connection naar database waarin de boekingen moet komen
+		//Creer Sql connection naar database waarin de boekingen moet komen o.b.v. plugin
 		ISql sql=maakSqlObject(config);
 		
 		
 		for (String bestand :bestandenList){
-			leesBoekingen.inlezenBestand(bestand,config.getTransactionsFiles().getRegexBeginBalance(),config.getTransactionsFiles().getRegexBookingDateAndAmount(),config.getBookings().getAccount().getBooking().getBookingDescription(),config.getTransactionsFiles().getRegexEndBalance());
-			
+			leesBoekingen.inlezenBestand(bestand,config.getTransactionsFiles().getBeginBalanceRegex(),config.getTransactionsFiles().getBookingDateAndAmountRegex(),config.getAccounts().getAccount().getBooking().getBookingDescription(),config.getTransactionsFiles().getEndBalanceRegex());
 		}
 		
+	
+	
 	}
 	
 	private static IMakebooking maakBoekingObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{

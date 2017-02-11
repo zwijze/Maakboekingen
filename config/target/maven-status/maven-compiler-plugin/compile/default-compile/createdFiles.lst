@@ -1,9 +1,9 @@
+nl\fzit\maakboekingen\config\AccountsType.class
 nl\fzit\maakboekingen\config\DatabaseType.class
 nl\fzit\maakboekingen\config\BooleanType.class
 nl\fzit\maakboekingen\config\TransactionsFilesType.class
 nl\fzit\maakboekingen\config\BookingLineType.class
 nl\fzit\maakboekingen\config\DebitCreditType.class
-nl\fzit\maakboekingen\config\BookingsType.class
 nl\fzit\maakboekingen\config\AccountType.class
 nl\fzit\maakboekingen\config\Config.class
 nl\fzit\maakboekingen\config\BookingType.class

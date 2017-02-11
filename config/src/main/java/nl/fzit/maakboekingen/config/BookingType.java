@@ -9,7 +9,7 @@ import java.util.List;
  * <pre>
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BookingType">
  *   &lt;xs:sequence>
- *     &lt;xs:element type="xs:string" name="RegexBookingDescription"/>
+ *     &lt;xs:element type="xs:string" name="BookingDescriptionRegex"/>
  *     &lt;xs:element type="xs:string" name="BookingDescription"/>
  *     &lt;xs:element type="ns:BooleanType" name="AddDateToBookingDescription" minOccurs="0"/>
  *     &lt;xs:element type="ns:BookingLineType" name="BookingLine" minOccurs="1" maxOccurs="unbounded"/>
@@ -19,27 +19,27 @@ import java.util.List;
  */
 public class BookingType
 {
-    private String regexBookingDescription;
+    private String bookingDescriptionRegex;
     private String bookingDescription;
     private BooleanType addDateToBookingDescription;
     private List<BookingLineType> bookingLineList = new ArrayList<BookingLineType>();
 
     /** 
-     * Get the 'RegexBookingDescription' element value.
+     * Get the 'BookingDescriptionRegex' element value.
      * 
      * @return value
      */
-    public String getRegexBookingDescription() {
-        return regexBookingDescription;
+    public String getBookingDescriptionRegex() {
+        return bookingDescriptionRegex;
     }
 
     /** 
-     * Set the 'RegexBookingDescription' element value.
+     * Set the 'BookingDescriptionRegex' element value.
      * 
-     * @param regexBookingDescription
+     * @param bookingDescriptionRegex
      */
-    public void setRegexBookingDescription(String regexBookingDescription) {
-        this.regexBookingDescription = regexBookingDescription;
+    public void setBookingDescriptionRegex(String bookingDescriptionRegex) {
+        this.bookingDescriptionRegex = bookingDescriptionRegex;
     }
 
     /** 

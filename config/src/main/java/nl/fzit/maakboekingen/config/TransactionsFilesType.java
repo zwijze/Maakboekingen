@@ -7,10 +7,11 @@ package nl.fzit.maakboekingen.config;
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="TransactionsFilesType">
  *   &lt;xs:sequence>
  *     &lt;xs:element type="xs:string" name="DirectoryTransactionFiles"/>
- *     &lt;xs:element type="xs:string" name="RegexTransactionFilesToRead"/>
- *     &lt;xs:element type="xs:string" name="RegexBeginBalance"/>
- *     &lt;xs:element type="xs:string" name="RegexBookingDateAndAmount"/>
- *     &lt;xs:element type="xs:string" name="RegexEndBalance"/>
+ *     &lt;xs:element type="xs:string" name="TransactionFilesToReadRegex"/>
+ *     &lt;xs:element type="xs:string" name="BeginBalanceRegex"/>
+ *     &lt;xs:element type="xs:string" name="BookingDateAndAmountRegex"/>
+ *     &lt;xs:element type="xs:string" name="EndBalanceRegex"/>
+ *     &lt;xs:element type="xs:string" name="AccountNumberRegex"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
  * </pre>
@@ -18,10 +19,11 @@ package nl.fzit.maakboekingen.config;
 public class TransactionsFilesType
 {
     private String directoryTransactionFiles;
-    private String regexTransactionFilesToRead;
-    private String regexBeginBalance;
-    private String regexBookingDateAndAmount;
-    private String regexEndBalance;
+    private String transactionFilesToReadRegex;
+    private String beginBalanceRegex;
+    private String bookingDateAndAmountRegex;
+    private String endBalanceRegex;
+    private String accountNumberRegex;
 
     /** 
      * Get the 'DirectoryTransactionFiles' element value.
@@ -42,75 +44,93 @@ public class TransactionsFilesType
     }
 
     /** 
-     * Get the 'RegexTransactionFilesToRead' element value.
+     * Get the 'TransactionFilesToReadRegex' element value.
      * 
      * @return value
      */
-    public String getRegexTransactionFilesToRead() {
-        return regexTransactionFilesToRead;
+    public String getTransactionFilesToReadRegex() {
+        return transactionFilesToReadRegex;
     }
 
     /** 
-     * Set the 'RegexTransactionFilesToRead' element value.
+     * Set the 'TransactionFilesToReadRegex' element value.
      * 
-     * @param regexTransactionFilesToRead
+     * @param transactionFilesToReadRegex
      */
-    public void setRegexTransactionFilesToRead(
-            String regexTransactionFilesToRead) {
-        this.regexTransactionFilesToRead = regexTransactionFilesToRead;
+    public void setTransactionFilesToReadRegex(
+            String transactionFilesToReadRegex) {
+        this.transactionFilesToReadRegex = transactionFilesToReadRegex;
     }
 
     /** 
-     * Get the 'RegexBeginBalance' element value.
-     * 
-     * @return value
-     */
-    public String getRegexBeginBalance() {
-        return regexBeginBalance;
-    }
-
-    /** 
-     * Set the 'RegexBeginBalance' element value.
-     * 
-     * @param regexBeginBalance
-     */
-    public void setRegexBeginBalance(String regexBeginBalance) {
-        this.regexBeginBalance = regexBeginBalance;
-    }
-
-    /** 
-     * Get the 'RegexBookingDateAndAmount' element value.
+     * Get the 'BeginBalanceRegex' element value.
      * 
      * @return value
      */
-    public String getRegexBookingDateAndAmount() {
-        return regexBookingDateAndAmount;
+    public String getBeginBalanceRegex() {
+        return beginBalanceRegex;
     }
 
     /** 
-     * Set the 'RegexBookingDateAndAmount' element value.
+     * Set the 'BeginBalanceRegex' element value.
      * 
-     * @param regexBookingDateAndAmount
+     * @param beginBalanceRegex
      */
-    public void setRegexBookingDateAndAmount(String regexBookingDateAndAmount) {
-        this.regexBookingDateAndAmount = regexBookingDateAndAmount;
+    public void setBeginBalanceRegex(String beginBalanceRegex) {
+        this.beginBalanceRegex = beginBalanceRegex;
     }
 
     /** 
-     * Get the 'RegexEndBalance' element value.
+     * Get the 'BookingDateAndAmountRegex' element value.
      * 
      * @return value
      */
-    public String getRegexEndBalance() {
-        return regexEndBalance;
+    public String getBookingDateAndAmountRegex() {
+        return bookingDateAndAmountRegex;
     }
 
     /** 
-     * Set the 'RegexEndBalance' element value.
+     * Set the 'BookingDateAndAmountRegex' element value.
      * 
-     * @param regexEndBalance
+     * @param bookingDateAndAmountRegex
      */
-    public void setRegexEndBalance(String regexEndBalance) {
-        this.regexEndBalance = regexEndBalance;
+    public void setBookingDateAndAmountRegex(String bookingDateAndAmountRegex) {
+        this.bookingDateAndAmountRegex = bookingDateAndAmountRegex;
+    }
+
+    /** 
+     * Get the 'EndBalanceRegex' element value.
+     * 
+     * @return value
+     */
+    public String getEndBalanceRegex() {
+        return endBalanceRegex;
+    }
+
+    /** 
+     * Set the 'EndBalanceRegex' element value.
+     * 
+     * @param endBalanceRegex
+     */
+    public void setEndBalanceRegex(String endBalanceRegex) {
+        this.endBalanceRegex = endBalanceRegex;
+    }
+
+    /** 
+     * Get the 'AccountNumberRegex' element value.
+     * 
+     * @return value
+     */
+    public String getAccountNumberRegex() {
+        return accountNumberRegex;
+    }
+
+    /** 
+     * Set the 'AccountNumberRegex' element value.
+     * 
+     * @param accountNumberRegex
+     */
+    public void setAccountNumberRegex(String accountNumberRegex) {
+        this.accountNumberRegex = accountNumberRegex;
     }
 }

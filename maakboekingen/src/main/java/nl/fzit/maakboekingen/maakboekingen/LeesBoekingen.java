@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 
 public class LeesBoekingen {
 
-	private ArrayList<String[]> boekingen=new ArrayList<String[]>();
 	private Double beginSaldo;
 	private Double eindSaldo;
 	
@@ -39,7 +38,8 @@ public class LeesBoekingen {
 		
 		Boolean bBeginSaldoGevonden=false;
 		
-		String[] boeking=new String[3];
+		ArrayList<String[]> boekingen=new ArrayList<String[]>();
+		String[] boeking=new String[4];
 	
 		System.out.printf("Inlezenbestand:",file);
 		
@@ -58,10 +58,10 @@ public class LeesBoekingen {
 				bBeginSaldoGevonden=true;
 				System.out.printf("BeginSaldo:",beginSaldo);
 			} else if (bBoekingsDatumEnBedrag==true){
-				boeking[0]="20"+mBoekingsDatumEnBedrag.group(1)+"000000";
-				boeking[1]=mBoekingsDatumEnBedrag.group(2);
+				boeking[1]="20"+mBoekingsDatumEnBedrag.group(1)+"000000";
+				boeking[2]=mBoekingsDatumEnBedrag.group(2);
 			} else if (bBoekingsOmschrijving==true){
-				boeking[2]=mBoekingsOmschrijving.group(1);
+				boeking[3]=mBoekingsOmschrijving.group(1);
 				boekingen.add(boeking);
 				System.out.printf("%s|%s|%s",boeking[0],boeking[1],boeking[3]);
 			} else if (bEindSaldo==true){
@@ -85,10 +85,6 @@ public class LeesBoekingen {
 	public Double getEindSaldo(){
 		
 		return eindSaldo;
-	}
-	
-	public ArrayList<String[]> getBoekingen(){
-		return boekingen;
 	}
 	
 }
