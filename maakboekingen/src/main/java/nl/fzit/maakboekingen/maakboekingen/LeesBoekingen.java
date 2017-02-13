@@ -17,7 +17,7 @@ public class LeesBoekingen {
 	
 	
 
-	public void inlezenBestand(String file,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
+	public void inlezenBestand(String file,String AccountNumberRegex,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
 		FileInputStream fis=new FileInputStream(file);
 		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
 		String line=null;
@@ -58,10 +58,11 @@ public class LeesBoekingen {
 				bBeginSaldoGevonden=true;
 				System.out.printf("BeginSaldo:",beginSaldo);
 			} else if (bBoekingsDatumEnBedrag==true){
-				boeking[1]="20"+mBoekingsDatumEnBedrag.group(1)+"000000";
-				boeking[2]=mBoekingsDatumEnBedrag.group(2);
+				boeking[0]="20"+mBoekingsDatumEnBedrag.group(1)+"000000";
+				boeking[1]=mBoekingsDatumEnBedrag.group(2);
 			} else if (bBoekingsOmschrijving==true){
-				boeking[3]=mBoekingsOmschrijving.group(1);
+				boeking[2]=mBoekingsOmschrijving.group(1);
+				boeking[3]=AccountNumberRegex;
 				boekingen.add(boeking);
 				System.out.printf("%s|%s|%s",boeking[0],boeking[1],boeking[3]);
 			} else if (bEindSaldo==true){
