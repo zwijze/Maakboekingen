@@ -1,9 +1,11 @@
 nl\fzit\maakboekingen\config\AccountsType.class
 nl\fzit\maakboekingen\config\DatabaseType.class
 nl\fzit\maakboekingen\config\BooleanType.class
+META-INF\maven\nl.fzit.maakboekingen\config\pom.properties
 nl\fzit\maakboekingen\config\TransactionsFilesType.class
 nl\fzit\maakboekingen\config\BookingLineType.class
 nl\fzit\maakboekingen\config\DebitCreditType.class
+META-INF\maven\nl.fzit.maakboekingen\config\pom.xml
 nl\fzit\maakboekingen\config\AccountType.class
 nl\fzit\maakboekingen\config\Config.class
 nl\fzit\maakboekingen\config\BookingType.class

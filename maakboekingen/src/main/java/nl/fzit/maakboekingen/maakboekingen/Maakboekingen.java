@@ -54,13 +54,13 @@ public class Maakboekingen {
 	
 	private static IMakebooking maakBoekingObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
 	
-		File dir = new File(config.getPluginDirectory());
+		File dir = new File(config.getJarFilePluginBookingProgram());
 		URL loadPath = dir.toURI().toURL();
 		URL[] classUrl = new URL[]{loadPath};
 
 		ClassLoader cl = new URLClassLoader(classUrl);
 
-		Class loadedClass = cl.loadClass(config.getClassNamePluginBookingProgram()); // must be in package.class name format
+		Class loadedClass = cl.loadClass(config.getClassNamePluginBookingProgram());
 		
 		IMakebooking modInstance = (IMakebooking)loadedClass.newInstance();
 		
@@ -71,13 +71,13 @@ public class Maakboekingen {
 	
 	private static ISql maakSqlObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
 		
-		File dir = new File(config.getPluginDirectory());
+		File dir = new File(config.getJarFilePluginSql());
 		URL loadPath = dir.toURI().toURL();
 		URL[] classUrl = new URL[]{loadPath};
 
 		ClassLoader cl = new URLClassLoader(classUrl);
 
-		Class loadedClass = cl.loadClass(config.getClassNamePluginSql()); // must be in package.class name format
+		Class loadedClass = cl.loadClass(config.getClassNamePluginSql()+".class"); // must be in package.class name format
 		
 		ISql modInstance = (ISql)loadedClass.newInstance();
 		

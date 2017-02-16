@@ -8,8 +8,9 @@ package nl.fzit.maakboekingen.config;
  *   &lt;xs:complexType>
  *     &lt;xs:sequence>
  *       &lt;xs:element type="ns:DatabaseType" name="DatabaseBookingProgram"/>
- *       &lt;xs:element type="xs:string" name="PluginDirectory"/>
+ *       &lt;xs:element type="xs:string" name="JarFilePluginBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
+ *       &lt;xs:element type="xs:string" name="JarFilePluginSql"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginSql"/>
  *       &lt;xs:element type="ns:TransactionsFilesType" name="TransactionsFiles"/>
  *       &lt;xs:element type="ns:AccountsType" name="Accounts"/>
@@ -21,8 +22,9 @@ package nl.fzit.maakboekingen.config;
 public class Config
 {
     private DatabaseType databaseBookingProgram;
-    private String pluginDirectory;
+    private String jarFilePluginBookingProgram;
     private String classNamePluginBookingProgram;
+    private String jarFilePluginSql;
     private String classNamePluginSql;
     private TransactionsFilesType transactionsFiles;
     private AccountsType accounts;
@@ -46,21 +48,22 @@ public class Config
     }
 
     /** 
-     * Get the 'PluginDirectory' element value.
+     * Get the 'JarFilePluginBookingProgram' element value.
      * 
      * @return value
      */
-    public String getPluginDirectory() {
-        return pluginDirectory;
+    public String getJarFilePluginBookingProgram() {
+        return jarFilePluginBookingProgram;
     }
 
     /** 
-     * Set the 'PluginDirectory' element value.
+     * Set the 'JarFilePluginBookingProgram' element value.
      * 
-     * @param pluginDirectory
+     * @param jarFilePluginBookingProgram
      */
-    public void setPluginDirectory(String pluginDirectory) {
-        this.pluginDirectory = pluginDirectory;
+    public void setJarFilePluginBookingProgram(
+            String jarFilePluginBookingProgram) {
+        this.jarFilePluginBookingProgram = jarFilePluginBookingProgram;
     }
 
     /** 
@@ -80,6 +83,24 @@ public class Config
     public void setClassNamePluginBookingProgram(
             String classNamePluginBookingProgram) {
         this.classNamePluginBookingProgram = classNamePluginBookingProgram;
+    }
+
+    /** 
+     * Get the 'JarFilePluginSql' element value.
+     * 
+     * @return value
+     */
+    public String getJarFilePluginSql() {
+        return jarFilePluginSql;
+    }
+
+    /** 
+     * Set the 'JarFilePluginSql' element value.
+     * 
+     * @param jarFilePluginSql
+     */
+    public void setJarFilePluginSql(String jarFilePluginSql) {
+        this.jarFilePluginSql = jarFilePluginSql;
     }
 
     /** 

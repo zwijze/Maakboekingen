@@ -8,12 +8,12 @@
     <User/>
     <Password/>
   </DatabaseBookingProgram>
-  <PluginDirectory>C:\mijn documenten\Maakboekingen\MaakBoekingGnuCash\target\classes\nl\fzit\MaakBoekingGnuCash</PluginDirectory>
+  <PluginDirectory>C:\mijn documenten\Maakboekingen\run_programma\lib\MaakBoeking-0.0.1-SNAPSHOT.jar</PluginDirectory>
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
   <ClassNamePluginSql>nl.fzit.sql.Sql</ClassNamePluginSql>
   <TransactionsFiles>
-    <DirectoryTransactionFiles>../transactions</DirectoryTransactionFiles>
-    <TransactionFilesToReadRegex>*940</TransactionFilesToReadRegex>
+    <DirectoryTransactionFiles>C:\mijn documenten\Maakboekingen\transacties</DirectoryTransactionFiles>
+    <TransactionFilesToReadRegex>.*940</TransactionFilesToReadRegex>
     <BeginBalanceRegex>:60F:([CD])\d{6}EUR(\d+,\d{2})</BeginBalanceRegex>
     <BookingDateAndAmountRegex>:61:(\d{6})\d{4}([CD])(\d+,\d{2})</BookingDateAndAmountRegex>
     <EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,\d{2})</EndBalanceRegex>

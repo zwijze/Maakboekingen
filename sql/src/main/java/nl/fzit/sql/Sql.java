@@ -13,7 +13,7 @@ public class Sql implements ISql {
 
 	private Connection conn=null;
 	
-	public Sql (String dbms,String serverName,String portNumber,String dbName,String user, String password) throws SQLException, ClassNotFoundException{
+	public void makeConnection(String dbms,String serverName,String portNumber,String dbName,String user, String password) throws SQLException, ClassNotFoundException{
 	    Properties connectionProps = new Properties();
 	    if (dbms.equals("sybase")) {
 		    connectionProps.put("ServiceName", dbName);	    
