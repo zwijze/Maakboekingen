@@ -12,7 +12,7 @@ import java.util.List;
  *     &lt;xs:element type="xs:string" name="BookingDescriptionRegex"/>
  *     &lt;xs:element type="xs:string" name="BookingDescription"/>
  *     &lt;xs:element type="ns:BooleanType" name="AddDateToBookingDescription" minOccurs="0"/>
- *     &lt;xs:element type="ns:BookingLineType" name="BookingLine" minOccurs="1" maxOccurs="unbounded"/>
+ *     &lt;xs:element type="ns:BookingLineType" name="BookingLines" minOccurs="1" maxOccurs="unbounded"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
  * </pre>
@@ -80,7 +80,7 @@ public class BookingType
     }
 
     /** 
-     * Get the list of 'BookingLine' element items.
+     * Get the list of 'BookingLines' element items.
      * 
      * @return list
      */
@@ -89,7 +89,7 @@ public class BookingType
     }
 
     /** 
-     * Set the list of 'BookingLine' element items.
+     * Set the list of 'BookingLines' element items.
      * 
      * @param list
      */

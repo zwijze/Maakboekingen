@@ -40,7 +40,7 @@
     <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription"/>
     <value style="element" name="AddDateToBookingDescription" get-method="getAddDateToBookingDescription" set-method="setAddDateToBookingDescription" usage="optional" format="ns1:BooleanType"/>
     <collection get-method="getBookingLineList" set-method="setBookingLineList" create-type="java.util.ArrayList">
-      <structure map-as="ns1:BookingLineType" name="BookingLine"/>
+      <structure map-as="ns1:BookingLineType" name="BookingLines"/>
     </collection>
   </mapping>
   <mapping abstract="true" type-name="ns1:BookingLineType" class="nl.fzit.maakboekingen.config.BookingLineType">

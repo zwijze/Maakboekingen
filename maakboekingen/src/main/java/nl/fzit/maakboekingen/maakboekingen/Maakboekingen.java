@@ -37,16 +37,16 @@ public class Maakboekingen {
 		//LeesBoeking object maken t.b.v. inlezen boekingen uit een bestand
 		LeesBoekingen leesBoekingen=new LeesBoekingen();
 		
+		
+		for (String bestand :bestandenList){
+			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getAccounts().getAccount().getBooking().getBookingDescription(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
+		}
+		
 		//MaakBoeking object maken o.b.v. plugin
 		IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config); 
 		
 		//Creer Sql connection naar database waarin de boekingen moet komen o.b.v. plugin
 		ISql sql=maakSqlObject(maakboekingen.config);
-		
-		
-		for (String bestand :bestandenList){
-			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getAccounts().getAccount().getBooking().getBookingDescription(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
-		}
 		
 	
 	
@@ -77,7 +77,7 @@ public class Maakboekingen {
 
 		ClassLoader cl = new URLClassLoader(classUrl);
 
-		Class loadedClass = cl.loadClass(config.getClassNamePluginSql()+".class"); // must be in package.class name format
+		Class loadedClass = cl.loadClass(config.getClassNamePluginSql()); // must be in package.class name format
 		
 		ISql modInstance = (ISql)loadedClass.newInstance();
 		
