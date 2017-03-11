@@ -24,7 +24,7 @@
 		<Account AccountNumber="NL72SNSB0898519659">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
 			<Booking>
-				<BookingDescriptionRegex>:86:NL92SNSB0908995105.*</BookingDescriptionRegex>
+				<BookingDescriptionRegex>:86:NL17RBOS0615568319(.*)</BookingDescriptionRegex>
 				<BookingDescription>Overboeking van lopende rekening naar spaarrekening</BookingDescription>
 				<AddDateToBookingDescription>N</AddDateToBookingDescription>
 				<BookingLines>

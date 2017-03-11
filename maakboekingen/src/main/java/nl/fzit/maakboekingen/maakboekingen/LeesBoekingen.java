@@ -42,6 +42,7 @@ public class LeesBoekingen {
 		Boolean bBoekingsOmschrijving2;		
 		Boolean bEindSaldo;
 		String eindSaldoCD = null;
+		String omschrijving;
 		
 		Boolean bBeginSaldoGevonden=false;
 		Boolean bAccountNumberGevonden=false;
@@ -53,6 +54,17 @@ public class LeesBoekingen {
 		System.out.printf("Inlezenbestand:" + file + "\n");
 		
 		while ((line=br.readLine())!=null){
+			if (line.contains(":86:")){//Description field can contain multiple lines
+				omschrijving=line;
+				while (1==1){
+					line=br.readLine();//read other lines of the desription
+					if (line.contains(":62F:") || line==null) {
+						line=omschrijving;
+						break;
+					}
+					if (!line.equals("")) omschrijving=omschrijving + " " + line.trim();
+				}
+			}		
 			mAccountNumber = pAccountNumber.matcher(line);
 			bAccountNumber=mAccountNumber.matches();			
 			mBeginSaldo = pBeginSaldo.matcher(line);
@@ -78,12 +90,12 @@ public class LeesBoekingen {
 				boeking[2]=mBoekingsDatumEnBedrag.group(2); //Credet/Debet
 				boeking[3]=mBoekingsDatumEnBedrag.group(3); //Bedrag
 			} else if (bBoekingsOmschrijving==true){
-				boeking[4]=mBoekingsOmschrijving.group(1);//Omschrijving
+				boeking[4]=mBoekingsOmschrijving.group(1).trim();//Omschrijving
 				boekingen.add(boeking);
-				System.out.printf("Booking that will be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);
-			} else if (bBoekingsOmschrijving2==true){
+				System.out.printf("To be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);
+			} else if (bBoekingsOmschrijving2==true){//so bBoekingsOmschrijving!=true so this one will not be booked 
 				boeking[4]=mBoekingsOmschrijving2.group(1);//Omschrijving
-				System.out.printf("Booking that will not be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				
+				System.out.printf("Not be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				
 			} else if (bEindSaldo==true){
 				eindSaldo=Double.valueOf(mEindSaldo.group(2).replace(',', '.'));
 				eindSaldoCD=mEindSaldo.group(1);

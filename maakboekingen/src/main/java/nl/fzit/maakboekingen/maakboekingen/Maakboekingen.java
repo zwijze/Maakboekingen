@@ -39,7 +39,7 @@ public class Maakboekingen {
 		
 		
 		for (String bestand :bestandenList){
-			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getAccounts().getAccount().getBooking().getBookingDescription(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
+			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getAccounts().getAccount().getBooking().getBookingDescriptionRegex(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
 		}
 		
 		//MaakBoeking object maken o.b.v. plugin
