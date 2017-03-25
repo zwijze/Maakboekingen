@@ -1,35 +1,38 @@
 
 package nl.fzit.maakboekingen.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** 
  * Schema fragment(s) for this class:
  * <pre>
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AccountsType">
  *   &lt;xs:sequence>
- *     &lt;xs:element type="ns:AccountType" name="Account" minOccurs="0"/>
+ *     &lt;xs:element type="ns:AccountType" name="Account" minOccurs="0" maxOccurs="unbounded"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
  * </pre>
  */
 public class AccountsType
 {
-    private AccountType account;
+    private List<AccountType> accountList = new ArrayList<AccountType>();
 
     /** 
-     * Get the 'Account' element value.
+     * Get the list of 'Account' element items.
      * 
-     * @return value
+     * @return list
      */
-    public AccountType getAccount() {
-        return account;
+    public List<AccountType> getAccountList() {
+        return accountList;
     }
 
     /** 
-     * Set the 'Account' element value.
+     * Set the list of 'Account' element items.
      * 
-     * @param account
+     * @param list
      */
-    public void setAccount(AccountType account) {
-        this.account = account;
+    public void setAccountList(List<AccountType> list) {
+        accountList = list;
     }
 }

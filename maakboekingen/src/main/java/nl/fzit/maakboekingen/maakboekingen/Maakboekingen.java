@@ -10,6 +10,7 @@ import org.jibx.runtime.JiBXException;
 import java.net.*;
 import nl.fzit.files.*;
 import nl.fzit.maakboekingen.config.*;
+import nl.fzit.maakboekingen.maakboekingen.BoekingLines;
 import nl.fzit.maakboekingen.makebooking.api.*;
 import nl.fzit.sql.api.*;
 
@@ -18,10 +19,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
 public class Maakboekingen {
 	
-	private Config config;
+	private static Config config;
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, JiBXException {
 		// TODO Auto-generated method stub
@@ -29,6 +29,7 @@ public class Maakboekingen {
 		ArrayList<String[]> boekingen=new ArrayList<String[]>();
 		
 		Maakboekingen maakboekingen=new Maakboekingen();
+		config=new Config();
 		maakboekingen.unMarschallConfigFile(args[0]);
 		
 		FilesDirectories filesDirectories=new FilesDirectories();
@@ -41,14 +42,20 @@ public class Maakboekingen {
 		for (String bestand :bestandenList){
 			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getAccounts().getAccount().getBooking().getBookingDescriptionRegex(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
 		}
+
+		///Stel de boekingLines samen
+		BoekingLines boekingLines=new BoekingLines();
+		boekingLines.stelSamenBoekingenLines(maakboekingen.config, leesBoekingen.getBoekingen());
 		
-		//MaakBoeking object maken o.b.v. plugin
-		IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config); 
 		
 		//Creer Sql connection naar database waarin de boekingen moet komen o.b.v. plugin
 		ISql sql=maakSqlObject(maakboekingen.config);
 		
-	
+		//MaakBoeking object maken o.b.v. plugin
+		IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config); 
+		
+		
+		
 	
 	}
 	

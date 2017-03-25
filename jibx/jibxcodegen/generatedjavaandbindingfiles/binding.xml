@@ -28,7 +28,9 @@
     <value style="element" name="Password" get-method="getPassword" set-method="setPassword" usage="optional"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:AccountsType" class="nl.fzit.maakboekingen.config.AccountsType">
-    <structure map-as="ns1:AccountType" get-method="getAccount" set-method="setAccount" usage="optional" name="Account"/>
+    <collection get-method="getAccountList" set-method="setAccountList" usage="optional" create-type="java.util.ArrayList">
+      <structure map-as="ns1:AccountType" name="Account"/>
+    </collection>
   </mapping>
   <mapping abstract="true" type-name="ns1:AccountType" class="nl.fzit.maakboekingen.config.AccountType">
     <value style="element" name="BookingAccountForAccountNumber" get-method="getBookingAccountForAccountNumber" set-method="setBookingAccountForAccountNumber"/>

@@ -14,8 +14,11 @@ public class LeesBoekingen {
 
 	private Double beginSaldo;
 	private Double eindSaldo;
+	private ArrayList<String[]> boekingen=new ArrayList<String[]>();
 	
-	
+	public ArrayList<String[]> getBoekingen(){
+		return boekingen;
+	}
 
 	public void inlezenBestand(String file,String AccountNumberRegex,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
 		FileInputStream fis=new FileInputStream(file);
@@ -48,7 +51,6 @@ public class LeesBoekingen {
 		Boolean bAccountNumberGevonden=false;
 		
 		
-		ArrayList<String[]> boekingen=new ArrayList<String[]>();
 		String[] boeking=new String[5];
 	
 		System.out.printf("Inlezenbestand:" + file + "\n");

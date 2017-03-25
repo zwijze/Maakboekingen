@@ -34,6 +34,19 @@
 				</BookingLines>
 			</Booking>
 		</Account>
+		<Account AccountNumber="NL80SNSB0898519659">
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
+			<Booking>
+				<BookingDescriptionRegex>:86:NL17RBOS0615568319(.*)</BookingDescriptionRegex>
+				<BookingDescription>Overboeking van lopende rekening naar spaarrekening</BookingDescription>
+				<AddDateToBookingDescription>N</AddDateToBookingDescription>
+				<BookingLines>
+					<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+					<DebitCredit>D</DebitCredit>
+					<PercentageOfTotalAmount>100</PercentageOfTotalAmount>
+				</BookingLines>
+			</Booking>
+		</Account>		
   </Accounts>
  </config>
 
