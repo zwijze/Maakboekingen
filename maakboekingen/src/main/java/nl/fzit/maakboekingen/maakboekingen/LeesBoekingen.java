@@ -20,12 +20,12 @@ public class LeesBoekingen {
 		return boekingen;
 	}
 
-	public void inlezenBestand(String file,String AccountNumberRegex,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
+	public void inlezenBestand(String file,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexBoekingsOmschrijving,String regexEindSaldo) throws IOException{
 		FileInputStream fis=new FileInputStream(file);
 		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
 		String line=null;
 		
-        Pattern pAccountNumber = Pattern.compile(AccountNumberRegex);		
+        Pattern pAccountNumber = Pattern.compile(":25:(.*)");		
         Pattern pBeginSaldo = Pattern.compile(regexBeginSaldo);
         Pattern pBoekingsDatumEnBedrag = Pattern.compile(regexBoekingsDatumEnBedrag);
         Pattern pBoekingsOmschrijving = Pattern.compile(regexBoekingsOmschrijving);
@@ -48,8 +48,6 @@ public class LeesBoekingen {
 		String omschrijving;
 		
 		Boolean bBeginSaldoGevonden=false;
-		Boolean bAccountNumberGevonden=false;
-		
 		
 		String[] boeking=new String[5];
 	
@@ -80,9 +78,8 @@ public class LeesBoekingen {
 			mEindSaldo = pEindSaldo.matcher(line);
 			bEindSaldo=mEindSaldo.matches();
 
-			if (bAccountNumber==true && bAccountNumberGevonden==false){
+			if (bAccountNumber==true){
 				boeking[0]=mAccountNumber.group(1);
-				bAccountNumberGevonden=true;
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
 				beginSaldo=Double.valueOf(mBeginSaldo.group(2).replace(',', '.'));
 				bBeginSaldoGevonden=true;

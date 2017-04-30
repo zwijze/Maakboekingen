@@ -21,15 +21,18 @@ import java.io.IOException;
 
 public class Maakboekingen {
 	
-	private static Config config;
+	private Config config;
 
+	public Maakboekingen(){
+		config=new Config();
+	}
+	
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, JiBXException {
 		// TODO Auto-generated method stub
 		ArrayList<String> bestandenList;
 		ArrayList<String[]> boekingen=new ArrayList<String[]>();
 		
 		Maakboekingen maakboekingen=new Maakboekingen();
-		config=new Config();
 		maakboekingen.unMarschallConfigFile(args[0]);
 		
 		FilesDirectories filesDirectories=new FilesDirectories();
@@ -40,7 +43,7 @@ public class Maakboekingen {
 		
 		
 		for (String bestand :bestandenList){
-			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getAccounts().getAccount().getBooking().getBookingDescriptionRegex(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
+			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
 		}
 
 		///Stel de boekingLines samen

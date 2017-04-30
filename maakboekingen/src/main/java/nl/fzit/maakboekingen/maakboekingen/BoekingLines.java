@@ -30,7 +30,7 @@ public class BoekingLines {
 		bookingAccountForAccountNumber=accountList.get(0).getAccountNumber();
 		
 		for (String[] boeking :boekingenList){
-			
+			accountList.iterator().
 			
 			boekingLines.add(object);	
 			
