@@ -38,9 +38,11 @@
     <value style="attribute" name="AccountNumber" get-method="getAccountNumber" set-method="setAccountNumber"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:BookingType" class="nl.fzit.maakboekingen.config.BookingType">
-    <value style="element" name="BookingDescriptionRegex" get-method="getBookingDescriptionRegex" set-method="setBookingDescriptionRegex"/>
-    <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription"/>
-    <value style="element" name="AddDateToBookingDescription" get-method="getAddDateToBookingDescription" set-method="setAddDateToBookingDescription" usage="optional" format="ns1:BooleanType"/>
+    <value style="element" name="CounterAccountNumber" get-method="getCounterAccountNumber" set-method="setCounterAccountNumber"/>
+    <value style="element" name="DebitCredit" get-method="getDebitCredit" set-method="setDebitCredit" format="ns1:DebitCreditType"/>
+    <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription" usage="optional"/>
+    <value style="element" name="BookingDescriptionUsedToBook" get-method="getBookingDescriptionUsedToBook" set-method="setBookingDescriptionUsedToBook"/>
+    <value style="element" name="AddDateToBookingDescriptionUsedToBook" get-method="getAddDateToBookingDescriptionUsedToBook" set-method="setAddDateToBookingDescriptionUsedToBook" usage="optional" format="ns1:BooleanType"/>
     <collection get-method="getBookingLineList" set-method="setBookingLineList" create-type="java.util.ArrayList">
       <structure map-as="ns1:BookingLineType" name="BookingLines"/>
     </collection>

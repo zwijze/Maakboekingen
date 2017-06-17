@@ -9,9 +9,11 @@ import java.util.List;
  * <pre>
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BookingType">
  *   &lt;xs:sequence>
- *     &lt;xs:element type="xs:string" name="BookingDescriptionRegex"/>
- *     &lt;xs:element type="xs:string" name="BookingDescription"/>
- *     &lt;xs:element type="ns:BooleanType" name="AddDateToBookingDescription" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="CounterAccountNumber"/>
+ *     &lt;xs:element type="ns:DebitCreditType" name="DebitCredit"/>
+ *     &lt;xs:element type="xs:string" name="BookingDescription" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="BookingDescriptionUsedToBook"/>
+ *     &lt;xs:element type="ns:BooleanType" name="AddDateToBookingDescriptionUsedToBook" minOccurs="0"/>
  *     &lt;xs:element type="ns:BookingLineType" name="BookingLines" minOccurs="1" maxOccurs="unbounded"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
@@ -19,27 +21,47 @@ import java.util.List;
  */
 public class BookingType
 {
-    private String bookingDescriptionRegex;
+    private String counterAccountNumber;
+    private DebitCreditType debitCredit;
     private String bookingDescription;
-    private BooleanType addDateToBookingDescription;
+    private String bookingDescriptionUsedToBook;
+    private BooleanType addDateToBookingDescriptionUsedToBook;
     private List<BookingLineType> bookingLineList = new ArrayList<BookingLineType>();
 
     /** 
-     * Get the 'BookingDescriptionRegex' element value.
+     * Get the 'CounterAccountNumber' element value.
      * 
      * @return value
      */
-    public String getBookingDescriptionRegex() {
-        return bookingDescriptionRegex;
+    public String getCounterAccountNumber() {
+        return counterAccountNumber;
     }
 
     /** 
-     * Set the 'BookingDescriptionRegex' element value.
+     * Set the 'CounterAccountNumber' element value.
      * 
-     * @param bookingDescriptionRegex
+     * @param counterAccountNumber
      */
-    public void setBookingDescriptionRegex(String bookingDescriptionRegex) {
-        this.bookingDescriptionRegex = bookingDescriptionRegex;
+    public void setCounterAccountNumber(String counterAccountNumber) {
+        this.counterAccountNumber = counterAccountNumber;
+    }
+
+    /** 
+     * Get the 'DebitCredit' element value.
+     * 
+     * @return value
+     */
+    public DebitCreditType getDebitCredit() {
+        return debitCredit;
+    }
+
+    /** 
+     * Set the 'DebitCredit' element value.
+     * 
+     * @param debitCredit
+     */
+    public void setDebitCredit(DebitCreditType debitCredit) {
+        this.debitCredit = debitCredit;
     }
 
     /** 
@@ -61,22 +83,41 @@ public class BookingType
     }
 
     /** 
-     * Get the 'AddDateToBookingDescription' element value.
+     * Get the 'BookingDescriptionUsedToBook' element value.
      * 
      * @return value
      */
-    public BooleanType getAddDateToBookingDescription() {
-        return addDateToBookingDescription;
+    public String getBookingDescriptionUsedToBook() {
+        return bookingDescriptionUsedToBook;
     }
 
     /** 
-     * Set the 'AddDateToBookingDescription' element value.
+     * Set the 'BookingDescriptionUsedToBook' element value.
      * 
-     * @param addDateToBookingDescription
+     * @param bookingDescriptionUsedToBook
      */
-    public void setAddDateToBookingDescription(
-            BooleanType addDateToBookingDescription) {
-        this.addDateToBookingDescription = addDateToBookingDescription;
+    public void setBookingDescriptionUsedToBook(
+            String bookingDescriptionUsedToBook) {
+        this.bookingDescriptionUsedToBook = bookingDescriptionUsedToBook;
+    }
+
+    /** 
+     * Get the 'AddDateToBookingDescriptionUsedToBook' element value.
+     * 
+     * @return value
+     */
+    public BooleanType getAddDateToBookingDescriptionUsedToBook() {
+        return addDateToBookingDescriptionUsedToBook;
+    }
+
+    /** 
+     * Set the 'AddDateToBookingDescriptionUsedToBook' element value.
+     * 
+     * @param addDateToBookingDescriptionUsedToBook
+     */
+    public void setAddDateToBookingDescriptionUsedToBook(
+            BooleanType addDateToBookingDescriptionUsedToBook) {
+        this.addDateToBookingDescriptionUsedToBook = addDateToBookingDescriptionUsedToBook;
     }
 
     /** 
