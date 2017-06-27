@@ -9,7 +9,9 @@ package nl.fzit.maakboekingen.config;
  *     &lt;xs:element type="xs:string" name="Dbms"/>
  *     &lt;xs:element type="xs:string" name="ServerName" minOccurs="0"/>
  *     &lt;xs:element type="xs:string" name="PortNumber" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="Protocol" minOccurs="0"/>
  *     &lt;xs:element type="xs:string" name="DbName"/>
+ *     &lt;xs:element type="xs:string" name="Domain" minOccurs="0"/>
  *     &lt;xs:element type="xs:string" name="User" minOccurs="0"/>
  *     &lt;xs:element type="xs:string" name="Password" minOccurs="0"/>
  *   &lt;/xs:sequence>
@@ -21,7 +23,9 @@ public class DatabaseType
     private String dbms;
     private String serverName;
     private String portNumber;
+    private String protocol;
     private String dbName;
+    private String domain;
     private String user;
     private String password;
 
@@ -80,6 +84,24 @@ public class DatabaseType
     }
 
     /** 
+     * Get the 'Protocol' element value.
+     * 
+     * @return value
+     */
+    public String getProtocol() {
+        return protocol;
+    }
+
+    /** 
+     * Set the 'Protocol' element value.
+     * 
+     * @param protocol
+     */
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
+    }
+
+    /** 
      * Get the 'DbName' element value.
      * 
      * @return value
@@ -95,6 +117,24 @@ public class DatabaseType
      */
     public void setDbName(String dbName) {
         this.dbName = dbName;
+    }
+
+    /** 
+     * Get the 'Domain' element value.
+     * 
+     * @return value
+     */
+    public String getDomain() {
+        return domain;
+    }
+
+    /** 
+     * Set the 'Domain' element value.
+     * 
+     * @param domain
+     */
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 
     /** 

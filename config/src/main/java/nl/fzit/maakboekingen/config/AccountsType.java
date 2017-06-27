@@ -4,7 +4,7 @@ package nl.fzit.maakboekingen.config;
 import java.util.ArrayList;
 import java.util.List;
 
-/**  
+/** 
  * Schema fragment(s) for this class:
  * <pre>
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AccountsType">
@@ -12,7 +12,7 @@ import java.util.List;
  *     &lt;xs:element type="ns:AccountType" name="Account" minOccurs="0" maxOccurs="unbounded"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
- * </pre> 
+ * </pre>
  */
 public class AccountsType
 {

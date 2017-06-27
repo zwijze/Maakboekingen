@@ -17,7 +17,11 @@ public class BoekingLines {
 	}
 	
 	public void stelSamenBoekingenLines(Config config,ArrayList<String[]> boekingenList){
-		ArrayList<Object[]> boekingLines=new ArrayList<Object[]>();
+		ArrayList<String[]> boekingLines=new ArrayList<String[]>();
+
+		//boeingline:
+		String[] boekingline=new String[6];
+	
 		Object object[]=new Object[5];
 		object[0]=2;
 		object[1]="bla";
@@ -40,10 +44,15 @@ public class BoekingLines {
 
 //		int i=0;
 		for (String[] boeking :boekingenList){
+			
+			//Find own accountnumber in configuration
 			AccountType accountListConfig=accountsListConfig.stream().filter(a->boeking[0].equals(a.getAccountNumber())).findFirst().get();
 			if (accountListConfig==null){
-				System.out.printf("Account found: (%s)",accountListConfig.getAccountNumber());
+				System.out.printf("Own Account not found in configuartion: %s. This booking won't be booked:%s|%s|%s|%s|%s|%s\n",accountListConfig.getAccountNumber(),boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
+				break;	
 			}
+			
+			
 			System.out.printf("Account found: (%s)",accountListConfig.getAccountNumber());
 			//			boekingLines.add(object);	
 //			i++;

@@ -16,7 +16,7 @@
 	<DirectoryTransactionFiles>C:\mijn documenten\Maakboekingen\transacties</DirectoryTransactionFiles>
 	<TransactionFilesToReadRegex>.*940</TransactionFilesToReadRegex>
 	<BeginBalanceRegex>:60F:([CD])(\d{6})EUR(\d+,\d{2})</BeginBalanceRegex>
-	<BookingDateAndAmountRegex>:61:(\d{6})\d{4}([CD])(\d+,\d{2})^[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
+	<BookingDateAndAmountRegex>:61:(\d{6})\d{4}([CD])(\d+,\d{2})[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
 	<EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,\d{2})</EndBalanceRegex>
 	<AccountNumberRegex>:25:(.*)</AccountNumberRegex>
   </TransactionsFiles>
@@ -28,7 +28,7 @@
 				<DebitCredit>D</DebitCredit>
 				<BookingDescription>sthree holdings bv</BookingDescription>
 				<BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
-				<AddDateToBookingDescription>N</AddDateToBookingDescription>
+				<AddDateToBookingDescriptionUsedToBook>Y</AddDateToBookingDescriptionUsedToBook>				
 				<BookingLines>
 					<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
 					<DebitCredit>D</DebitCredit>
@@ -43,7 +43,7 @@
 				<DebitCredit>D</DebitCredit>
 				<BookingDescription>:86:NL17RBOS0615568319(.*)</BookingDescription>
 				<BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
-				<AddDateToBookingDescriptionUsedToBook>N</AddDateToBookingDescription>
+				<AddDateToBookingDescriptionUsedToBook>N</AddDateToBookingDescriptionUsedToBook>
 				<BookingLines>
 					<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
 					<DebitCredit>D</DebitCredit>
@@ -53,8 +53,3 @@
 		</Account>		
   </Accounts>
  </config>
-
-
-
-
-

@@ -39,7 +39,9 @@
 	  <xsd:element type="xsd:string" name="Dbms"/>
 	  <xsd:element minOccurs="0" type="xsd:string" name="ServerName"/>
 	  <xsd:element  minOccurs="0" type="xsd:string" name="PortNumber"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Protocol"/>
 	  <xsd:element type="xsd:string" name="DbName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Domain"/>
 	  <xsd:element minOccurs="0" type="xsd:string" name="User"/>
 	  <xsd:element minOccurs="0" type="xsd:string" name="Password"/>	  
     </xsd:sequence>

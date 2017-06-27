@@ -2,7 +2,7 @@
 package nl.fzit.maakboekingen.config;
 
 /** 
- * Schema fragment(s) for this class:  
+ * Schema fragment(s) for this class:
  * <pre>
  * &lt;xs:element xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="config">
  *   &lt;xs:complexType>

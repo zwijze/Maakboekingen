@@ -4,7 +4,9 @@
 	<Dbms>sqlite</Dbms>
 	<ServerName></ServerName>
 	<PortNumber></PortNumber>
+	<Protocol>TCP</Protocol><!--NamedPipes or TCP-->
 	<DbName>../GnuCashSqlite/fz-it-jaar-2016.gnucash</DbName>
+	<Domain></Domain>
 	<User></User>
 	<Password></Password>	
   </DatabaseBookingProgram>
