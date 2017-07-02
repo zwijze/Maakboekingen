@@ -42,7 +42,7 @@ public class AppTest
     	
 		String[] element;
 		Sql sql=new Sql();
-		sql.makeConnection("sqlite", "", "", "C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "");
+		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
 		
 		//Selectie van leningen ophalen
 		ArrayList <String[]> elementenLijst=sql.sqlQueryResult("select * from transactions");

@@ -4,7 +4,9 @@
     <Dbms>sqlite</Dbms>
     <ServerName/>
     <PortNumber/>
+    <Protocol>TCP</Protocol>
     <DbName>../GnuCashSqlite/fz-it-jaar-2016.gnucash</DbName>
+    <Domain/>
     <User/>
     <Password/>
   </DatabaseBookingProgram>
@@ -16,40 +18,68 @@
     <DirectoryTransactionFiles>C:\mijn documenten\Maakboekingen\transacties</DirectoryTransactionFiles>
     <TransactionFilesToReadRegex>.*940</TransactionFilesToReadRegex>
     <BeginBalanceRegex>:60F:([CD])(\d{6})EUR(\d+,\d{2})</BeginBalanceRegex>
-    <BookingDateAndAmountRegex>:61:(\d{6})\d{4}([CD])(\d+,\d{2})^[A-Z]{4}(.*)</BookingDateAndAmountRegex>
+    <BookingDateAndAmountRegex>:61:(\d{6})\d{4}([CD])(\d+,\d{2})[A-Z]{4}(.*)</BookingDateAndAmountRegex>
     <EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,\d{2})</EndBalanceRegex>
     <AccountNumberRegex>:25:(.*)</AccountNumberRegex>
   </TransactionsFiles>
   <Accounts>
     <Account AccountNumber="NL72SNSB0898519659">
       <BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
-      <Booking>
-        <CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
-        <DebitCredit>D</DebitCredit>
-        <BookingDescription>sthree holdings bv</BookingDescription>
-        <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
-        <AddDateToBookingDescriptionUsedToBook>Y</AddDateToBookingDescriptionUsedToBook>
-        <BookingLines>
-          <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
-          <DebitCredit>D</DebitCredit>
-          <PercentageOfTotalAmount>100</PercentageOfTotalAmount>
-        </BookingLines>
-      </Booking>
+      <Bookings>
+        <Booking>
+          <CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
+          <BookingDescription>fz it</BookingDescription>
+          <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening yyyymm</BookingDescriptionUsedToBook>
+          <AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>
+          <BookingLines>
+            <BookingLine>
+              <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+              <PercentageOfTotalAmount>70</PercentageOfTotalAmount>
+            </BookingLine>
+            <BookingLine>
+              <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+              <PercentageOfTotalAmount>30</PercentageOfTotalAmount>
+            </BookingLine>
+          </BookingLines>
+        </Booking>
+        <Booking>
+          <CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
+          <BookingDescription>sthree holdings bv</BookingDescription>
+          <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening yyyymmdd</BookingDescriptionUsedToBook>
+          <AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>
+          <BookingLines>
+            <BookingLine>
+              <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+              <PercentageOfTotalAmount>70</PercentageOfTotalAmount>
+            </BookingLine>
+            <BookingLine>
+              <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+              <PercentageOfTotalAmount>30</PercentageOfTotalAmount>
+            </BookingLine>
+          </BookingLines>
+        </Booking>
+      </Bookings>
     </Account>
     <Account AccountNumber="NL92SNSB0908995105">
       <BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
-      <Booking>
-        <CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
-        <DebitCredit>D</DebitCredit>
-        <BookingDescription>:86:NL17RBOS0615568319(.*)</BookingDescription>
-        <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
-        <AddDateToBookingDescriptionUsedToBook>N</AddDateToBookingDescriptionUsedToBook>
-        <BookingLines>
-          <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
-          <DebitCredit>D</DebitCredit>
-          <PercentageOfTotalAmount>100</PercentageOfTotalAmount>
-        </BookingLines>
-      </Booking>
+      <Bookings>
+        <Booking>
+          <CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
+          <BookingDescription>NL17RBOS0615568319</BookingDescription>
+          <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
+          <BookingLines>
+            <BookingLine>
+              <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+              <PercentageOfTotalAmount>100</PercentageOfTotalAmount>
+            </BookingLine>
+          </BookingLines>
+        </Booking>
+      </Bookings>
     </Account>
   </Accounts>
 </config>

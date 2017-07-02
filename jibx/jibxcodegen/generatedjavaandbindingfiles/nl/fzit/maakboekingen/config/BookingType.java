@@ -1,6 +1,7 @@
 
 package nl.fzit.maakboekingen.config;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,11 +11,10 @@ import java.util.List;
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BookingType">
  *   &lt;xs:sequence>
  *     &lt;xs:element type="xs:string" name="CounterAccountNumber"/>
- *     &lt;xs:element type="ns:DebitCreditType" name="DebitCredit"/>
  *     &lt;xs:element type="xs:string" name="BookingDescription" minOccurs="0"/>
  *     &lt;xs:element type="xs:string" name="BookingDescriptionUsedToBook"/>
- *     &lt;xs:element type="ns:BooleanType" name="AddDateToBookingDescriptionUsedToBook" minOccurs="0"/>
- *     &lt;xs:element type="ns:BookingLineType" name="BookingLines" minOccurs="1" maxOccurs="unbounded"/>
+ *     &lt;xs:element type="xs:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" minOccurs="0" maxOccurs="1"/>
+ *     &lt;xs:element type="ns:BookingLinesType" name="BookingLines" minOccurs="1" maxOccurs="unbounded"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
  * </pre>
@@ -22,11 +22,10 @@ import java.util.List;
 public class BookingType
 {
     private String counterAccountNumber;
-    private DebitCreditType debitCredit;
     private String bookingDescription;
     private String bookingDescriptionUsedToBook;
-    private BooleanType addDateToBookingDescriptionUsedToBook;
-    private List<BookingLineType> bookingLineList = new ArrayList<BookingLineType>();
+    private BigInteger addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook;
+    private List<BookingLinesType> bookingLineList = new ArrayList<BookingLinesType>();
 
     /** 
      * Get the 'CounterAccountNumber' element value.
@@ -44,24 +43,6 @@ public class BookingType
      */
     public void setCounterAccountNumber(String counterAccountNumber) {
         this.counterAccountNumber = counterAccountNumber;
-    }
-
-    /** 
-     * Get the 'DebitCredit' element value.
-     * 
-     * @return value
-     */
-    public DebitCreditType getDebitCredit() {
-        return debitCredit;
-    }
-
-    /** 
-     * Set the 'DebitCredit' element value.
-     * 
-     * @param debitCredit
-     */
-    public void setDebitCredit(DebitCreditType debitCredit) {
-        this.debitCredit = debitCredit;
     }
 
     /** 
@@ -102,22 +83,22 @@ public class BookingType
     }
 
     /** 
-     * Get the 'AddDateToBookingDescriptionUsedToBook' element value.
+     * Get the 'AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook' element value.
      * 
      * @return value
      */
-    public BooleanType getAddDateToBookingDescriptionUsedToBook() {
-        return addDateToBookingDescriptionUsedToBook;
+    public BigInteger getAddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook() {
+        return addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook;
     }
 
     /** 
-     * Set the 'AddDateToBookingDescriptionUsedToBook' element value.
+     * Set the 'AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook' element value.
      * 
-     * @param addDateToBookingDescriptionUsedToBook
+     * @param addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook
      */
-    public void setAddDateToBookingDescriptionUsedToBook(
-            BooleanType addDateToBookingDescriptionUsedToBook) {
-        this.addDateToBookingDescriptionUsedToBook = addDateToBookingDescriptionUsedToBook;
+    public void setAddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook(
+            BigInteger addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook) {
+        this.addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook = addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook;
     }
 
     /** 
@@ -125,7 +106,7 @@ public class BookingType
      * 
      * @return list
      */
-    public List<BookingLineType> getBookingLineList() {
+    public List<BookingLinesType> getBookingLineList() {
         return bookingLineList;
     }
 
@@ -134,7 +115,7 @@ public class BookingType
      * 
      * @param list
      */
-    public void setBookingLineList(List<BookingLineType> list) {
+    public void setBookingLineList(List<BookingLinesType> list) {
         bookingLineList = list;
     }
 }

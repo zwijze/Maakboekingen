@@ -6,8 +6,8 @@ package nl.fzit.maakboekingen.config;
  * <pre>
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="AccountType">
  *   &lt;xs:sequence>
- *     &lt;xs:element type="xs:string" name="BookingAccountForAccountNumber" minOccurs="1"/>
- *     &lt;xs:element type="ns:BookingType" name="Booking" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="BookingAccountForAccountNumber"/>
+ *     &lt;xs:element type="ns:BookingsType" name="Bookings"/>
  *   &lt;/xs:sequence>
  *   &lt;xs:attribute type="xs:string" use="required" name="AccountNumber"/>
  * &lt;/xs:complexType>
@@ -16,7 +16,7 @@ package nl.fzit.maakboekingen.config;
 public class AccountType
 {
     private String bookingAccountForAccountNumber;
-    private BookingType booking;
+    private BookingsType bookings;
     private String accountNumber;
 
     /** 
@@ -39,21 +39,21 @@ public class AccountType
     }
 
     /** 
-     * Get the 'Booking' element value.
+     * Get the 'Bookings' element value.
      * 
      * @return value
      */
-    public BookingType getBooking() {
-        return booking;
+    public BookingsType getBookings() {
+        return bookings;
     }
 
     /** 
-     * Set the 'Booking' element value.
+     * Set the 'Bookings' element value.
      * 
-     * @param booking
+     * @param bookings
      */
-    public void setBooking(BookingType booking) {
-        this.booking = booking;
+    public void setBookings(BookingsType bookings) {
+        this.bookings = bookings;
     }
 
     /** 

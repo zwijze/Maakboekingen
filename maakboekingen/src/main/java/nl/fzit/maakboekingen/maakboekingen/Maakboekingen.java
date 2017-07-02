@@ -8,6 +8,8 @@ import org.jibx.runtime.IUnmarshallingContext;
 import org.jibx.runtime.JiBXException;
 
 import java.net.*;
+import java.text.ParseException;
+
 import nl.fzit.files.*;
 import nl.fzit.maakboekingen.config.*;
 import nl.fzit.maakboekingen.maakboekingen.BoekingLines;
@@ -27,7 +29,7 @@ public class Maakboekingen {
 		config=new Config();
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, JiBXException {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, JiBXException, ParseException {
 		// TODO Auto-generated method stub
 		ArrayList<String> bestandenList;
 		ArrayList<String[]> boekingen=new ArrayList<String[]>();

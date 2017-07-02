@@ -23,3 +23,4 @@ xcopy /y "%packagedir%\*.java" "%srcdir%"
 
 echo "Copying generated binding.xml file to mapping location"
 xcopy /y "%gendir%\*.xml" "%mappingdir%"
+pause 10000

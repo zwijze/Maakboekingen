@@ -13,9 +13,9 @@ public class Sql implements ISql {
 
 	private Connection conn=null;
 	
-	public void makeConnection(String dbms,String serverName,String portNumber,String dbName,String user, String password) throws SQLException, ClassNotFoundException{
+	public void makeConnection(String dbms,String serverName,String portNumber,String protocol,String dbName,String domain,String user, String password) throws SQLException, ClassNotFoundException{
 	    Properties connectionProps = new Properties();
-	    if (dbms.equals("sybase")) {
+	    if (dbms.equals("sybase")  && protocol.equals("TCP")) {
 		    connectionProps.put("ServiceName", dbName);	    
 	    	connectionProps.put("user", user);
 		    connectionProps.put("password", password);
@@ -26,7 +26,7 @@ public class Sql implements ISql {
 				           serverName +
 				           ":" + Integer.parseInt(portNumber),
 				           connectionProps);
-	    } else if (dbms.equals("sqlserver")) {
+	    } else if (dbms.equals("sqlserver")  && protocol.equals("TCP")) {
 		    connectionProps.put("databaseName", dbName);	    
 		    connectionProps.put("integratedSecurity","true");
 	    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -36,15 +36,22 @@ public class Sql implements ISql {
 	    	} else{
 	    		conn = DriverManager.getConnection("jdbc:" + dbms + "://" + serverName + ":" + Integer.parseInt(portNumber) + ";",connectionProps);	    		
 	    	}
-	    } else if (dbms.equals("sqlite")) {
-	    	Class.forName("org.sqlite.JDBC");
-	    	conn = DriverManager.getConnection("jdbc:sqlite:" + dbName);
-	    } else {
+	    } else if (dbms.equals("sqlserver") && protocol.equals("NamedPipes")) {
+	         //Use JTDS for this, because sqljdbc doesn't work for NmaedPipes. Add plugin to Pom.xml
+			 connectionProps.put("domain", domain);     
+			 connectionProps.put("user", user);
+			 connectionProps.put("password", password);         
+			 //connectionProps.put("integratedSecurity","true");
+			 Class.forName("net.sourceforge.jtds.jdbc.Driver");
+			 //conn = DriverManager.getConnection("jdbc:jtds:sqlserver://" + "./RRSTestdata" + ";domain=RABODEVEU;namedPipe=true",connectionProps);
+	         conn = DriverManager.getConnection("jdbc:jtds:sqlserver://" + "./" + dbName + ";namedPipe=true;",connectionProps);
+	         //Connection via TCP via jtds
+	        //conn = DriverManager.getConnection("jdbc:jtds:sqlserver://" + "localhost:1433;" + ";domain=RABODEVEU;",connectionProps);
+		} else {
 	    	System.out.println("Specifeer een ander database management systeem(dbms)!" + dbms);
 	    	System.exit(0);
 	    }
-	    System.out.println("Connected to database server: " + serverName);
-		
+	    System.out.println("Connected to database server: " + serverName);		
 	}
 	
 	
