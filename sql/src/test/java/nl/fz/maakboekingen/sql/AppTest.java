@@ -42,10 +42,16 @@ public class AppTest
     	
 		String[] element;
 		Sql sql=new Sql();
+		//sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Sqlite_test\\Sqlite_test\\test.db", "", "", "");
 		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
 		
 		//Selectie van leningen ophalen
 		ArrayList <String[]> elementenLijst=sql.sqlQueryResult("select * from transactions");
+		//ArrayList <String[]> elementenLijst=sql.sqlQueryResult("SELECT date('now');");
+		//ArrayList <String[]> elementenLijst=sql.sqlQueryResult("select * from COMPANY;");
+			
+
+		
 
         element=elementenLijst.get(0);
         System.out.println("Eerste element:");

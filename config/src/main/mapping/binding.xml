@@ -49,16 +49,14 @@
     <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription" usage="optional"/>
     <value style="element" name="BookingDescriptionUsedToBook" get-method="getBookingDescriptionUsedToBook" set-method="setBookingDescriptionUsedToBook"/>
     <value style="element" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" get-method="getAddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" set-method="setAddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" usage="optional"/>
-    <collection get-method="getBookingLineList" set-method="setBookingLineList" create-type="java.util.ArrayList">
-      <structure map-as="ns1:BookingLinesType" name="BookingLines"/>
+    <structure map-as="ns1:CounterBookingLinesType" get-method="getCounterBookingLines" set-method="setCounterBookingLines" name="CounterBookingLines"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:CounterBookingLinesType" class="nl.fzit.maakboekingen.config.CounterBookingLinesType">
+    <collection get-method="getCounterBookingLineList" set-method="setCounterBookingLineList" create-type="java.util.ArrayList">
+      <structure map-as="ns1:CounterBookingLineType" name="CounterBookingLine"/>
     </collection>
   </mapping>
-  <mapping abstract="true" type-name="ns1:BookingLinesType" class="nl.fzit.maakboekingen.config.BookingLinesType">
-    <collection get-method="getBookingLineList" set-method="setBookingLineList" create-type="java.util.ArrayList">
-      <structure map-as="ns1:BookingLineType" name="BookingLine"/>
-    </collection>
-  </mapping>
-  <mapping abstract="true" type-name="ns1:BookingLineType" class="nl.fzit.maakboekingen.config.BookingLineType">
+  <mapping abstract="true" type-name="ns1:CounterBookingLineType" class="nl.fzit.maakboekingen.config.CounterBookingLineType">
     <value style="element" name="BookingAccount" get-method="getBookingAccount" set-method="setBookingAccount"/>
     <value style="element" name="DebitCredit" get-method="getDebitCredit" set-method="setDebitCredit" format="ns1:DebitCreditType"/>
     <value style="element" name="PercentageOfTotalAmount" get-method="getPercentageOfTotalAmount" set-method="setPercentageOfTotalAmount" usage="optional"/>

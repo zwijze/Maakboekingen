@@ -47,7 +47,12 @@ public class Sql implements ISql {
 	         conn = DriverManager.getConnection("jdbc:jtds:sqlserver://" + "./" + dbName + ";namedPipe=true;",connectionProps);
 	         //Connection via TCP via jtds
 	        //conn = DriverManager.getConnection("jdbc:jtds:sqlserver://" + "localhost:1433;" + ";domain=RABODEVEU;",connectionProps);
-		} else {
+	    } else if (dbms.equals("sqlite")) {
+	    	Class.forName("org.sqlite.JDBC");
+	    	//Class.forName("net.sourceforge.jtds.jdbc.Driver");//https://www.dbvis.com/doc/sybase-ase-database-drivers/,jtds-1.3.1.jar  
+	    	//conn = DriverManager.getConnection("jdbc:sqlite:C:\\mijn documenten\\Sqlite_test\\Sqlite_test\\test.db");
+	    	conn = DriverManager.getConnection("jdbc:" + dbms + ":" + dbName,connectionProps);	    		
+	    } else {
 	    	System.out.println("Specifeer een ander database management systeem(dbms)!" + dbms);
 	    	System.exit(0);
 	    }

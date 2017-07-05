@@ -69,15 +69,15 @@
 	  <xsd:element  minOccurs="0" type="xsd:string" name="BookingDescription"/>
 	  <xsd:element type="xsd:string" name="BookingDescriptionUsedToBook"/>	  
 	  <xsd:element minOccurs="0"  maxOccurs="1" type="xsd:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook"/>
-	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="BookingLinesType" name="BookingLines"/>
+	  <xsd:element type="CounterBookingLinesType" name="CounterBookingLines"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="BookingLinesType">
+  <xsd:complexType name="CounterBookingLinesType">
     <xsd:sequence>
-	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="BookingLineType" name="BookingLine"/>
+	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="CounterBookingLineType" name="CounterBookingLine"/>
     </xsd:sequence>
   </xsd:complexType>	
-  <xsd:complexType name="BookingLineType">
+  <xsd:complexType name="CounterBookingLineType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="BookingAccount"/>
 	  <xsd:element type="DebitCreditType" name="DebitCredit"/>	  

@@ -1,6 +1,8 @@
 package nl.fzit.maakboekingen.maakboekingen;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,7 +27,9 @@ public class BoekingLines {
 	public void stelSamenBoekingenLines(Config config,ArrayList<String[]> boekingenList) throws ParseException{
 		ArrayList<String[]> boekingLines=new ArrayList<String[]>();
 		String bookingDescriptionUsedToBook;
-
+		List<AccountType> accounts;
+		List<CounterBookingLineType> counterBookingLineConfigList;
+		BigDecimal percentageOfTotalAmount;
 		//boekingline:
 		//[0]:Datum
 		//[1]:Omschrijving van de boeking die geboekt wordt
@@ -35,7 +39,6 @@ public class BoekingLines {
 		
 		String[] boekingline=new String[5];
 	
-		List<AccountType> accounts;
 		
 		accounts=config.getAccounts().getAccountList();
 
@@ -50,6 +53,7 @@ public class BoekingLines {
 			}
 			
 			//1. Booking line of account
+			//Datum
 			boekingline[0]=boeking[2];
 
 			try {
@@ -64,25 +68,59 @@ public class BoekingLines {
 				bookingDescriptionUsedToBook=fillDateInBookingDescriptionToBook(booking,bookingDescriptionUsedToBook,boeking[2]);
 			}
 			
+			//Omschrijving van de boeking die geboekt wordt
 			boekingline[1]=bookingDescriptionUsedToBook;
 
-			
+			//Boekingaccount zoals genoemd in het boekhoudprogramma
 			boekingline[2]=account.getBookingAccountForAccountNumber();
+
+			//Bedrag
 			if (boeking[1]=="D") {
 				boekingline[3]=boeking[3];
 			} else {
-				boekingline[3]="-1" + boeking[3];
+				boekingline[3]="-" + boeking[3];
 			}
+			
+			//Omschrijving van de boeking zoals op het bankafschrift
 			boekingline[4]=boeking[5];
 	
 			boekingLines.add(boekingline);
 
 			//2. Booking lines of counterbookings
+			counterBookingLineConfigList=booking.getCounterBookingLines().getCounterBookingLineList();
+			for (CounterBookingLineType counterBookingLineConfig :counterBookingLineConfigList){
+				boekingline=new String[5];
 
-			
-//			for (String[] counterboeking :counterboekingenList){
-			
+				//Datum
+				boekingline[0]=boeking[2];
 
+				//Omschrijving van de boeking die geboekt wordt
+				boekingline[1]=bookingDescriptionUsedToBook;
+
+				//Boekingaccount zoals genoemd in het boekhoudprogramma
+				boekingline[2]=counterBookingLineConfig.getBookingAccount();
+
+				//Bedrag
+				try {
+					percentageOfTotalAmount=counterBookingLineConfig.getPercentageOfTotalAmount();
+				}
+				catch (NoSuchElementException e){
+					percentageOfTotalAmount=BigDecimal.valueOf(100);
+				}
+				
+				if (counterBookingLineConfig.getDebitCredit().toString()=="D") {
+					boekingline[3]=amountMultipliedByPercentageOfTotalAmount(boeking[3],percentageOfTotalAmount);
+				} else {
+					boekingline[3]=amountMultipliedByPercentageOfTotalAmount("-" + boeking[3],percentageOfTotalAmount);
+				}
+				
+				//Omschrijving van de boeking zoals op het bankafschrift
+				boekingline[4]=boeking[5];
+						
+				boekingLines.add(boekingline);				
+				
+				
+			}	
 		}
 	}
 
@@ -120,5 +158,16 @@ public class BoekingLines {
 			
 		}	
 	
-	
+		private String amountMultipliedByPercentageOfTotalAmount(String amount,BigDecimal percentageOfTotalAmount){
+			Double amountDouble;
+			
+			DecimalFormat twoDForm=new DecimalFormat("#.##");
+			amount=amount.replaceAll(",",".");
+			amountDouble=percentageOfTotalAmount.multiply(new BigDecimal(amount.replaceAll(",","."))).doubleValue()/100;
+			
+			return twoDForm.format(amountDouble);
+//			return Double.toString(percentageOfTotalAmount.multiply(new BigDecimal(amount.replaceAll(",",""))).doubleValue()/10000);
+			
+//			return Double.toString(Double.valueOf(twoDForm.format(percentageOfTotalAmount.multiply(new BigDecimal(amount.replaceAll(",",""))).doubleValue()/10000)));
+		}
 }

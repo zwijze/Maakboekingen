@@ -2,8 +2,6 @@
 package nl.fzit.maakboekingen.config;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 
 /** 
  * Schema fragment(s) for this class:
@@ -14,7 +12,7 @@ import java.util.List;
  *     &lt;xs:element type="xs:string" name="BookingDescription" minOccurs="0"/>
  *     &lt;xs:element type="xs:string" name="BookingDescriptionUsedToBook"/>
  *     &lt;xs:element type="xs:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" minOccurs="0" maxOccurs="1"/>
- *     &lt;xs:element type="ns:BookingLinesType" name="BookingLines" minOccurs="1" maxOccurs="unbounded"/>
+ *     &lt;xs:element type="ns:CounterBookingLinesType" name="CounterBookingLines"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
  * </pre>
@@ -25,7 +23,7 @@ public class BookingType
     private String bookingDescription;
     private String bookingDescriptionUsedToBook;
     private BigInteger addExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook;
-    private List<BookingLinesType> bookingLineList = new ArrayList<BookingLinesType>();
+    private CounterBookingLinesType counterBookingLines;
 
     /** 
      * Get the 'CounterAccountNumber' element value.
@@ -102,20 +100,21 @@ public class BookingType
     }
 
     /** 
-     * Get the list of 'BookingLines' element items.
+     * Get the 'CounterBookingLines' element value.
      * 
-     * @return list
+     * @return value
      */
-    public List<BookingLinesType> getBookingLineList() {
-        return bookingLineList;
+    public CounterBookingLinesType getCounterBookingLines() {
+        return counterBookingLines;
     }
 
     /** 
-     * Set the list of 'BookingLines' element items.
+     * Set the 'CounterBookingLines' element value.
      * 
-     * @param list
+     * @param counterBookingLines
      */
-    public void setBookingLineList(List<BookingLinesType> list) {
-        bookingLineList = list;
+    public void setCounterBookingLines(
+            CounterBookingLinesType counterBookingLines) {
+        this.counterBookingLines = counterBookingLines;
     }
 }

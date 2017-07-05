@@ -31,36 +31,36 @@
           <BookingDescription>fz it</BookingDescription>
           <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening yyyymm</BookingDescriptionUsedToBook>
           <AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>
-          <BookingLines>
-            <BookingLine>
+          <CounterBookingLines>
+            <CounterBookingLine>
               <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
               <DebitCredit>D</DebitCredit>
-              <PercentageOfTotalAmount>70</PercentageOfTotalAmount>
-            </BookingLine>
-            <BookingLine>
+              <PercentageOfTotalAmount>73.5</PercentageOfTotalAmount>
+            </CounterBookingLine>
+            <CounterBookingLine>
               <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
               <DebitCredit>D</DebitCredit>
               <PercentageOfTotalAmount>30</PercentageOfTotalAmount>
-            </BookingLine>
-          </BookingLines>
+            </CounterBookingLine>
+          </CounterBookingLines>
         </Booking>
         <Booking>
           <CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
           <BookingDescription>sthree holdings bv</BookingDescription>
           <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening yyyymmdd</BookingDescriptionUsedToBook>
           <AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>
-          <BookingLines>
-            <BookingLine>
+          <CounterBookingLines>
+            <CounterBookingLine>
               <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
               <DebitCredit>D</DebitCredit>
               <PercentageOfTotalAmount>70</PercentageOfTotalAmount>
-            </BookingLine>
-            <BookingLine>
+            </CounterBookingLine>
+            <CounterBookingLine>
               <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
               <DebitCredit>D</DebitCredit>
               <PercentageOfTotalAmount>30</PercentageOfTotalAmount>
-            </BookingLine>
-          </BookingLines>
+            </CounterBookingLine>
+          </CounterBookingLines>
         </Booking>
       </Bookings>
     </Account>
@@ -71,13 +71,13 @@
           <CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
           <BookingDescription>NL17RBOS0615568319</BookingDescription>
           <BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
-          <BookingLines>
-            <BookingLine>
+          <CounterBookingLines>
+            <CounterBookingLine>
               <BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
               <DebitCredit>D</DebitCredit>
               <PercentageOfTotalAmount>100</PercentageOfTotalAmount>
-            </BookingLine>
-          </BookingLines>
+            </CounterBookingLine>
+          </CounterBookingLines>
         </Booking>
       </Bookings>
     </Account>
