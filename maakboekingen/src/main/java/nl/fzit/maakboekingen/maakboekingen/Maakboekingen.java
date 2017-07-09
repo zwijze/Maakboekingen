@@ -60,6 +60,7 @@ public class Maakboekingen {
 		IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config); 
 		
 		
+		maakBoeking.insertBookingLines(sql,boekingLines.getBoekingenLines());
 		
 	
 	}

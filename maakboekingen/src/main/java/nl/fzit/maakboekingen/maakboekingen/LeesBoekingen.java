@@ -48,11 +48,12 @@ public class LeesBoekingen {
 		Boolean bEindSaldo;
 		String eindSaldoCD = null;
 		String omschrijving;
+		String currency="";
 		
 		Boolean bBeginSaldoGevonden=false;
 		Boolean bAccountnumberGevonden=false;
 		
-		String[] boeking=new String[6];
+		String[] boeking=new String[7];
 	
 		System.out.printf("Inlezenbestand:" + file + "\n");
 		
@@ -87,7 +88,8 @@ public class LeesBoekingen {
 				bAccountnumberGevonden=true;
 				System.out.printf("ACCOUNTNUMBER: %s\n",boeking[0]);
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
-				beginSaldo=Double.valueOf(mBeginSaldo.group(2).replace(',', '.'));
+				currency=mBeginSaldo.group(2);
+				beginSaldo=Double.valueOf(mBeginSaldo.group(3).replace(',', '.'));
 				bBeginSaldoGevonden=true;
 				System.out.printf("BeginSaldo:" + beginSaldo + " (%s)\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){
@@ -98,12 +100,13 @@ public class LeesBoekingen {
 					boeking[1]="C";
 				}
 				boeking[2]="20"+mBoekingsDatumEnBedrag.group(1);//Datum
-				boeking[3]=mBoekingsDatumEnBedrag.group(3); //Bedrag
+				boeking[3]=mBoekingsDatumEnBedrag.group(3).replace(',', '.'); //Bedrag
 				boeking[4]=mBoekingsDatumEnBedrag.group(4); //Tegenrekening
+				boeking[6]=currency;
 			} else if (bBoekingsOmschrijving==true){
 				boeking[5]=mBoekingsOmschrijving.group(1).trim();//Omschrijving
 				boekingen.add(boeking);
-				System.out.printf("%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
+				System.out.printf("%s|%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5],boeking[6]);
 //			} else if (bBoekingsOmschrijving2==true){//so bBoekingsOmschrijving!=true so this one will not be booked 
 //				boeking[4]=mBoekingsOmschrijving2.group(1);//Omschrijving
 //				System.out.printf("Not be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				

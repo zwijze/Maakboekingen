@@ -37,7 +37,7 @@ public class BoekingLines {
 		//[3]:Bedrag		
 		//[4]:Omschrijving van de boeking zoals op het bankafschrift
 		
-		String[] boekingline=new String[5];
+		String[] boekingline=new String[6];
 	
 		
 		accounts=config.getAccounts().getAccountList();
@@ -84,6 +84,8 @@ public class BoekingLines {
 			//Omschrijving van de boeking zoals op het bankafschrift
 			boekingline[4]=boeking[5];
 	
+			boekingline[5]=boeking[6];
+					
 			boekingLines.add(boekingline);
 
 			//2. Booking lines of counterbookings

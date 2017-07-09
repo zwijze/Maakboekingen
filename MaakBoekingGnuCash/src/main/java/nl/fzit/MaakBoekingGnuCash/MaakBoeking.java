@@ -1,5 +1,6 @@
 package nl.fzit.MaakBoekingGnuCash;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import nl.fzit.maakboekingen.makebooking.api.*;
@@ -7,8 +8,78 @@ import nl.fzit.sql.api.ISql;
 
 public class MaakBoeking implements IMakebooking {
 
-	public void insertBookingLines(ISql sql,ArrayList<String[]> bookingLines){
+	private ISql sql;
+	
+	public void insertBookingLines(ISql sql,ArrayList<String[]> bookingLines) throws SQLException{
+		//boekingline:
+		//[0]:Datum
+		//[1]:Omschrijving van de boeking die geboekt wordt
+		//[2]:Boekingaccount zoals genoemd in het boekhoudprogramma
+		//[3]:Bedrag		
+		//[4]:Omschrijving van de boeking zoals op het bankafschrift
+		//[5]:Currency
 		
-	};
+		String date;
+		String description;
+		String bookingAccount;
+		String amount;
+		String descriptionBankStatement;
+		String currency;
+		String accountGuid;
+		String currencyGuid;
+		
+		this.sql=sql;
+		
+		for (String [] bookingLine:bookingLines){
+			date=bookingLine[0];
+			description=bookingLine[1];
+			bookingAccount=bookingLine[2];
+			amount=bookingLine[3];
+			descriptionBankStatement=bookingLine[4];
+			currency=bookingLine[5];
+			
+			accountGuid=getAccountGuid(bookingAccount);
+			if (accountGuid.equals("")){
+				System.out.printf("Unknown account %s, no booking made on this account for bookingline: %s,%s,%s\n",bookingAccount,date,amount,descriptionBankStatement);
+				continue;	
+			}
+			
+			currencyGuid=getCurrencyGuid(currency);
+			if (currencyGuid.equals("")){
+				System.out.printf("Unknown account %s, no booking made on this account for bookingline: %s,%s,%s\n",bookingAccount,date,amount,descriptionBankStatement);
+				continue;	
+			}
+			
+			//sqlInsert("");
+			
+		}
+		
+	}
+	
+	private String getAccountGuid(String account) throws SQLException{
+		int i=0;
+		String accountGuid1Up="";
+		String accountGuid="";
+		String[] splitAccounts=account.split(":");
+		
+		for (String splitAccount:splitAccounts){
+			if (accountGuid1Up.equals("")){
+				accountGuid=sql.sqlQueryResult("select guid from accounts where name='" + splitAccounts[i] + "'").get(0)[0];
+			} else {
+				accountGuid=sql.sqlQueryResult("select guid from accounts name='" + splitAccounts[i] + "' and parent_guid='" + accountGuid1Up + "'").get(0)[0];
+			}
+			
+			accountGuid1Up=splitAccounts[i];
+			i++;	
+		}
+		
+		return accountGuid;
+	}
 
+	private String getCurrencyGuid(String currency) throws SQLException{
+
+		return sql.sqlQueryResult("select guid from commodities where mnemonic='" + currency + "'").get(0)[0];
+	}
+	
+	
 }
