@@ -88,8 +88,8 @@ public class LeesBoekingen {
 				bAccountnumberGevonden=true;
 				System.out.printf("ACCOUNTNUMBER: %s\n",boeking[0]);
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
-				currency=mBeginSaldo.group(2);
-				beginSaldo=Double.valueOf(mBeginSaldo.group(3).replace(',', '.'));
+				currency=mBeginSaldo.group(3);
+				beginSaldo=Double.valueOf(mBeginSaldo.group(4).replace(',', '.'));
 				bBeginSaldoGevonden=true;
 				System.out.printf("BeginSaldo:" + beginSaldo + " (%s)\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){

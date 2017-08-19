@@ -7,6 +7,8 @@ public interface ISql {
 				
 	public void makeConnection(String dbms,String serverName,String portNumber,String protocol,String dbName,String domain,String user, String password) throws SQLException, ClassNotFoundException;
 	
-	public ArrayList <String[]> sqlQueryResult(String query) throws SQLException;
+	public ArrayList<String[]> sqlQueryResult(String query) throws SQLException;
+	
+	public int sqlInsert(String query) throws SQLException;
 	
 }

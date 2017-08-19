@@ -8,6 +8,7 @@ import org.jibx.runtime.IUnmarshallingContext;
 import org.jibx.runtime.JiBXException;
 
 import java.net.*;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 import nl.fzit.files.*;
@@ -20,16 +21,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 public class Maakboekingen {
 	
 	private Config config;
-
+	
 	public Maakboekingen(){
 		config=new Config();
 	}
 	
-	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, JiBXException, ParseException {
+	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, IOException, JiBXException, ParseException, SQLException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
 		// TODO Auto-generated method stub
 		ArrayList<String> bestandenList;
 		ArrayList<String[]> boekingen=new ArrayList<String[]>();
@@ -54,20 +58,67 @@ public class Maakboekingen {
 		
 		
 		//Creer Sql connection naar database waarin de boekingen moet komen o.b.v. plugin
-		ISql sql=maakSqlObject(maakboekingen.config);
-		
+//		ISql sql=maakSqlObject(maakboekingen.config);
+//		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
+		//		sql.makeConnection(maakboekingen.config.getDatabaseBookingProgram().getDbms(),"","","",maakboekingen.config.getDatabaseBookingProgram().getDbName(),"","", "");
 		//MaakBoeking object maken o.b.v. plugin
-		IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config); 
+		//IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config);
+		//IMakebooking maakBoeking=maakboekingen.maakBoekingObject(maakboekingen.config);
+		//Maakboekingen.method.invoke(maakBoeking, null);
+		maakboekingen.invokeInsertBookingLinesOfPluginBookingProgram(maakboekingen.config,boekingLines.getBoekingenLines());
 		
+//		maakBoeking.insertBookingLines(sql,boekingLines.getBoekingenLines());
 		
-		maakBoeking.insertBookingLines(sql,boekingLines.getBoekingenLines());
-		
-	
+		//To avoid the problem 'JDWP Unable to get JNI 1.2 environment' put this at the end of the main method:
+		System.exit(0);	
 	}
-	
-	private static IMakebooking maakBoekingObject(Config config) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
-	
-		File dir = new File(config.getJarFilePluginBookingProgram());
+	private void invokeInsertBookingLinesOfPluginBookingProgram(Config config,ArrayList<String[]> boekingenLinesArrayList) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException{
+		
+        try {
+
+//    		ISql sql=maakSqlObject(maakboekingen.config);
+//    		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
+    		//		sql.makeConnection(maakboekingen.config.getDatabaseBookingProgram().getDbms(),"","","",maakboekingen.config.getDatabaseBookingProgram().getDbName(),"","", "");
+
+        	
+	        // Create a new JavaClassLoader
+	        ClassLoader classLoader = this.getClass().getClassLoader();
+	        // Load the target class using its binary name
+	        Class loadedSqlClass = classLoader.loadClass(config.getClassNamePluginSql());
+	        //Class loadedSqlClass = classLoader.loadClass(config.getClassNamePluginBookingProgram());
+	        // Create a new instance from the loaded class
+	        Constructor constructorSqlClass = loadedSqlClass.getConstructor();
+	        Object sqlObject = constructorSqlClass.newInstance();
+	        // Getting the target method from the loaded class and invoke it using its name
+	        //methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("insertBookingLines");
+	        //Method methodMakeConnection = loadedSqlClass.getMethod("insertBookingLines");
+	        Method methodMakeConnection = loadedSqlClass.getMethod("makeConnection",String.class,String.class,String.class,String.class,String.class,String.class,String.class,String.class);
+	        System.out.println("Invoked method name: " + methodMakeConnection.getName());
+	        methodMakeConnection.invoke(sqlObject,"sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
+
+
+	        
+	        // Load the target class using its binary name
+	        Class loadedPluginBookingProgramClass = classLoader.loadClass(config.getClassNamePluginBookingProgram());
+
+	        
+	        System.out.println("Loaded class name: " + loadedPluginBookingProgramClass.getName());
+	        // Create a new instance from the loaded class
+	        Constructor constructorPluginBookingProgramClass = loadedPluginBookingProgramClass.getConstructor();
+	        Object pluginBookingProgramObject = constructorPluginBookingProgramClass.newInstance();
+	        // Getting the target method from the loaded class and invoke it using its name
+	        Method methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("insertBookingLines",ISql.class,ArrayList.class);
+	        //Method methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("test2",ArrayList.class);
+	        System.out.println("Invoked method name: " + methodInsertBookingLines.getName());
+//	        methodInsertBookingLines.invoke(pluginBookingProgramObject,sqlObject,boekingenLinesArrayList);
+	        methodInsertBookingLines.invoke(pluginBookingProgramObject,sqlObject,boekingenLinesArrayList);
+
+        } catch (ClassNotFoundException e) {
+        	e.printStackTrace();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+/*		File dir = new File(config.getJarFilePluginBookingProgram());
 		URL loadPath = dir.toURI().toURL();
 		URL[] classUrl = new URL[]{loadPath};
 
@@ -77,8 +128,13 @@ public class Maakboekingen {
 		
 		IMakebooking modInstance = (IMakebooking)loadedClass.newInstance();
 		
-		return modInstance;
+		//Method method=loadedClass.getMethod("insertBookingLines");
+
+		Method method=loadedClass.getMethod("test");
+		method.invoke(modInstance);
 		
+		return modInstance;
+*/		
 	}
 
 	

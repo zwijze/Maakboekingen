@@ -18,14 +18,15 @@ import  nl.fzit.maakboekingen.config.*;
 
 public class BoekingLines {
 
-	private ArrayList<String[]> BoekingenLines;
+	private ArrayList<String[]> boekingLines;
 	
 	public ArrayList<String[]> getBoekingenLines(){
-		return BoekingenLines;
+		return boekingLines;
 	}
 	
 	public void stelSamenBoekingenLines(Config config,ArrayList<String[]> boekingenList) throws ParseException{
-		ArrayList<String[]> boekingLines=new ArrayList<String[]>();
+		//ArrayList<String[]> boekingLines=new ArrayList<String[]>();
+		boekingLines=new ArrayList<String[]>();
 		String bookingDescriptionUsedToBook;
 		List<AccountType> accounts;
 		List<CounterBookingLineType> counterBookingLineConfigList;
@@ -36,14 +37,16 @@ public class BoekingLines {
 		//[2]:Boekingaccount zoals genoemd in het boekhoudprogramma
 		//[3]:Bedrag		
 		//[4]:Omschrijving van de boeking zoals op het bankafschrift
-		
-		String[] boekingline=new String[6];
-	
+		//[5]:Currency
+		//[6]:Boeking nbr.
+		String[] boekingline=new String[7];
+		int i=0;
 		
 		accounts=config.getAccounts().getAccountList();
 
 		
 		for (String[] boeking :boekingenList){
+			i++;
 			BookingType booking;
 			//Find own accountnumber in configuration
 			AccountType account=accounts.stream().filter(a->boeking[0].equals(a.getAccountNumber())).findFirst().get();
@@ -84,14 +87,18 @@ public class BoekingLines {
 			//Omschrijving van de boeking zoals op het bankafschrift
 			boekingline[4]=boeking[5];
 	
+			//Currency
 			boekingline[5]=boeking[6];
-					
+			//Nbr booking	
+			boekingline[6]=String.valueOf(i);
+
+			
 			boekingLines.add(boekingline);
 
 			//2. Booking lines of counterbookings
 			counterBookingLineConfigList=booking.getCounterBookingLines().getCounterBookingLineList();
 			for (CounterBookingLineType counterBookingLineConfig :counterBookingLineConfigList){
-				boekingline=new String[5];
+				boekingline=new String[7];
 
 				//Datum
 				boekingline[0]=boeking[2];
