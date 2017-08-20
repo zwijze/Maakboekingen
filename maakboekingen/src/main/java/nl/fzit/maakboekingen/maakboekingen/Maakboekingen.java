@@ -75,43 +75,20 @@ public class Maakboekingen {
 	private void invokeInsertBookingLinesOfPluginBookingProgram(Config config,ArrayList<String[]> boekingenLinesArrayList) throws MalformedURLException, ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException{
 		
         try {
-
-//    		ISql sql=maakSqlObject(maakboekingen.config);
-//    		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
-    		//		sql.makeConnection(maakboekingen.config.getDatabaseBookingProgram().getDbms(),"","","",maakboekingen.config.getDatabaseBookingProgram().getDbName(),"","", "");
-
-        	
 	        // Create a new JavaClassLoader
 	        ClassLoader classLoader = this.getClass().getClassLoader();
-	        // Load the target class using its binary name
-	        Class loadedSqlClass = classLoader.loadClass(config.getClassNamePluginSql());
-	        //Class loadedSqlClass = classLoader.loadClass(config.getClassNamePluginBookingProgram());
-	        // Create a new instance from the loaded class
-	        Constructor constructorSqlClass = loadedSqlClass.getConstructor();
-	        Object sqlObject = constructorSqlClass.newInstance();
-	        // Getting the target method from the loaded class and invoke it using its name
-	        //methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("insertBookingLines");
-	        //Method methodMakeConnection = loadedSqlClass.getMethod("insertBookingLines");
-	        Method methodMakeConnection = loadedSqlClass.getMethod("makeConnection",String.class,String.class,String.class,String.class,String.class,String.class,String.class,String.class);
-	        System.out.println("Invoked method name: " + methodMakeConnection.getName());
-	        methodMakeConnection.invoke(sqlObject,"sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
-
-
 	        
 	        // Load the target class using its binary name
 	        Class loadedPluginBookingProgramClass = classLoader.loadClass(config.getClassNamePluginBookingProgram());
 
-	        
-	        System.out.println("Loaded class name: " + loadedPluginBookingProgramClass.getName());
+	        System.out.println("Loaded plugin: " + loadedPluginBookingProgramClass.getName());
 	        // Create a new instance from the loaded class
 	        Constructor constructorPluginBookingProgramClass = loadedPluginBookingProgramClass.getConstructor();
 	        Object pluginBookingProgramObject = constructorPluginBookingProgramClass.newInstance();
 	        // Getting the target method from the loaded class and invoke it using its name
 	        Method methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("insertBookingLines",ISql.class,ArrayList.class);
-	        //Method methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("test2",ArrayList.class);
-	        System.out.println("Invoked method name: " + methodInsertBookingLines.getName());
-//	        methodInsertBookingLines.invoke(pluginBookingProgramObject,sqlObject,boekingenLinesArrayList);
-	        methodInsertBookingLines.invoke(pluginBookingProgramObject,sqlObject,boekingenLinesArrayList);
+	        //System.out.println("Invoked method name: " + methodInsertBookingLines.getName());
+	        methodInsertBookingLines.invoke(pluginBookingProgramObject,boekingenLinesArrayList);
 
         } catch (ClassNotFoundException e) {
         	e.printStackTrace();

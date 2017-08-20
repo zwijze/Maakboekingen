@@ -11,7 +11,7 @@ public interface IMakebooking {
 	public void test2(ArrayList<String[]> xyz);
 
 	
-	public void insertBookingLines(ISql sql,ArrayList<String[]> bookingLines) throws SQLException;
+	public void insertBookingLines(ArrayList<String[]> bookingLines) throws SQLException;
 	
 	
 }

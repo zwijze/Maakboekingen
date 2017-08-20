@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configGnuCash xmlns="http://fzit.nl/maakboekingGnuCash/configGnuCash">
+  <DatabaseBookingProgram>
+    <Dbms>sqlite</Dbms>
+    <ServerName/>
+    <PortNumber/>
+    <Protocol/>
+    <DbName>../GnuCashSqlite/test.sqlite</DbName>
+    <Domain/>
+    <User/>
+    <Password/>
+  </DatabaseBookingProgram>
+</configGnuCash>

@@ -18,5 +18,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/sql"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/makebooking.api"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/configGnuCash"/>
+	<classpathentry kind="lib" path="C:/Users/zwijze2/.m2/repository/org/jibx/jibx-run/1.3.0/jibx-run-1.3.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

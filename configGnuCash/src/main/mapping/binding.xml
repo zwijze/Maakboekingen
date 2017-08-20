@@ -1,0 +1,16 @@
+<binding xmlns:ns1="http://fzit.nl/maakboekingGnuCash/configGnuCash" name="binding" package="nl.fzit.maakboekinggnucash.configgnucash" trim-whitespace="true">
+  <namespace uri="http://fzit.nl/maakboekingGnuCash/configGnuCash" default="elements"/>
+  <mapping class="nl.fzit.maakboekinggnucash.configgnucash.ConfigGnuCash" name="configGnuCash">
+    <structure map-as="ns1:DatabaseType" get-method="getDatabaseBookingProgram" set-method="setDatabaseBookingProgram" name="DatabaseBookingProgram"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:DatabaseType" class="nl.fzit.maakboekinggnucash.configgnucash.DatabaseType">
+    <value style="element" name="Dbms" get-method="getDbms" set-method="setDbms"/>
+    <value style="element" name="ServerName" get-method="getServerName" set-method="setServerName" usage="optional"/>
+    <value style="element" name="PortNumber" get-method="getPortNumber" set-method="setPortNumber" usage="optional"/>
+    <value style="element" name="Protocol" get-method="getProtocol" set-method="setProtocol" usage="optional"/>
+    <value style="element" name="DbName" get-method="getDbName" set-method="setDbName"/>
+    <value style="element" name="Domain" get-method="getDomain" set-method="setDomain" usage="optional"/>
+    <value style="element" name="User" get-method="getUser" set-method="setUser" usage="optional"/>
+    <value style="element" name="Password" get-method="getPassword" set-method="setPassword" usage="optional"/>
+  </mapping>
+</binding>

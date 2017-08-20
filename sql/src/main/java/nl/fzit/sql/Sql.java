@@ -56,7 +56,12 @@ public class Sql implements ISql {
 	    	System.out.println("Specifeer een ander database management systeem(dbms)!" + dbms);
 	    	System.exit(0);
 	    }
-	    System.out.println("Connected to database server: " + serverName);		
+	    
+	    if (dbms.equals("sqlite")){
+	    	System.out.println("Connected to database: " + dbName);	
+	    } else {	
+	    	System.out.println("Connected to database server: " + serverName);	
+	    }
 	}
 	
 	

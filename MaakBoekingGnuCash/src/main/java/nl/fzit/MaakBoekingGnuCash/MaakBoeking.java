@@ -1,16 +1,60 @@
 package nl.fzit.MaakBoekingGnuCash;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.UUID;
 
+import org.jibx.runtime.BindingDirectory;
+import org.jibx.runtime.IBindingFactory;
+import org.jibx.runtime.IMarshallingContext;
+import org.jibx.runtime.IUnmarshallingContext;
+import org.jibx.runtime.JiBXException;
+
 import nl.fzit.maakboekingen.makebooking.api.*;
-import nl.fzit.sql.api.ISql;
+import nl.fzit.sql.*;
+import nl.fzit.maakboekinggnucash.configgnucash.*;
 
 public class MaakBoeking implements IMakebooking {
 
-	private ISql sql;
+	private Sql sql;
+	private ConfigGnuCash configGnuCash;
+	private String configPath;
+	
+	public MaakBoeking() throws ClassNotFoundException, SQLException{
+		ConfigGnuCash configGnuCash=new ConfigGnuCash();
+		configPath="plugins\\config\\configGnuCash.xml";
+	
+		try {
+			
+            // note that you can use multiple bindings with the same class, in
+            //  which case you need to use the getFactory() call that takes the
+            //  binding name as the first parameter
+            IBindingFactory bfact = BindingDirectory.getFactory(ConfigGnuCash.class);
+            
+            // unmarshal customer information from file
+            IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
+            FileInputStream in = new FileInputStream(configPath);            
+            configGnuCash = (ConfigGnuCash)uctx.unmarshalDocument(in, null);
+            // you can add code here to alter the unmarshalled customer
+            
+	
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+            System.exit(1);
+		} catch (JiBXException e) {
+			e.printStackTrace();
+            System.exit(1);
+		}
+
+		sql=new Sql();
+	
+		sql.makeConnection(configGnuCash.getDatabaseBookingProgram().getDbms(), configGnuCash.getDatabaseBookingProgram().getServerName(), configGnuCash.getDatabaseBookingProgram().getPortNumber(), configGnuCash.getDatabaseBookingProgram().getProtocol(), configGnuCash.getDatabaseBookingProgram().getDbName(), configGnuCash.getDatabaseBookingProgram().getDomain(), configGnuCash.getDatabaseBookingProgram().getUser(), configGnuCash.getDatabaseBookingProgram().getPassword());
+
+	}
 	
 	public void test(){
 		System.out.printf("testje invoke");
@@ -20,7 +64,7 @@ public class MaakBoeking implements IMakebooking {
 		System.out.printf("testje invoke");
 	}
 	
-	public void insertBookingLines(ISql sql,ArrayList<String[]> bookingLines) throws SQLException{
+	public void insertBookingLines(ArrayList<String[]> bookingLines) throws SQLException{
 		//boekingline:
 		//[0]:Datum
 		//[1]:Omschrijving van de boeking die geboekt wordt
@@ -43,8 +87,7 @@ public class MaakBoeking implements IMakebooking {
 		String transactionGuid="";
 		Calendar calendar;
 		
-		this.sql=sql;
-		
+	
 		calendar=Calendar.getInstance();
 		enterDate=calendar.YEAR+calendar.MONTH+calendar.DAY_OF_MONTH+"000000";
 		
@@ -113,6 +156,15 @@ public class MaakBoeking implements IMakebooking {
 		
 		return UUID.randomUUID().toString();
 		
+	}
+	
+	private void unMarschallConfigFile(String configFile) throws JiBXException, FileNotFoundException{
+        IBindingFactory bfact = BindingDirectory.getFactory(ConfigGnuCash.class);
+        
+        // unmarshal information from file
+        IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
+        FileInputStream in = new FileInputStream(configFile);
+        this.configGnuCash = (ConfigGnuCash)uctx.unmarshalDocument(in, null);
 	}
 	
 }

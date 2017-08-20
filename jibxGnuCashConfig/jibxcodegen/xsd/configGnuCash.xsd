@@ -1,0 +1,25 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fzit.nl/maakboekingGnuCash/configGnuCash">
+<xsd:element name="configGnuCash">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="DatabaseBookingProgram" type="DatabaseType">
+			  <xsd:annotation>
+			    <xsd:documentation>Database booking program.</xsd:documentation>
+			  </xsd:annotation>
+		    </xsd:element>			
+		</xsd:sequence>		
+	</xsd:complexType>					
+</xsd:element>
+  <xsd:complexType name="DatabaseType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="Dbms"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="ServerName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="PortNumber"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Protocol"/>
+	  <xsd:element type="xsd:string" name="DbName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Domain"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="User"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="Password"/>	  
+    </xsd:sequence>
+  </xsd:complexType>  
+</xsd:schema>
