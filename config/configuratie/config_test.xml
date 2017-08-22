@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://fzit.nl/maakboekingen/config">
-  <DatabaseBookingProgram>
-    <Dbms>sqlite</Dbms>
-    <ServerName/>
-    <PortNumber/>
-    <Protocol/>
-    <DbName>../GnuCashSqlite/test.sqlite</DbName>
-    <Domain/>
-    <User/>
-    <Password/>
-  </DatabaseBookingProgram>
   <JarFilePluginBookingProgram>C:\mijn documenten\Maakboekingen\run_programma\lib\MaakBoeking-0.0.1-SNAPSHOT.jar</JarFilePluginBookingProgram>
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
   <JarFilePluginSql>C:\mijn documenten\Maakboekingen\run_programma\lib\sql-0.0.1-SNAPSHOT.jar</JarFilePluginSql>

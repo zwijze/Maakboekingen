@@ -51,17 +51,8 @@ public class MaakBoeking implements IMakebooking {
 		}
 
 		sql=new Sql();
-	
 		sql.makeConnection(configGnuCash.getDatabaseBookingProgram().getDbms(), configGnuCash.getDatabaseBookingProgram().getServerName(), configGnuCash.getDatabaseBookingProgram().getPortNumber(), configGnuCash.getDatabaseBookingProgram().getProtocol(), configGnuCash.getDatabaseBookingProgram().getDbName(), configGnuCash.getDatabaseBookingProgram().getDomain(), configGnuCash.getDatabaseBookingProgram().getUser(), configGnuCash.getDatabaseBookingProgram().getPassword());
 
-	}
-	
-	public void test(){
-		System.out.printf("testje invoke");
-	}
-
-	public void test2(ArrayList<String[]> xyz){
-		System.out.printf("testje invoke");
 	}
 	
 	public void insertBookingLines(ArrayList<String[]> bookingLines) throws SQLException{
@@ -89,10 +80,9 @@ public class MaakBoeking implements IMakebooking {
 		
 	
 		calendar=Calendar.getInstance();
-		enterDate=calendar.YEAR+calendar.MONTH+calendar.DAY_OF_MONTH+"000000";
-		
+		enterDate=createDateYyyymmddhhmmss(calendar);
 		for (String [] bookingLine:bookingLines){
-			postDate=bookingLine[0];
+			postDate=bookingLine[0]+"000000";
 			description=bookingLine[1];
 			bookingAccount=bookingLine[2];
 			amount=bookingLine[3];
@@ -115,11 +105,11 @@ public class MaakBoeking implements IMakebooking {
 			//Insert transaction (booking)
 			if (!bookingNbr.equals(bookingNbrPrevious)){
 				transactionGuid=generateGuid();
-				sql.sqlInsert("INSERT INTO transactions (guid,currency_guid,post_date,enter_date,description) VALUES ('" + transactionGuid + "','" + currencyGuid + "','" + postDate + "','" + description + "')");
+				sql.sqlInsert("INSERT INTO transactions (guid,currency_guid,num,post_date,enter_date,description) VALUES ('" + transactionGuid + "','" + currencyGuid + "','" + "','" + postDate  + "','" + enterDate + "','" + description + "')");
 			}
 			
 			//Insert splits (bookingline)
-			sql.sqlInsert("INSERT INTO transactions (guid,tx_guid,account_guid,reconcile_state,value_num,value_denom,quantity_num,quantity_denom) VALUES ('" + generateGuid() + "','" + transactionGuid + "','" + accountGuid + "','N','" + amount.replace(".", "")  + "','100','" + amount.replace(".", "")  + "','100')");
+			sql.sqlInsert("INSERT INTO splits (guid,tx_guid,account_guid,reconcile_state,value_num,value_denom,quantity_num,quantity_denom) VALUES ('" + generateGuid() + "','" + transactionGuid + "','" + accountGuid + "','N','" + amount.replace(".", "")  + "','100','" + amount.replace(".", "")  + "','100')");
 			
 			
 			bookingNbrPrevious=bookingNbr;
@@ -137,10 +127,9 @@ public class MaakBoeking implements IMakebooking {
 			if (accountGuid1Up.equals("")){
 				accountGuid=sql.sqlQueryResult("select guid from accounts where name='" + splitAccounts[i] + "'").get(0)[0];
 			} else {
-				accountGuid=sql.sqlQueryResult("select guid from accounts name='" + splitAccounts[i] + "' and parent_guid='" + accountGuid1Up + "'").get(0)[0];
+				accountGuid=sql.sqlQueryResult("select guid from accounts where name='" + splitAccounts[i] + "' and parent_guid='" + accountGuid1Up + "'").get(0)[0];
 			}
-			
-			accountGuid1Up=splitAccounts[i];
+			accountGuid1Up=accountGuid;
 			i++;	
 		}
 		
@@ -165,6 +154,28 @@ public class MaakBoeking implements IMakebooking {
         IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
         FileInputStream in = new FileInputStream(configFile);
         this.configGnuCash = (ConfigGnuCash)uctx.unmarshalDocument(in, null);
+	}
+	
+	private String createDateYyyymmddhhmmss(Calendar calendar){
+		
+		String dateMonth;	
+		String dateDay;
+		String dateHour;
+		String dateMinute;
+		String dateSecond;
+		
+		dateMonth="0"+String.valueOf(calendar.get(Calendar.MONTH)+1);
+		dateMonth=dateMonth.substring(dateMonth.length()-2, dateMonth.length());
+		dateDay="0"+String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+		dateDay=dateDay.substring(dateDay.length()-2, dateDay.length());
+		dateHour="0"+String.valueOf(calendar.get(Calendar.HOUR_OF_DAY));
+		dateHour=dateHour.substring(dateHour.length()-2, dateHour.length());
+		dateMinute="0"+String.valueOf(calendar.get(Calendar.MINUTE));
+		dateMinute=dateMinute.substring(dateMinute.length()-2, dateMinute.length());
+		dateSecond="0"+String.valueOf(calendar.get(Calendar.SECOND));
+		dateSecond=dateSecond.substring(dateSecond.length()-2, dateSecond.length());
+				
+		return String.valueOf(calendar.get(Calendar.YEAR))+dateMonth+dateDay+dateHour+dateMinute+dateSecond;
 	}
 	
 }

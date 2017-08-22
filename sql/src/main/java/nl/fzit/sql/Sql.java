@@ -88,7 +88,6 @@ public class Sql implements ISql {
 	
 	public int sqlInsert(String query) throws SQLException{
 	    
-		ArrayList <String[]> result = new ArrayList<String[]>();
 		Statement stmt;
 		stmt = conn.createStatement();
 		return stmt.executeUpdate( query );

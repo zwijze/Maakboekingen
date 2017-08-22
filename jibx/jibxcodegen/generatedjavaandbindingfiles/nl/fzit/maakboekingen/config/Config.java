@@ -7,7 +7,6 @@ package nl.fzit.maakboekingen.config;
  * &lt;xs:element xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="config">
  *   &lt;xs:complexType>
  *     &lt;xs:sequence>
- *       &lt;xs:element type="ns:DatabaseType" name="DatabaseBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="JarFilePluginBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="JarFilePluginSql"/>
@@ -21,31 +20,12 @@ package nl.fzit.maakboekingen.config;
  */
 public class Config
 {
-    private DatabaseType databaseBookingProgram;
     private String jarFilePluginBookingProgram;
     private String classNamePluginBookingProgram;
     private String jarFilePluginSql;
     private String classNamePluginSql;
     private TransactionsFilesType transactionsFiles;
     private AccountsType accounts;
-
-    /** 
-     * Get the 'DatabaseBookingProgram' element value. Database booking program.
-     * 
-     * @return value
-     */
-    public DatabaseType getDatabaseBookingProgram() {
-        return databaseBookingProgram;
-    }
-
-    /** 
-     * Set the 'DatabaseBookingProgram' element value. Database booking program.
-     * 
-     * @param databaseBookingProgram
-     */
-    public void setDatabaseBookingProgram(DatabaseType databaseBookingProgram) {
-        this.databaseBookingProgram = databaseBookingProgram;
-    }
 
     /** 
      * Get the 'JarFilePluginBookingProgram' element value.

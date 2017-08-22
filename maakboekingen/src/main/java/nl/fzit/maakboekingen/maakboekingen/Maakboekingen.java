@@ -86,7 +86,7 @@ public class Maakboekingen {
 	        Constructor constructorPluginBookingProgramClass = loadedPluginBookingProgramClass.getConstructor();
 	        Object pluginBookingProgramObject = constructorPluginBookingProgramClass.newInstance();
 	        // Getting the target method from the loaded class and invoke it using its name
-	        Method methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("insertBookingLines",ISql.class,ArrayList.class);
+	        Method methodInsertBookingLines = loadedPluginBookingProgramClass.getMethod("insertBookingLines",ArrayList.class);
 	        //System.out.println("Invoked method name: " + methodInsertBookingLines.getName());
 	        methodInsertBookingLines.invoke(pluginBookingProgramObject,boekingenLinesArrayList);
 

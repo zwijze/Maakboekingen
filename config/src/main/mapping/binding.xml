@@ -3,7 +3,6 @@
   <format label="ns1:BooleanType" type="nl.fzit.maakboekingen.config.BooleanType"/>
   <format label="ns1:DebitCreditType" type="nl.fzit.maakboekingen.config.DebitCreditType"/>
   <mapping class="nl.fzit.maakboekingen.config.Config" name="config">
-    <structure map-as="ns1:DatabaseType" get-method="getDatabaseBookingProgram" set-method="setDatabaseBookingProgram" name="DatabaseBookingProgram"/>
     <value style="element" name="JarFilePluginBookingProgram" get-method="getJarFilePluginBookingProgram" set-method="setJarFilePluginBookingProgram"/>
     <value style="element" name="ClassNamePluginBookingProgram" get-method="getClassNamePluginBookingProgram" set-method="setClassNamePluginBookingProgram"/>
     <value style="element" name="JarFilePluginSql" get-method="getJarFilePluginSql" set-method="setJarFilePluginSql"/>
