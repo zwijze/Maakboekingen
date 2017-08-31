@@ -109,12 +109,13 @@ public class MaakBoeking implements IMakebooking {
 			}
 			
 			//Insert splits (bookingline)
-			sql.sqlInsert("INSERT INTO splits (guid,tx_guid,account_guid,reconcile_state,value_num,value_denom,quantity_num,quantity_denom) VALUES ('" + generateGuid() + "','" + transactionGuid + "','" + accountGuid + "','N','" + amount.replace(".", "")  + "','100','" + amount.replace(".", "")  + "','100')");
+			sql.sqlInsert("INSERT INTO splits (guid,tx_guid,account_guid,memo,action,reconcile_state,value_num,value_denom,quantity_num,quantity_denom) VALUES ('" + generateGuid() + "','" + transactionGuid + "','" + accountGuid + "','" + "','" + "','n','" + amount.replace(".", "")  + "','100','" + amount.replace(".", "")  + "','100')");
 			
 			
 			bookingNbrPrevious=bookingNbr;
 		}
-		
+		System.out.printf("BookingBookings made in GnuCash!\n");
+
 	}
 	
 	private String getAccountGuid(String account) throws SQLException{
@@ -143,7 +144,7 @@ public class MaakBoeking implements IMakebooking {
 	
 	private String generateGuid(){
 		
-		return UUID.randomUUID().toString();
+		return UUID.randomUUID().toString().replace("-", "");
 		
 	}
 	

@@ -26,7 +26,6 @@ public class LeesBoekingen {
 		String line=null;
 		String indCD;
 		
-		
         Pattern pAccountNumber = Pattern.compile(accountNumberRegex);		
         Pattern pBeginSaldo = Pattern.compile(regexBeginSaldo);
         Pattern pBoekingsDatumEnBedrag = Pattern.compile(regexBoekingsDatumEnBedrag);
@@ -34,6 +33,7 @@ public class LeesBoekingen {
         Pattern pBoekingsOmschrijving = Pattern.compile(":86:(.*)");
         Pattern pEindSaldo = Pattern.compile(regexEindSaldo);
 
+        String accountNumber="";
         Matcher mAccountNumber;
         Matcher mBeginSaldo;
         Matcher mBoekingsDatumEnBedrag;
@@ -54,6 +54,7 @@ public class LeesBoekingen {
 		Boolean bAccountnumberGevonden=false;
 		
 		String[] boeking=new String[7];
+		Boolean lineContains61;
 	
 		System.out.printf("Inlezenbestand:" + file + "\n");
 		
@@ -61,9 +62,14 @@ public class LeesBoekingen {
 			if (line.contains(":86:")){//Description field can contain multiple lines
 				omschrijving=line;
 				while (1==1){
+					br.mark(80);//Mark in order to be able to reset once a :86 is followed by :61 and that last line is used for the next booking so reset to previous marked position in this situation
 					line=br.readLine();//read other lines of the desription
-					if (line.contains(":62F:") || line==null) {
+					lineContains61=line.contains(":61:")?true:false; 
+					if (line.contains(":62F:") || lineContains61 || line==null) {
 						line=omschrijving;
+						if (lineContains61){
+							br.reset();
+						}
 						break;
 					}
 					if (!line.equals("")) omschrijving=omschrijving + " " + line.trim();
@@ -84,7 +90,7 @@ public class LeesBoekingen {
 			bEindSaldo=mEindSaldo.matches();
 
 			if (bAccountNumber==true && bAccountnumberGevonden==false){
-				boeking[0]=mAccountNumber.group(1);
+				accountNumber=mAccountNumber.group(1);
 				bAccountnumberGevonden=true;
 				System.out.printf("ACCOUNTNUMBER: %s\n",boeking[0]);
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
@@ -104,10 +110,12 @@ public class LeesBoekingen {
 				boeking[4]=mBoekingsDatumEnBedrag.group(4); //Tegenrekening
 				boeking[6]=currency;
 			} else if (bBoekingsOmschrijving==true){
+				boeking[0]=accountNumber;
 				boeking[5]=mBoekingsOmschrijving.group(1).trim();//Omschrijving
 				boekingen.add(boeking);
 				System.out.printf("%s|%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5],boeking[6]);
-//			} else if (bBoekingsOmschrijving2==true){//so bBoekingsOmschrijving!=true so this one will not be booked 
+				boeking=new String[7];	
+				//			} else if (bBoekingsOmschrijving2==true){//so bBoekingsOmschrijving!=true so this one will not be booked 
 //				boeking[4]=mBoekingsOmschrijving2.group(1);//Omschrijving
 //				System.out.printf("Not be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				
 			} else if (bEindSaldo==true){
@@ -116,7 +124,6 @@ public class LeesBoekingen {
 			} else{
 				continue;
 			}
-			
 		}
 		
 		

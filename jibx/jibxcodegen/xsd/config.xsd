@@ -61,7 +61,7 @@
   <xsd:complexType name="BookingType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="CounterAccountNumber"/>
-	  <xsd:element  minOccurs="0" type="xsd:string" name="BookingDescription"/>
+	  <xsd:element  type="xsd:string" name="BookingDescription"/>
 	  <xsd:element type="xsd:string" name="BookingDescriptionUsedToBook"/>	  
 	  <xsd:element minOccurs="0"  maxOccurs="1" type="xsd:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook"/>
 	  <xsd:element type="CounterBookingLinesType" name="CounterBookingLines"/>

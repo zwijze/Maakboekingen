@@ -9,7 +9,7 @@ import java.math.BigInteger;
  * &lt;xs:complexType xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="BookingType">
  *   &lt;xs:sequence>
  *     &lt;xs:element type="xs:string" name="CounterAccountNumber"/>
- *     &lt;xs:element type="xs:string" name="BookingDescription" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="BookingDescription"/>
  *     &lt;xs:element type="xs:string" name="BookingDescriptionUsedToBook"/>
  *     &lt;xs:element type="xs:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" minOccurs="0" maxOccurs="1"/>
  *     &lt;xs:element type="ns:CounterBookingLinesType" name="CounterBookingLines"/>

@@ -45,7 +45,7 @@
   </mapping>
   <mapping abstract="true" type-name="ns1:BookingType" class="nl.fzit.maakboekingen.config.BookingType">
     <value style="element" name="CounterAccountNumber" get-method="getCounterAccountNumber" set-method="setCounterAccountNumber"/>
-    <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription" usage="optional"/>
+    <value style="element" name="BookingDescription" get-method="getBookingDescription" set-method="setBookingDescription"/>
     <value style="element" name="BookingDescriptionUsedToBook" get-method="getBookingDescriptionUsedToBook" set-method="setBookingDescriptionUsedToBook"/>
     <value style="element" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" get-method="getAddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" set-method="setAddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook" usage="optional"/>
     <structure map-as="ns1:CounterBookingLinesType" get-method="getCounterBookingLines" set-method="setCounterBookingLines" name="CounterBookingLines"/>

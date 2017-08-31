@@ -39,13 +39,14 @@ public class BoekingLines {
 		//[4]:Omschrijving van de boeking zoals op het bankafschrift
 		//[5]:Currency
 		//[6]:Boeking nbr.
-		String[] boekingline=new String[7];
+		String[] boekingline;
 		int i=0;
 		
 		accounts=config.getAccounts().getAccountList();
 
 		
 		for (String[] boeking :boekingenList){
+			boekingline=new String[7];
 			i++;
 			BookingType booking;
 			//Find own accountnumber in configuration
@@ -58,11 +59,14 @@ public class BoekingLines {
 			//1. Booking line of account
 			//Datum
 			boekingline[0]=boeking[2];
-
+			
+			////boeking[4]=Tegenrekening, boeking[5]=Omschrijving
+			//Neem bookingline van config.xml waar de (boeking matched met tegenrekeningBookingline of tegenrekeningBookingline=niet gevuld) en (boeking matched met OmschrijvingBookingline of OmschrijvingBookingline=niet gevuld) en niet (tegenrekeningBookingline=niet gevuld en OmschrijvingBookingline=niet gevuld) 
 			try {
-				booking=account.getBookings().getBookingList().stream().filter(a->boeking[4].equals(a.getCounterAccountNumber()) && (boeking[5].contains(a.getBookingDescription()) || boeking[5].equals(""))).findFirst().get();
+		//		booking=account.getBookings().getBookingList().stream().filter(a->boeking[4].equals(a.getCounterAccountNumber()) && (boeking[5].contains(a.getBookingDescription()) || boeking[5].equals(""))).findFirst().get();
+				booking=account.getBookings().getBookingList().stream().filter(a->(boeking[4].equals(a.getCounterAccountNumber()) || a.getCounterAccountNumber().equals("")) && (boeking[5].contains(a.getBookingDescription()) || a.getBookingDescription().equals("")) && !(a.getCounterAccountNumber().equals("") && a.getBookingDescription().equals("") )).findFirst().get();
 			} catch (NoSuchElementException e){
-				System.out.printf("Booking doesn't match criteria in config based on CounterAccountNumber/BookingDescription: %s. This booking won't be booked:%s|%s|%s|%s|%s|%s\n",account.getAccountNumber(),boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
+				System.out.printf("Booking doesn't match criteria in config based on CounterAccountNumber/BookingDescription: This booking won't be booked:%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
 				continue;
 			}
 			bookingDescriptionUsedToBook=booking.getBookingDescriptionUsedToBook();
@@ -110,12 +114,8 @@ public class BoekingLines {
 				boekingline[2]=counterBookingLineConfig.getBookingAccount();
 
 				//Bedrag
-				try {
-					percentageOfTotalAmount=counterBookingLineConfig.getPercentageOfTotalAmount();
-				}
-				catch (NoSuchElementException e){
-					percentageOfTotalAmount=BigDecimal.valueOf(100);
-				}
+				percentageOfTotalAmount=counterBookingLineConfig.getPercentageOfTotalAmount();
+				if (percentageOfTotalAmount==null) percentageOfTotalAmount=BigDecimal.valueOf(100);
 				
 				if (counterBookingLineConfig.getDebitCredit().toString()=="D") {
 					boekingline[3]=amountMultipliedByPercentageOfTotalAmount(boeking[3],percentageOfTotalAmount);
@@ -125,7 +125,12 @@ public class BoekingLines {
 				
 				//Omschrijving van de boeking zoals op het bankafschrift
 				boekingline[4]=boeking[5];
-						
+
+				//Currency
+				boekingline[5]=boeking[6];
+				//Nbr booking	
+				boekingline[6]=String.valueOf(i);
+
 				boekingLines.add(boekingline);				
 				
 				
@@ -171,10 +176,11 @@ public class BoekingLines {
 			Double amountDouble;
 			
 			DecimalFormat twoDForm=new DecimalFormat("#.##");
-			amount=amount.replaceAll(",",".");
+			twoDForm.setMinimumFractionDigits(2);
+			twoDForm.setMaximumFractionDigits(2);
 			amountDouble=percentageOfTotalAmount.multiply(new BigDecimal(amount.replaceAll(",","."))).doubleValue()/100;
 			
-			return twoDForm.format(amountDouble);
+			return twoDForm.format(amountDouble).replaceAll(",",".");
 //			return Double.toString(percentageOfTotalAmount.multiply(new BigDecimal(amount.replaceAll(",",""))).doubleValue()/10000);
 			
 //			return Double.toString(Double.valueOf(twoDForm.format(percentageOfTotalAmount.multiply(new BigDecimal(amount.replaceAll(",",""))).doubleValue()/10000)));
