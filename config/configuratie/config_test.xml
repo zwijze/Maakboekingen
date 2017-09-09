@@ -30,13 +30,18 @@
         <Booking>
           <CounterAccountNumber/>
           <BookingDescription>KV007</BookingDescription>
-          <BookingDescriptionUsedToBook>Lunch Rabobank Utrecht  73,5% van 0,50</BookingDescriptionUsedToBook>
+          <BookingDescriptionUsedToBook>Lunch Rabobank Utrecht, onkostem 73,5% van totaalbedrag</BookingDescriptionUsedToBook>
           <AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>
           <CounterBookingLines>
             <CounterBookingLine>
               <BookingAccount>Onkosten:Dineren</BookingAccount>
               <DebitCredit>D</DebitCredit>
-              <PercentageOfTotalAmount>100</PercentageOfTotalAmount>
+              <PercentageOfTotalAmount>73.5</PercentageOfTotalAmount>
+            </CounterBookingLine>
+            <CounterBookingLine>
+              <BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+              <PercentageOfTotalAmount>26.5</PercentageOfTotalAmount>
             </CounterBookingLine>
           </CounterBookingLines>
         </Booking>

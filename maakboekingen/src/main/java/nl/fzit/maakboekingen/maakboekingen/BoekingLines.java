@@ -63,14 +63,17 @@ public class BoekingLines {
 			////boeking[4]=Tegenrekening, boeking[5]=Omschrijving
 			//Neem bookingline van config.xml waar de (boeking matched met tegenrekeningBookingline of tegenrekeningBookingline=niet gevuld) en (boeking matched met OmschrijvingBookingline of OmschrijvingBookingline=niet gevuld) en niet (tegenrekeningBookingline=niet gevuld en OmschrijvingBookingline=niet gevuld) 
 			try {
-		//		booking=account.getBookings().getBookingList().stream().filter(a->boeking[4].equals(a.getCounterAccountNumber()) && (boeking[5].contains(a.getBookingDescription()) || boeking[5].equals(""))).findFirst().get();
-				booking=account.getBookings().getBookingList().stream().filter(a->(boeking[4].equals(a.getCounterAccountNumber()) || a.getCounterAccountNumber().equals("")) && (boeking[5].contains(a.getBookingDescription()) || a.getBookingDescription().equals("")) && !(a.getCounterAccountNumber().equals("") && a.getBookingDescription().equals("") )).findFirst().get();
+//				booking=account.getBookings().getBookingList().stream().filter(a->(boeking[4].equals(a.getCounterAccountNumber()) || a.getCounterAccountNumber().equals("")) && (boeking[5].contains(a.getBookingDescription()) || a.getBookingDescription().equals("")) && !(a.getCounterAccountNumber().equals("") && a.getBookingDescription().equals("") )).findFirst().get();
+				booking=account.getBookings().getBookingList().stream().filter(a->(boeking[4].equalsIgnoreCase(a.getCounterAccountNumber()) || a.getCounterAccountNumber().equals("")) && (boeking[5].toLowerCase().contains(a.getBookingDescription().toLowerCase()) || a.getBookingDescription().equals("")) && !(a.getCounterAccountNumber().equals("") && a.getBookingDescription().equals("") )).findFirst().get();
 			} catch (NoSuchElementException e){
 				System.out.printf("Booking doesn't match criteria in config based on CounterAccountNumber/BookingDescription: This booking won't be booked:%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
 				continue;
 			}
 			bookingDescriptionUsedToBook=booking.getBookingDescriptionUsedToBook();
 
+			if (bookingDescriptionUsedToBook.equals("")){
+				bookingDescriptionUsedToBook=boeking[5];
+			}
 			if (bookingDescriptionUsedToBook.contains("yyyy")){
 				bookingDescriptionUsedToBook=fillDateInBookingDescriptionToBook(booking,bookingDescriptionUsedToBook,boeking[2]);
 			}
@@ -140,13 +143,14 @@ public class BoekingLines {
 
 
 		private String fillDateInBookingDescriptionToBook(BookingType booking,String bookingDescriptionUsedToBook,String dateString) throws ParseException
-		{		
+		{	
+			String dateMonth,dateDay;
 			int AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook=0;
 			Calendar calendar = Calendar.getInstance();
 			SimpleDateFormat sdfYyyyymmdd = new SimpleDateFormat("yyyy-MM-dd");
 			SimpleDateFormat sdfYyyyymm = new SimpleDateFormat("yyyy-MM");
 			SimpleDateFormat sdfYyyyy = new SimpleDateFormat("yyyy");
-
+			
 			Date convertedDate = sdfYyyyymmdd.parse(dateString.substring(0, 4) + "-" + dateString.substring(4, 6) + "-" + dateString.substring(6, 8));
 			calendar.setTime(convertedDate);
 
@@ -157,12 +161,17 @@ public class BoekingLines {
 				AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook=0;
 			}
 			
+			
 			if (bookingDescriptionUsedToBook.contains("yyyymmdd")){
-				calendar.add(Calendar.DAY_OF_MONTH, AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook);
-				return bookingDescriptionUsedToBook.replace("yyyymmdd",String.valueOf(calendar.get(Calendar.YEAR))+String.valueOf(calendar.get(Calendar.MONTH)+1)+String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)));
+				calendar.add(Calendar.DAY_OF_MONTH, AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook);				
+				dateDay="0"+String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+				dateDay=dateDay.substring(dateDay.length()-2, dateDay.length());
+				return bookingDescriptionUsedToBook.replace("yyyymmdd",String.valueOf(calendar.get(Calendar.YEAR))+String.valueOf(calendar.get(Calendar.MONTH)+1)+dateDay);
 			} else if (bookingDescriptionUsedToBook.contains("yyyymm")){
 				calendar.add(Calendar.MONTH, AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook);
-				return bookingDescriptionUsedToBook.replace("yyyymm",String.valueOf(calendar.get(Calendar.YEAR))+String.valueOf(calendar.get(Calendar.MONTH)+1));
+				dateMonth="0"+String.valueOf(calendar.get(Calendar.MONTH)+1);
+				dateMonth=dateMonth.substring(dateMonth.length()-2, dateMonth.length());
+				return bookingDescriptionUsedToBook.replace("yyyymm",String.valueOf(calendar.get(Calendar.YEAR))+dateMonth);
 			} else if (bookingDescriptionUsedToBook.contains("yyyy")){
 				calendar.add(Calendar.YEAR, AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook);
 				return bookingDescriptionUsedToBook.replace("yyyy",String.valueOf(calendar.get(Calendar.YEAR)));			

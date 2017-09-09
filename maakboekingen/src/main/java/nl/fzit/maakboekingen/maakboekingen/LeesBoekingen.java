@@ -100,7 +100,7 @@ public class LeesBoekingen {
 				System.out.printf("BeginSaldo:" + beginSaldo + " (%s)\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){
 				indCD=mBoekingsDatumEnBedrag.group(2); //Credet/Debet
-				if (indCD=="C") {
+				if (indCD.equals("C")) {
 					boeking[1]="D";
 				} else {
 					boeking[1]="C";

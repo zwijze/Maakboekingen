@@ -18,8 +18,19 @@
 			<Bookings>
 				<Booking>
 					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
-					<BookingDescription>Overboeking van lopende naar spaar</BookingDescription>
+					<BookingDescription>lopende naar spaar</BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
+					<BookingDescription>spaar naar lopende</BookingDescription>
+					<BookingDescriptionUsedToBook>Overboeking van spaarrekening naar lopende rekening</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
@@ -30,36 +41,219 @@
 				<Booking>
 					<CounterAccountNumber></CounterAccountNumber>
 					<BookingDescription>KV007</BookingDescription>
-					<BookingDescriptionUsedToBook>Lunch Rabobank Utrecht  73,5% van totaalbedrag</BookingDescriptionUsedToBook>
-					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<BookingDescriptionUsedToBook>Lunch Rabobank Utrecht, onkosten 73,5% van totaalbedrag</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Dineren</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>100</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>73.5</PercentageOfTotalAmount>
 						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>26.5</PercentageOfTotalAmount>
+						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>TRANSACTIERAPPORTAGEKOSTEN</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>ABONNEMENTSKOSTEN</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>RENTE, PROVISIE EN KOSTEN</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber>NL83DEUT0265121817</CounterAccountNumber>
+					<BookingDescription></BookingDescription>
+					<BookingDescriptionUsedToBook>Vodafone telefoon rekening yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Telefoon</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>
+				<Booking>
+					<CounterAccountNumber>NL26ABNA0570730147</CounterAccountNumber>
+					<BookingDescription></BookingDescription>
+					<BookingDescriptionUsedToBook>Betaling factuur Headfirst yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Debiteuren</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>MAANDELIJKSE KOSTEN WERELDPAS</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
+				<Booking>
+					<CounterAccountNumber>NL50RABO0157979369</CounterAccountNumber>
+					<BookingDescription></BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Online-diensten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>belastingdienst  CUR</BookingDescription>
+					<BookingDescriptionUsedToBook>Btw betaling</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber>NL36INGB0003445588</CounterAccountNumber>
+					<BookingDescription>TEVEELBET</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
+				<Booking>
+					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
+					<BookingDescription>Naar prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Naar prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>					
+				<Booking>
+					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
+					<BookingDescription>Vanaf prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Vanaf prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Vanaf prive</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>bol.com</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Computer</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>BCC elektro-speciaalzaken</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Computer</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>		
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>stichTing mollie payments</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Computer</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>				
 			</Bookings>
 		</Account>
 		<Account AccountNumber="NL92SNSB0908995105">
-			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Spaarrekening</BookingAccountForAccountNumber>
 			<Bookings>
 				<Booking>
-					<CounterAccountNumber>NL17RBOS0615568319</CounterAccountNumber>
-					<BookingDescription>NL17RBOS0615568319</BookingDescription>
-					<BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
-					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>CREDITRENTE</BookingDescription>
+					<BookingDescriptionUsedToBook>Credit rente spaarrekening</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
 						<CounterBookingLine>
-							<BookingAccount>Onkosten:Dineren</BookingAccount>
-							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>100</PercentageOfTotalAmount>
-						</CounterBookingLine>
-						<CounterBookingLine>
-							<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
-							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>30</PercentageOfTotalAmount>
+							<BookingAccount>Inkomen:Rente</BookingAccount>
+							<DebitCredit>C</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>
