@@ -2,11 +2,6 @@
 <xsd:element name="config">
 	<xsd:complexType>
 		<xsd:sequence>
-			<xsd:element name="DatabaseBookingProgram" type="DatabaseType">
-			  <xsd:annotation>
-			    <xsd:documentation>Database booking program.</xsd:documentation>
-			  </xsd:annotation>
-		    </xsd:element>			
 			<xsd:element name="JarFilePluginBookingProgram" type="xsd:string"/>
 			<xsd:element name="ClassNamePluginBookingProgram" type="xsd:string">
 			  <xsd:annotation>
@@ -39,7 +34,9 @@
 	  <xsd:element type="xsd:string" name="Dbms"/>
 	  <xsd:element minOccurs="0" type="xsd:string" name="ServerName"/>
 	  <xsd:element  minOccurs="0" type="xsd:string" name="PortNumber"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Protocol"/>
 	  <xsd:element type="xsd:string" name="DbName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Domain"/>
 	  <xsd:element minOccurs="0" type="xsd:string" name="User"/>
 	  <xsd:element minOccurs="0" type="xsd:string" name="Password"/>	  
     </xsd:sequence>
@@ -51,22 +48,31 @@
   </xsd:complexType>
   <xsd:complexType name="AccountType">
     <xsd:sequence>
-	  <xsd:element minOccurs="1" type="xsd:string" name="BookingAccountForAccountNumber"/>	
-	  <xsd:element minOccurs="0" type="BookingType" name="Booking"/>
+	  <xsd:element type="xsd:string" name="BookingAccountForAccountNumber"/>	
+	  <xsd:element type="BookingsType" name="Bookings"/>
     </xsd:sequence>
     <xsd:attribute name="AccountNumber" type="xsd:string" use="required"/>	
+  </xsd:complexType>
+  <xsd:complexType name="BookingsType">
+    <xsd:sequence>
+	  <xsd:element  minOccurs="1" maxOccurs="unbounded" type="BookingType" name="Booking"/>
+    </xsd:sequence>
   </xsd:complexType>
   <xsd:complexType name="BookingType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="CounterAccountNumber"/>
-	  <xsd:element type="DebitCreditType" name="DebitCredit"/>	  
-	  <xsd:element  minOccurs="0" type="xsd:string" name="BookingDescription"/>
+	  <xsd:element  type="xsd:string" name="BookingDescription"/>
 	  <xsd:element type="xsd:string" name="BookingDescriptionUsedToBook"/>	  
-	  <xsd:element minOccurs="0" type="BooleanType" name="AddDateToBookingDescriptionUsedToBook"/>
-	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="BookingLineType" name="BookingLines"/>
+	  <xsd:element minOccurs="0"  maxOccurs="1" type="xsd:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook"/>
+	  <xsd:element type="CounterBookingLinesType" name="CounterBookingLines"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:complexType name="BookingLineType">
+  <xsd:complexType name="CounterBookingLinesType">
+    <xsd:sequence>
+	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="CounterBookingLineType" name="CounterBookingLine"/>
+    </xsd:sequence>
+  </xsd:complexType>	
+  <xsd:complexType name="CounterBookingLineType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="BookingAccount"/>
 	  <xsd:element type="DebitCreditType" name="DebitCredit"/>	  
@@ -89,5 +95,5 @@
     <xsd:restriction base="xsd:decimal">
       <xsd:pattern value="-?\d{1,11}\.\d{2}"/>
     </xsd:restriction>
-  </xsd:simpleType>  
+  </xsd:simpleType>      
 </xsd:schema>

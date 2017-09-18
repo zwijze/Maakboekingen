@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://fzit.nl/maakboekingen/config">
-  <JarFilePluginBookingProgram>C:\mijn documenten\Maakboekingen\run_programma\lib\MaakBoeking-0.0.1-SNAPSHOT.jar</JarFilePluginBookingProgram>
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
-  <JarFilePluginSql>C:\mijn documenten\Maakboekingen\run_programma\lib\sql-0.0.1-SNAPSHOT.jar</JarFilePluginSql>  
-  <ClassNamePluginSql>nl.fzit.sql.Sql</ClassNamePluginSql>
   <TransactionsFiles>
 	<DirectoryTransactionFiles>C:\mijn documenten\Maakboekingen\transacties</DirectoryTransactionFiles>
 	<TransactionFilesToReadRegex>.*940</TransactionFilesToReadRegex>

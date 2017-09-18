@@ -92,12 +92,12 @@ public class LeesBoekingen {
 			if (bAccountNumber==true && bAccountnumberGevonden==false){
 				accountNumber=mAccountNumber.group(1);
 				bAccountnumberGevonden=true;
-				System.out.printf("ACCOUNTNUMBER: %s\n",boeking[0]);
+				System.out.printf("ACCOUNTNUMBER: %s\n",accountNumber);
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
 				currency=mBeginSaldo.group(3);
 				beginSaldo=Double.valueOf(mBeginSaldo.group(4).replace(',', '.'));
 				bBeginSaldoGevonden=true;
-				System.out.printf("BeginSaldo:" + beginSaldo + " (%s)\n",mBeginSaldo.group(1));
+				System.out.printf("BeginSaldo account " + accountNumber + ": " + beginSaldo + " (%s)\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){
 				indCD=mBoekingsDatumEnBedrag.group(2); //Credet/Debet
 				if (indCD.equals("C")) {
@@ -127,7 +127,7 @@ public class LeesBoekingen {
 		}
 		
 		
-		System.out.printf("EindSaldo:" + eindSaldo + " (%s)\n",eindSaldoCD);
+		System.out.printf("EindSaldo " + accountNumber + ": "  + eindSaldo + " (%s)\n\n",eindSaldoCD);
 
 	
 	}

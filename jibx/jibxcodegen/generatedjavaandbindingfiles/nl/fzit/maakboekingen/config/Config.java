@@ -7,10 +7,7 @@ package nl.fzit.maakboekingen.config;
  * &lt;xs:element xmlns:ns="http://fzit.nl/maakboekingen/config" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="config">
  *   &lt;xs:complexType>
  *     &lt;xs:sequence>
- *       &lt;xs:element type="xs:string" name="JarFilePluginBookingProgram"/>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
- *       &lt;xs:element type="xs:string" name="JarFilePluginSql"/>
- *       &lt;xs:element type="xs:string" name="ClassNamePluginSql"/>
  *       &lt;xs:element type="ns:TransactionsFilesType" name="TransactionsFiles"/>
  *       &lt;xs:element type="ns:AccountsType" name="Accounts"/>
  *     &lt;/xs:sequence>
@@ -20,31 +17,9 @@ package nl.fzit.maakboekingen.config;
  */
 public class Config
 {
-    private String jarFilePluginBookingProgram;
     private String classNamePluginBookingProgram;
-    private String jarFilePluginSql;
-    private String classNamePluginSql;
     private TransactionsFilesType transactionsFiles;
     private AccountsType accounts;
-
-    /** 
-     * Get the 'JarFilePluginBookingProgram' element value.
-     * 
-     * @return value
-     */
-    public String getJarFilePluginBookingProgram() {
-        return jarFilePluginBookingProgram;
-    }
-
-    /** 
-     * Set the 'JarFilePluginBookingProgram' element value.
-     * 
-     * @param jarFilePluginBookingProgram
-     */
-    public void setJarFilePluginBookingProgram(
-            String jarFilePluginBookingProgram) {
-        this.jarFilePluginBookingProgram = jarFilePluginBookingProgram;
-    }
 
     /** 
      * Get the 'ClassNamePluginBookingProgram' element value. Classname plugin booking program that creates a booking.
@@ -63,42 +38,6 @@ public class Config
     public void setClassNamePluginBookingProgram(
             String classNamePluginBookingProgram) {
         this.classNamePluginBookingProgram = classNamePluginBookingProgram;
-    }
-
-    /** 
-     * Get the 'JarFilePluginSql' element value.
-     * 
-     * @return value
-     */
-    public String getJarFilePluginSql() {
-        return jarFilePluginSql;
-    }
-
-    /** 
-     * Set the 'JarFilePluginSql' element value.
-     * 
-     * @param jarFilePluginSql
-     */
-    public void setJarFilePluginSql(String jarFilePluginSql) {
-        this.jarFilePluginSql = jarFilePluginSql;
-    }
-
-    /** 
-     * Get the 'ClassNamePluginSql' element value. Classname Sql connection.
-     * 
-     * @return value
-     */
-    public String getClassNamePluginSql() {
-        return classNamePluginSql;
-    }
-
-    /** 
-     * Set the 'ClassNamePluginSql' element value. Classname Sql connection.
-     * 
-     * @param classNamePluginSql
-     */
-    public void setClassNamePluginSql(String classNamePluginSql) {
-        this.classNamePluginSql = classNamePluginSql;
     }
 
     /** 

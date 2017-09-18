@@ -2,18 +2,11 @@
 <xsd:element name="config">
 	<xsd:complexType>
 		<xsd:sequence>
-			<xsd:element name="JarFilePluginBookingProgram" type="xsd:string"/>
 			<xsd:element name="ClassNamePluginBookingProgram" type="xsd:string">
 			  <xsd:annotation>
 			    <xsd:documentation>Classname plugin booking program that creates a booking.</xsd:documentation>
 			  </xsd:annotation>			
-		    </xsd:element>						
-			<xsd:element name="JarFilePluginSql" type="xsd:string"/>			
-			<xsd:element name="ClassNamePluginSql" type="xsd:string">			
-			  <xsd:annotation>
-			    <xsd:documentation>Classname Sql connection.</xsd:documentation>
-			  </xsd:annotation>			
-		    </xsd:element>						
+		    </xsd:element>										
 			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
 			<xsd:element type="AccountsType" name="Accounts"/>		
 		</xsd:sequence>		
