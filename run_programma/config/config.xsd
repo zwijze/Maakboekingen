@@ -1,0 +1,92 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://fzit.nl/maakboekingen/config">
+<xsd:element name="config">
+	<xsd:complexType>
+		<xsd:sequence>
+			<xsd:element name="ClassNamePluginBookingProgram" type="xsd:string">
+			  <xsd:annotation>
+			    <xsd:documentation>Classname plugin booking program that creates a booking.</xsd:documentation>
+			  </xsd:annotation>			
+		    </xsd:element>										
+			<xsd:element type="TransactionsFilesType" name="TransactionsFiles"/>
+			<xsd:element type="AccountsType" name="Accounts"/>		
+		</xsd:sequence>		
+	</xsd:complexType>					
+</xsd:element>
+  <xsd:complexType name="TransactionsFilesType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="DirectoryTransactionFiles"/>
+	  <xsd:element type="xsd:string" name="TransactionFilesToReadRegex"/>
+	  <xsd:element type="xsd:string" name="BeginBalanceRegex"/>
+	  <xsd:element type="xsd:string" name="BookingDateAndAmountRegex"/>	  
+	  <xsd:element type="xsd:string" name="EndBalanceRegex"/>	  
+	  <xsd:element type="xsd:string" name="AccountNumberRegex"/>	  	  
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DatabaseType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="Dbms"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="ServerName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="PortNumber"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Protocol"/>
+	  <xsd:element type="xsd:string" name="DbName"/>
+	  <xsd:element  minOccurs="0" type="xsd:string" name="Domain"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="User"/>
+	  <xsd:element minOccurs="0" type="xsd:string" name="Password"/>	  
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:complexType name="AccountsType">
+		<xsd:sequence>
+		  <xsd:element minOccurs="0"  maxOccurs="unbounded" type="AccountType" name="Account"/>
+		</xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AccountType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="BookingAccountForAccountNumber"/>	
+	  <xsd:element type="BookingsType" name="Bookings"/>
+    </xsd:sequence>
+    <xsd:attribute name="AccountNumber" type="xsd:string" use="required"/>	
+  </xsd:complexType>
+  <xsd:complexType name="BookingsType">
+    <xsd:sequence>
+	  <xsd:element  minOccurs="1" maxOccurs="unbounded" type="BookingType" name="Booking"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BookingType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="CounterAccountNumber"/>
+	  <xsd:element  type="xsd:string" name="BookingDescription"/>
+	  <xsd:element type="xsd:string" name="BookingDescriptionUsedToBook"/>	  
+	  <xsd:element minOccurs="0"  maxOccurs="1" type="xsd:integer" name="AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook"/>
+	  <xsd:element type="CounterBookingLinesType" name="CounterBookingLines"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CounterBookingLinesType">
+    <xsd:sequence>
+	  <xsd:element minOccurs="1" maxOccurs="unbounded" type="CounterBookingLineType" name="CounterBookingLine"/>
+    </xsd:sequence>
+  </xsd:complexType>	
+  <xsd:complexType name="CounterBookingLineType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="BookingAccount"/>
+	  <xsd:element type="DebitCreditType" name="DebitCredit"/>	  
+	  <xsd:element minOccurs="0" type="N11_2Type" name="PercentageOfTotalAmount"/>
+    </xsd:sequence>
+  </xsd:complexType>  
+  <xsd:simpleType name="BooleanType">
+	<xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y"/>
+      <xsd:enumeration value="N"/>
+    </xsd:restriction>
+  </xsd:simpleType>  
+  <xsd:simpleType name="DebitCreditType">
+	<xsd:restriction base="xsd:string">
+      <xsd:enumeration value="D"/>
+      <xsd:enumeration value="C"/>
+    </xsd:restriction>
+  </xsd:simpleType>    
+  <xsd:simpleType name="N11_2Type">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:pattern value="-?\d{1,11}\.\d{2}"/>
+    </xsd:restriction>
+  </xsd:simpleType>      
+</xsd:schema>
