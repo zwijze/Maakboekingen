@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Properties;
 import nl.fzit.sql.api.*;
 
-public class Sql implements ISql {
+public class Sql {
 
 	private Connection conn=null;
 	

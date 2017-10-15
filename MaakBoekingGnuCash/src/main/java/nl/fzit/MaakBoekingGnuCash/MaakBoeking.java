@@ -15,7 +15,7 @@ import org.jibx.runtime.IUnmarshallingContext;
 import org.jibx.runtime.JiBXException;
 
 import nl.fzit.maakboekingen.makebooking.api.*;
-import nl.fzit.sql.*;
+import nl.fzit.sql.Sql;
 import nl.fzit.maakboekinggnucash.configgnucash.*;
 
 public class MaakBoeking implements IMakebooking {
