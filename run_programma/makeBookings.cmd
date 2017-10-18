@@ -18,5 +18,5 @@ REM SET pluginsJar="C:\mijn documenten\Maakboekingen\run_programma\plugins\MaakB
 SET pluginsJar=plugins\MaakBoekingGnuCash-0.0.1-SNAPSHOT.jar
 SET maakBoekingGnuCashJar=plugins\MaakBoekingGnuCash-0.0.1-SNAPSHOT.jar
 SET maakboekingenJar=jar\maakboekingen-0.0.1-SNAPSHOT.jar
-java -cp %maakboekingenJar%;%pluginsJar%;%configJar%;%configGnuCashJar%;%filesJar%;%sqlJar%;%sqlSqliteJdbcJar%;%makebookingApiJar%;%jibxJar%;%jibxextraJar%;%jibxruntimeJar% nl.fzit.maakboekingen.maakboekingen.Maakboekingen "%configFile%">output.txt
+java -classpath %maakboekingenJar%;%pluginsJar%;%configJar%;%configGnuCashJar%;%filesJar%;%sqlJar%;%sqlSqliteJdbcJar%;%makebookingApiJar%;%jibxJar%;%jibxextraJar%;%jibxruntimeJar% nl.fzit.maakboekingen.maakboekingen.Maakboekingen "%configFile%">output.txt
 pause(10000)

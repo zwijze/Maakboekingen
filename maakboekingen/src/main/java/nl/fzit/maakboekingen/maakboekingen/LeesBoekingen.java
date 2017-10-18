@@ -55,6 +55,7 @@ public class LeesBoekingen {
 		
 		String[] boeking=new String[7];
 		Boolean lineContains61;
+		Boolean lineContains62F;
 	
 		System.out.printf("Inlezenbestand:" + file + "\n");
 		
@@ -65,9 +66,10 @@ public class LeesBoekingen {
 					br.mark(80);//Mark in order to be able to reset once a :86 is followed by :61 and that last line is used for the next booking so reset to previous marked position in this situation
 					line=br.readLine();//read other lines of the desription
 					lineContains61=line.contains(":61:")?true:false; 
-					if (line.contains(":62F:") || lineContains61 || line==null) {
+					lineContains62F=line.contains(":62F:")?true:false; 
+					if (lineContains62F || lineContains61 || line==null) {
 						line=omschrijving;
-						if (lineContains61){
+						if (lineContains61 || lineContains62F){
 							br.reset();
 						}
 						break;

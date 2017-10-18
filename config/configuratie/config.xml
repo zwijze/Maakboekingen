@@ -12,7 +12,7 @@
   <Accounts>
 		<Account AccountNumber="NL72SNSB0898519659">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
-			<Bookings>
+			<Bookings>			
 				<Booking>
 					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
 					<BookingDescription>lopende naar spaar</BookingDescription>
@@ -31,13 +31,13 @@
 					<CounterBookingLines>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Spaarrekening</BookingAccount>
-							<DebitCredit>D</DebitCredit>
+							<DebitCredit>C</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>
 				<Booking>
 					<CounterAccountNumber></CounterAccountNumber>
-					<BookingDescription>KV007</BookingDescription>
+					<BookingDescription>RABOBANK 3598</BookingDescription>
 					<BookingDescriptionUsedToBook>Lunch Rabobank Utrecht, onkosten 73,5% van totaalbedrag</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
 						<CounterBookingLine>
@@ -111,7 +111,7 @@
 					<CounterBookingLines>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Debiteuren</BookingAccount>
-							<DebitCredit>D</DebitCredit>
+							<DebitCredit>C</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>
@@ -160,8 +160,8 @@
 					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
 					<CounterBookingLines>
 						<CounterBookingLine>
-							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
-							<DebitCredit>D</DebitCredit>
+							<BookingAccount>Passiva:Vanaf prive</BookingAccount>
+							<DebitCredit>C</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>				
@@ -175,14 +175,25 @@
 							<DebitCredit>D</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
-				</Booking>					
+				</Booking>	
+				<Booking>
+					<CounterAccountNumber>NL82SNSB0957846037</CounterAccountNumber>
+					<BookingDescription>Naar prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Overboeking naar prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
 				<Booking>
 					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
 					<BookingDescription>Vanaf prive</BookingDescription>
 					<BookingDescriptionUsedToBook>Vanaf prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
 						<CounterBookingLine>
-							<BookingAccount>Activa:Huidige Activa:Vanaf prive</BookingAccount>
+							<BookingAccount>Passiva:Vanaf prive</BookingAccount>
 							<DebitCredit>C</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
