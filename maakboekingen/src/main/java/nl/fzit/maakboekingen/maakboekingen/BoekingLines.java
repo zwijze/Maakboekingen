@@ -50,9 +50,9 @@ public class BoekingLines {
 			i++;
 			BookingType booking;
 			//Find own accountnumber in configuration
-			AccountType account=accounts.stream().filter(a->boeking[0].equals(a.getAccountNumber())).findFirst().get();
+			AccountType account=accounts.stream().filter(a->boeking[0].equals(a.getAccountNumber())).findFirst().orElse(null);
 			if (account==null){
-				System.out.printf("Booking doesn't match criteria in config based on AccountNumber: %s. This booking won't be booked:%s|%s|%s|%s|%s|%s\n",account.getAccountNumber(),boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
+				System.out.printf("Booking doesn't match criteria in config based on AccountNumber. This booking won't be booked:%s|%s|%s|%s|%s|%s\r\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
 				continue;	
 			}
 			
@@ -66,7 +66,7 @@ public class BoekingLines {
 //				booking=account.getBookings().getBookingList().stream().filter(a->(boeking[4].equals(a.getCounterAccountNumber()) || a.getCounterAccountNumber().equals("")) && (boeking[5].contains(a.getBookingDescription()) || a.getBookingDescription().equals("")) && !(a.getCounterAccountNumber().equals("") && a.getBookingDescription().equals("") )).findFirst().get();
 				booking=account.getBookings().getBookingList().stream().filter(a->(boeking[4].equalsIgnoreCase(a.getCounterAccountNumber()) || a.getCounterAccountNumber().equals("")) && (boeking[5].toLowerCase().contains(a.getBookingDescription().toLowerCase()) || a.getBookingDescription().equals("")) && !(a.getCounterAccountNumber().equals("") && a.getBookingDescription().equals("") )).findFirst().get();
 			} catch (NoSuchElementException e){
-				System.out.printf("Booking doesn't match criteria in config based on CounterAccountNumber/BookingDescription: This booking won't be booked:%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
+				System.out.printf("Booking doesn't match criteria in config based on CounterAccountNumber/BookingDescription: This booking won't be booked:%s|%s|%s|%s|%s|%s\r\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5]);
 				continue;
 			}
 			bookingDescriptionUsedToBook=booking.getBookingDescriptionUsedToBook();

@@ -57,7 +57,7 @@ public class LeesBoekingen {
 		Boolean lineContains61;
 		Boolean lineContains62F;
 	
-		System.out.printf("Inlezenbestand:" + file + "\n");
+		System.out.printf("Inlezenbestand3:" + file + "\r\n");
 		
 		while ((line=br.readLine())!=null){
 			if (line.contains(":86:")){//Description field can contain multiple lines
@@ -94,12 +94,12 @@ public class LeesBoekingen {
 			if (bAccountNumber==true && bAccountnumberGevonden==false){
 				accountNumber=mAccountNumber.group(1);
 				bAccountnumberGevonden=true;
-				System.out.printf("ACCOUNTNUMBER: %s\n",accountNumber);
+				System.out.printf("ACCOUNTNUMBER: %s\r\n",accountNumber);
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
 				currency=mBeginSaldo.group(3);
 				beginSaldo=Double.valueOf(mBeginSaldo.group(4).replace(',', '.'));
 				bBeginSaldoGevonden=true;
-				System.out.printf("BeginSaldo account " + accountNumber + ": " + beginSaldo + " (%s)\n",mBeginSaldo.group(1));
+				System.out.printf("BeginSaldo account " + accountNumber + ": " + beginSaldo + " (%s)\r\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){
 				indCD=mBoekingsDatumEnBedrag.group(2); //Credet/Debet
 				if (indCD.equals("C")) {
@@ -115,11 +115,11 @@ public class LeesBoekingen {
 				boeking[0]=accountNumber;
 				boeking[5]=mBoekingsOmschrijving.group(1).trim();//Omschrijving
 				boekingen.add(boeking);
-				System.out.printf("%s|%s|%s|%s|%s|%s|%s\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5],boeking[6]);
+				System.out.printf("%s|%s|%s|%s|%s|%s|%s\r\n",boeking[0],boeking[4],boeking[1],boeking[2],boeking[3],boeking[5],boeking[6]);
 				boeking=new String[7];	
 				//			} else if (bBoekingsOmschrijving2==true){//so bBoekingsOmschrijving!=true so this one will not be booked 
 //				boeking[4]=mBoekingsOmschrijving2.group(1);//Omschrijving
-//				System.out.printf("Not be booked: %s|%s|%s|%s|%s\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				
+//				System.out.printf("Not be booked: %s|%s|%s|%s|%s\r\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				
 			} else if (bEindSaldo==true){
 				eindSaldo=Double.valueOf(mEindSaldo.group(2).replace(',', '.'));
 				eindSaldoCD=mEindSaldo.group(1);
@@ -129,7 +129,7 @@ public class LeesBoekingen {
 		}
 		
 		
-		System.out.printf("EindSaldo " + accountNumber + ": "  + eindSaldo + " (%s)\n\n",eindSaldoCD);
+		System.out.printf("EindSaldo " + accountNumber + ": "  + eindSaldo + " (%s)\r\n\r\n",eindSaldoCD);
 
 	
 	}

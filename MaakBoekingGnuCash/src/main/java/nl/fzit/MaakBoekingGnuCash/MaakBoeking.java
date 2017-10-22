@@ -92,13 +92,13 @@ public class MaakBoeking implements IMakebooking {
 			
 			accountGuid=getAccountGuid(bookingAccount);
 			if (accountGuid.equals("")){
-				System.out.printf("Unknown account %s, no booking made on this account for bookingline: %s,%s,%s\n",bookingAccount,postDate,amount,descriptionBankStatement);
+				System.out.printf("Unknown account %s, no booking made on this account for bookingline: %s,%s,%s\r\n",bookingAccount,postDate,amount,descriptionBankStatement);
 				continue;	
 			}
 			
 			currencyGuid=getCurrencyGuid(currency);
 			if (currencyGuid.equals("")){
-				System.out.printf("Unknown account %s, no booking made on this account for bookingline: %s,%s,%s\n",bookingAccount,postDate,amount,descriptionBankStatement);
+				System.out.printf("Unknown account %s, no booking made on this account for bookingline: %s,%s,%s\r\n",bookingAccount,postDate,amount,descriptionBankStatement);
 				continue;	
 			}
 			
@@ -114,7 +114,7 @@ public class MaakBoeking implements IMakebooking {
 			
 			bookingNbrPrevious=bookingNbr;
 		}
-		System.out.printf("BookingBookings made in GnuCash!\n");
+		System.out.printf("BookingBookings made in GnuCash!\r\n");
 
 	}
 	

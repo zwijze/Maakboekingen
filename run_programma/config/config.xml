@@ -144,17 +144,6 @@
 					</CounterBookingLines>	
 				</Booking>
 				<Booking>
-					<CounterAccountNumber></CounterAccountNumber>
-					<BookingDescription>belastingdienst  CUR</BookingDescription>
-					<BookingDescriptionUsedToBook>Btw betaling</BookingDescriptionUsedToBook>
-					<CounterBookingLines>
-						<CounterBookingLine>
-							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
-							<DebitCredit>D</DebitCredit>
-						</CounterBookingLine>
-					</CounterBookingLines>
-				</Booking>
-				<Booking>
 					<CounterAccountNumber>NL36INGB0003445588</CounterAccountNumber>
 					<BookingDescription>TEVEELBET</BookingDescription>
 					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
@@ -265,6 +254,7 @@
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>
+		
 			</Bookings>				
 		</Account>		
   </Accounts>
