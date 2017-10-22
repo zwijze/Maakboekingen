@@ -101,15 +101,15 @@ public class LeesBoekingen {
 				bBeginSaldoGevonden=true;
 				System.out.printf("BeginSaldo account " + accountNumber + ": " + beginSaldo + " (%s)\r\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){
-				indCD=mBoekingsDatumEnBedrag.group(2); //Credet/Debet
+				indCD=mBoekingsDatumEnBedrag.group(3); //Credet/Debet
 				if (indCD.equals("C")) {
 					boeking[1]="D";
 				} else {
 					boeking[1]="C";
 				}
-				boeking[2]="20"+mBoekingsDatumEnBedrag.group(1);//Datum
-				boeking[3]=mBoekingsDatumEnBedrag.group(3).replace(',', '.'); //Bedrag
-				boeking[4]=mBoekingsDatumEnBedrag.group(4); //Tegenrekening
+				boeking[2]="20"+mBoekingsDatumEnBedrag.group(1)+mBoekingsDatumEnBedrag.group(2);//Datum
+				boeking[3]=mBoekingsDatumEnBedrag.group(4).replace(',', '.'); //Bedrag
+				boeking[4]=mBoekingsDatumEnBedrag.group(5); //Tegenrekening
 				boeking[6]=currency;
 			} else if (bBoekingsOmschrijving==true){
 				boeking[0]=accountNumber;
