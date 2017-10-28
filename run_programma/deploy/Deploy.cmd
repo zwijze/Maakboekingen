@@ -1,9 +1,13 @@
 @echo off
+SET anonimize=N
 ::path van dit script
 cd /d %~dp0
 del  ..\output.txt
 del  ..\jar
-SET configFileWorkspace=C:\mijn documenten\Maakboekingen\config\configuratie\config.xml
+if "%anonimize%"=="Y" (SET configFileWorkspace=config_anonimized\config.xml)
+
+if "%anonimize%"=="N" (SET configFileWorkspace=C:\mijn documenten\Maakboekingen\config\configuratie\config.xml)
+
 SET configXsdWorkspace=C:\mijn documenten\Maakboekingen\jibx\jibxcodegen\xsd\config.xsd
 xcopy /y "%configFileWorkspace%" ..\config\config.xml
 xcopy /y "%configXsdWorkspace%" ..\config\config.xsd
@@ -25,5 +29,5 @@ xcopy /y "%mavenrepo%\org\jibx\jibx-extras\1.3.0\jibx-extras-1.3.0.jar" ..\jar
 xcopy /y "%mavenrepo%\org\jibx\jibx-run\1.3.0\jibx-run-1.3.0.jar" ..\jar
 xcopy /y "%mavenrepo%\nl\fzit\maakboekingen\maakboekingen\0.0.1-SNAPSHOT\maakboekingen-0.0.1-SNAPSHOT.jar" ..\jar
 del makebookings.zip
-jar -cMf makeBookings.zip ..\makeBookings.cmd ..\jar ..\config ..\plugins 
+jar -cMf makeBookings.zip ..\makeBookings.cmd ..\jar ..\config ..\plugins ..\help
 pause 100000
