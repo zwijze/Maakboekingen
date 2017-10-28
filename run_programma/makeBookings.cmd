@@ -11,12 +11,8 @@ SET makebookingApiJar=jar\makebooking.api-0.0.1-SNAPSHOT.jar
 SET jibxJar=jar\maven-jibx-plugin-1.3.1.jar
 SET jibxextraJar=jar\jibx-extras-1.3.0.jar
 SET jibxruntimeJar=jar\jibx-run-1.3.0.jar
-REM SET pluginsJar="C:\mijn documenten\Maakboekingen\run_programma\plugins\nl\fzit\MaakBoekingGnuCash"
-REM SET pluginsJar=plugins
-REM SET pluginsJar="C:\mijn documenten\Maakboekingen\run_programma\plugins"
-REM SET pluginsJar="C:\mijn documenten\Maakboekingen\run_programma\plugins\MaakBoekingGnuCash-0.0.1-SNAPSHOT.jar"
-SET pluginsJar=plugins\MaakBoekingGnuCash-0.0.1-SNAPSHOT.jar
-SET maakBoekingGnuCashJar=plugins\MaakBoekingGnuCash-0.0.1-SNAPSHOT.jar
+SET pluginsJar=plugins\*
+REM SET maakBoekingGnuCashJar=plugins\MaakBoekingGnuCash-0.0.1-SNAPSHOT.jar
 SET maakboekingenJar=jar\maakboekingen-0.0.1-SNAPSHOT.jar
-java -classpath %maakboekingenJar%;%pluginsJar%;%configJar%;%configGnuCashJar%;%filesJar%;%sqlJar%;%sqlSqliteJdbcJar%;%makebookingApiJar%;%jibxJar%;%jibxextraJar%;%jibxruntimeJar% nl.fzit.maakboekingen.maakboekingen.Maakboekingen "%configFile%">output.txt
+java -classpath %pluginsJar%;%maakboekingenJar%;%configJar%;%configGnuCashJar%;%filesJar%;%sqlJar%;%sqlSqliteJdbcJar%;%makebookingApiJar%;%jibxJar%;%jibxextraJar%;%jibxruntimeJar% nl.fzit.maakboekingen.maakboekingen.Maakboekingen "%configFile%">output.txt
 pause(10000)
