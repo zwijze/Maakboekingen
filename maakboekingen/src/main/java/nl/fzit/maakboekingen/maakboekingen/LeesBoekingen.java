@@ -49,6 +49,7 @@ public class LeesBoekingen {
 		String eindSaldoCD = null;
 		String omschrijving;
 		String currency="";
+		String digits;
 		
 		Boolean bBeginSaldoGevonden=false;
 		Boolean bAccountnumberGevonden=false;
@@ -57,7 +58,7 @@ public class LeesBoekingen {
 		Boolean lineContains61;
 		Boolean lineContains62F;
 	
-		System.out.printf("Inlezenbestand3:" + file + "\r\n");
+		System.out.printf("Inlezenbestand:" + file + "\r\n");
 		
 		while ((line=br.readLine())!=null){
 			if (line.contains(":86:")){//Description field can contain multiple lines
@@ -97,7 +98,12 @@ public class LeesBoekingen {
 				System.out.printf("ACCOUNTNUMBER: %s\r\n",accountNumber);
 			} else if (bBeginSaldo==true && bBeginSaldoGevonden==false){
 				currency=mBeginSaldo.group(3);
-				beginSaldo=Double.valueOf(mBeginSaldo.group(4).replace(',', '.'));
+				digits=mBeginSaldo.group(5);
+				if (digits.equals("")){
+					beginSaldo=Double.valueOf(mBeginSaldo.group(4).replace(',', '.')+"00");
+				}else{
+					beginSaldo=Double.valueOf(mBeginSaldo.group(4).replace(',', '.')+digits);					
+				}
 				bBeginSaldoGevonden=true;
 				System.out.printf("BeginSaldo account " + accountNumber + ": " + beginSaldo + " (%s)\r\n",mBeginSaldo.group(1));
 			} else if (bBoekingsDatumEnBedrag==true){
@@ -108,8 +114,14 @@ public class LeesBoekingen {
 					boeking[1]="C";
 				}
 				boeking[2]="20"+mBoekingsDatumEnBedrag.group(1)+mBoekingsDatumEnBedrag.group(2);//Datum
-				boeking[3]=mBoekingsDatumEnBedrag.group(4).replace(',', '.'); //Bedrag
-				boeking[4]=mBoekingsDatumEnBedrag.group(5); //Tegenrekening
+
+				digits=mBoekingsDatumEnBedrag.group(5);
+				if (digits.equals("")){				
+					boeking[3]=mBoekingsDatumEnBedrag.group(4).replace(',', '.')+"00"; //Bedrag
+				} else {
+					boeking[3]=mBoekingsDatumEnBedrag.group(4).replace(',', '.')+digits; //Bedrag					
+				}
+				boeking[4]=mBoekingsDatumEnBedrag.group(6); //Tegenrekening
 				boeking[6]=currency;
 			} else if (bBoekingsOmschrijving==true){
 				boeking[0]=accountNumber;
@@ -121,7 +133,12 @@ public class LeesBoekingen {
 //				boeking[4]=mBoekingsOmschrijving2.group(1);//Omschrijving
 //				System.out.printf("Not be booked: %s|%s|%s|%s|%s\r\n",boeking[0],boeking[1],boeking[2],boeking[3],boeking[4]);				
 			} else if (bEindSaldo==true){
-				eindSaldo=Double.valueOf(mEindSaldo.group(2).replace(',', '.'));
+				digits=mEindSaldo.group(3);
+				if (digits.equals("")){
+					eindSaldo=Double.valueOf(mEindSaldo.group(2).replace(',', '.')+"00");
+				}else{
+					eindSaldo=Double.valueOf(mEindSaldo.group(2).replace(',', '.')+digits);
+				}
 				eindSaldoCD=mEindSaldo.group(1);
 			} else{
 				continue;
