@@ -11,7 +11,7 @@
   </TransactionsFiles>
   <Accounts>
   		<Account AccountNumber="NL50BUNQ2291623486">
-			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening BUNQ</BookingAccountForAccountNumber>
 			<Bookings>			
 				<Booking>
 					<CounterAccountNumber></CounterAccountNumber>
@@ -263,7 +263,7 @@
 			</Bookings>			
 		</Account>
 		<Account AccountNumber="NL72SNSB0898519659">
-			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening</BookingAccountForAccountNumber>
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening SNS</BookingAccountForAccountNumber>
 			<Bookings>			
 				<Booking>
 					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
