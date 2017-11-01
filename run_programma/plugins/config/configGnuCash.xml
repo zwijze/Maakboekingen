@@ -5,10 +5,14 @@
 	<ServerName></ServerName>
 	<PortNumber></PortNumber>
 	<Protocol></Protocol><!--NamedPipes or TCP or empty-->
-	<DbName>C:\mijn documenten\Maakboekingen\GnuCashSqlite\fz-it jaar-2017.gnucash</DbName>
+	<DbName>gnuCash\Company_xyz_year_xyz.gnucash</DbName>
 	<!--<DbName>../GnuCashSqlite/test.sqlite</DbName>-->
 	<Domain></Domain>
 	<User></User>
 	<Password></Password>	
   </DatabaseBookingProgram>
  </configGnuCash>
+
+
+
+

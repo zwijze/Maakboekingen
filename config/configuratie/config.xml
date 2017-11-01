@@ -8,7 +8,6 @@
 	<BookingDateAndAmountRegex>:61:(\d{2})\d*?(\d{4})([CD])(\d+,)(\d*?)[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
 	<EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,)(\d*)</EndBalanceRegex>
 	<AccountNumberRegex>:25:(.*?)((\s.*?$)|($))</AccountNumberRegex>
-<!--<AccountNumberRegex>:25:(.*?)[6|5].*</AccountNumberRegex>-->
   </TransactionsFiles>
   <Accounts>
   		<Account AccountNumber="NL50BUNQ2291623486">
@@ -37,7 +36,7 @@
 					</CounterBookingLines>
 				</Booking>			
 				<Booking>
-					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
+					<CounterAccountNumber></CounterAccountNumber>
 					<BookingDescription>lopende naar spaar</BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -48,7 +47,7 @@
 					</CounterBookingLines>
 				</Booking>
 				<Booking>
-					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
+					<CounterAccountNumber></CounterAccountNumber>
 					<BookingDescription>spaar naar lopende</BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking van spaarrekening naar lopende rekening</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
