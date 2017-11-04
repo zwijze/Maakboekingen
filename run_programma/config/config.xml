@@ -10,7 +10,7 @@
 	<AccountNumberRegex>:25:(.*?)((\s.*?$)|($))</AccountNumberRegex>
   </TransactionsFiles>
   <Accounts>
-  		<Account AccountNumber="NL50BUNQ2291623486">
+  		<Account AccountNumber="NL50BUNQ7273627486">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening BUNQ</BookingAccountForAccountNumber>
 			<Bookings>			
 				<Booking>
@@ -177,7 +177,7 @@
 					</CounterBookingLines>
 				</Booking>				
 				<Booking>
-					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
+					<CounterAccountNumber>NL85SNSB0267345318</CounterAccountNumber>
 					<BookingDescription>Naar prive</BookingDescription>
 					<BookingDescriptionUsedToBook>Naar prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -188,7 +188,7 @@
 					</CounterBookingLines>
 				</Booking>	
 				<Booking>
-					<CounterAccountNumber>NL82SNSB0957846037</CounterAccountNumber>
+					<CounterAccountNumber>NL82SNSB0263718037</CounterAccountNumber>
 					<BookingDescription></BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking naar prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -199,7 +199,7 @@
 					</CounterBookingLines>
 				</Booking>				
 				<Booking>
-					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
+					<CounterAccountNumber>NL85SNSB0267345318</CounterAccountNumber>
 					<BookingDescription></BookingDescription>
 					<BookingDescriptionUsedToBook>Vanaf prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -262,11 +262,11 @@
 				</Booking>				
 			</Bookings>			
 		</Account>
-		<Account AccountNumber="NL72SNSB0898519659">
+		<Account AccountNumber="NL72SNSB0917253659">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening SNS</BookingAccountForAccountNumber>
 			<Bookings>			
 				<Booking>
-					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
+					<CounterAccountNumber>NL92SNSB0883473105</CounterAccountNumber>
 					<BookingDescription>lopende naar spaar</BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking van lopende rekening naar spaarrekening</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -277,7 +277,7 @@
 					</CounterBookingLines>
 				</Booking>
 				<Booking>
-					<CounterAccountNumber>NL92SNSB0908995105</CounterAccountNumber>
+					<CounterAccountNumber>NL92SNSB0883473105</CounterAccountNumber>
 					<BookingDescription>spaar naar lopende</BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking van spaarrekening naar lopende rekening</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -407,7 +407,7 @@
 					</CounterBookingLines>
 				</Booking>				
 				<Booking>
-					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
+					<CounterAccountNumber>NL85SNSB0267345318</CounterAccountNumber>
 					<BookingDescription>Naar prive</BookingDescription>
 					<BookingDescriptionUsedToBook>Naar prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -418,7 +418,7 @@
 					</CounterBookingLines>
 				</Booking>	
 				<Booking>
-					<CounterAccountNumber>NL82SNSB0957846037</CounterAccountNumber>
+					<CounterAccountNumber>NL82SNSB0263718037</CounterAccountNumber>
 					<BookingDescription></BookingDescription>
 					<BookingDescriptionUsedToBook>Overboeking naar prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -429,7 +429,7 @@
 					</CounterBookingLines>
 				</Booking>				
 				<Booking>
-					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
+					<CounterAccountNumber>NL85SNSB0267345318</CounterAccountNumber>
 					<BookingDescription></BookingDescription>
 					<BookingDescriptionUsedToBook>Vanaf prive</BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -492,7 +492,7 @@
 				</Booking>				
 			</Bookings>
 		</Account>
-		<Account AccountNumber="NL92SNSB0908995105">
+		<Account AccountNumber="NL92SNSB0883473105">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Spaarrekening</BookingAccountForAccountNumber>
 			<Bookings>
 				<Booking>
@@ -511,3 +511,9 @@
 		</Account>		
   </Accounts>
  </config>
+
+
+
+
+
+
