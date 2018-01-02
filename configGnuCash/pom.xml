@@ -23,7 +23,7 @@
         <configuration>
           <schemaBindingDirectory>src/main/mapping</schemaBindingDirectory>
           <includeSchemaBindings>
-            <includeSchemaBindings>binding*.xml</includeSchemaBindings>
+            <includeSchemaBinding>binding*.xml</includeSchemaBinding>
           </includeSchemaBindings>
           <verbose>true</verbose>
         </configuration>
