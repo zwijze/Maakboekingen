@@ -7,8 +7,8 @@ del ..\jar
 del ..\gnuCash
 del ..\transacties
 
-if "%anonimize%"=="Y" (xcopy /y  "C:\Users\zwijze2\Google Drive\FZ-IT\administratie\template GnuCash voor start nieuw jaar (opslaan als kiezen en dan naam met jaar)\Company_xyz_year_xyz.gnucash" ..\gnuCash)
-if "%anonimize%"=="N" (xcopy /y  "C:\Users\zwijze2\Google Drive\FZ-IT\administratie\jaar 2017\GnuCash\fz-it jaar-2017.gnucash" ..\gnuCash)
+if "%anonimize%"=="Y" (xcopy /y  "C:\Users\zwijze\Google Drive\FZ-IT\administratie\template GnuCash voor start nieuw jaar (opslaan als kiezen en dan naam met jaar)\Company_xyz_year_xyz.gnucash" ..\gnuCash)
+if "%anonimize%"=="N" (xcopy /y  "C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2017\GnuCash\fz-it jaar-2017.gnucash" ..\gnuCash)
 
 xcopy /y "transacties\*" ..\transacties
 if "%anonimize%"=="Y" (replace_string.vbs "c:\mijn documenten\maakboekingen\run_programma\transacties\2017-10-28_18-55-23_bunq-transactieoverzicht.sta" "NL50BUNQ2291623486" "NL50BUNQ7273627486")
@@ -44,7 +44,7 @@ if "%anonimize%"=="N" (replace_string.vbs "..\plugins\config\configGnuCash.xml" 
 SET configGnuCashXsdWorkspace=C:\mijn documenten\Maakboekingen\jibxGnuCashConfig\jibxcodegen\xsd\configGnuCash.xsd
 xcopy /y "%configGnuCashXsdWorkspace%" ..\plugins\config\configGnuCash.xsd
 
-SET mavenrepo=C:\Users\zwijze2\.m2\repository
+SET mavenrepo=C:\Users\zwijze\.m2\repository
 xcopy /y "%mavenrepo%\nl\fzit\maakboekingen\config\0.0.1-SNAPSHOT\Config-0.0.1-SNAPSHOT.jar" ..\jar
 xcopy /y "%mavenrepo%\nl\fzit\maakboekinggnucash\configgnucash\0.0.1-SNAPSHOT\configGnuCash-0.0.1-SNAPSHOT.jar" ..\jar
 xcopy /y "%mavenrepo%\nl\fzit\files\0.0.1-SNAPSHOT\files-0.0.1-SNAPSHOT.jar" ..\jar
@@ -58,5 +58,6 @@ xcopy /y "%mavenrepo%\org\jibx\jibx-extras\1.3.0\jibx-extras-1.3.0.jar" ..\jar
 xcopy /y "%mavenrepo%\org\jibx\jibx-run\1.3.0\jibx-run-1.3.0.jar" ..\jar
 xcopy /y "%mavenrepo%\nl\fzit\maakboekingen\maakboekingen\0.0.1-SNAPSHOT\maakboekingen-0.0.1-SNAPSHOT.jar" ..\jar
 del makebookings.zip
-jar -cMf makeBookings.zip ..\makeBookings.cmd ..\jar ..\config ..\plugins ..\help ..\gnuCash ..\transacties
+set jarTool="C:\Program Files\Java\jdk1.8.0_151\bin\jar.exe"
+%jarTool% -cMf makeBookings.zip ..\makeBookings.cmd ..\jar ..\config ..\plugins ..\help ..\gnuCash ..\transacties
 pause 100000
