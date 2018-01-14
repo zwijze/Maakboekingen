@@ -1,10 +1,11 @@
 package nl.fzit.files;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import java.io.FileFilter;
 
 public class FilesDirectories {
 
@@ -55,7 +56,14 @@ public class FilesDirectories {
 		
 		File directory=new File(directoryNaam);
 		if( directory.exists() ) {
-			File[] files = directory.listFiles();
+
+			FileFilter directoryFilter = new FileFilter() {
+				public boolean accept(File file) {
+					return !file.isDirectory();
+				}
+			};
+			
+			File[] files = directory.listFiles(directoryFilter);
 			
 			for(int i=0; i<files.length; i++) {
 				fileNaam=files[i].toString();
