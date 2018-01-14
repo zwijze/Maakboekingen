@@ -2,7 +2,7 @@
 <config xmlns="http://fzit.nl/maakboekingen/config">
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
   <TransactionsFiles>
-	<DirectoryTransactionFiles>C:\mijn documenten\Maakboekingen\transacties</DirectoryTransactionFiles>
+	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2017\GnuCash\transacties\Q4</DirectoryTransactionFiles>
 	<TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
 	<BeginBalanceRegex>:60F:([CD])(\d{6})(EUR)(\d+,)(\d*)</BeginBalanceRegex>
 	<BookingDateAndAmountRegex>:61:(\d{2})\d*?(\d{4})([CD])(\d+,)(\d*?)[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
@@ -10,7 +10,7 @@
 	<AccountNumberRegex>:25:(.*?)((\s.*?$)|($))</AccountNumberRegex>
   </TransactionsFiles>
   <Accounts>
-  		<Account AccountNumber="NL50BUNQ2291623486">
+  		<Account AccountNumber="NL87BUNQ2291624857">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening BUNQ</BookingAccountForAccountNumber>
 			<Bookings>			
 				<Booking>
@@ -87,6 +87,17 @@
 				</Booking>
 				<Booking>
 					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>bunq/REMI/invoice</BookingDescription>
+					<BookingDescriptionUsedToBook>Rekening- en transactierapportagekosten BUNQ</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
 					<BookingDescription>ABONNEMENTSKOSTEN</BookingDescription>
 					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
 					<CounterBookingLines>
@@ -108,8 +119,8 @@
 					</CounterBookingLines>
 				</Booking>
 				<Booking>
-					<CounterAccountNumber>NL83DEUT0265121817</CounterAccountNumber>
-					<BookingDescription></BookingDescription>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>NL83DEUT0265121817</BookingDescription>
 					<BookingDescriptionUsedToBook>Vodafone telefoon rekening yyyymm</BookingDescriptionUsedToBook>
 					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
 					<CounterBookingLines>
@@ -495,6 +506,51 @@
 		<Account AccountNumber="NL92SNSB0908995105">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Spaarrekening</BookingAccountForAccountNumber>
 			<Bookings>
+							<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Van prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Vanaf prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Passiva:Vanaf prive</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>	
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Vanaf prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Van prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Passiva:Vanaf prive</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>	
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Naar prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Naar prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>	
+				<Booking>
+					<CounterAccountNumber>NL26ABNA0570730147</CounterAccountNumber>
+					<BookingDescription></BookingDescription>
+					<BookingDescriptionUsedToBook>Betaling factuur Headfirst yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Debiteuren</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
 				<Booking>
 					<CounterAccountNumber></CounterAccountNumber>
 					<BookingDescription>CREDITRENTE</BookingDescription>
@@ -505,8 +561,7 @@
 							<DebitCredit>C</DebitCredit>
 						</CounterBookingLine>
 					</CounterBookingLines>
-				</Booking>
-		
+				</Booking>		
 			</Bookings>				
 		</Account>		
   </Accounts>

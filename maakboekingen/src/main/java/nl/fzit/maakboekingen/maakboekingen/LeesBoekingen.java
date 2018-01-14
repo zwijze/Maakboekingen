@@ -118,6 +118,8 @@ public class LeesBoekingen {
 				digits=mBoekingsDatumEnBedrag.group(5);
 				if (digits.equals("")){				
 					boeking[3]=mBoekingsDatumEnBedrag.group(4).replace(',', '.')+"00"; //Bedrag
+				} else if (digits.length()==1) {
+					boeking[3]=new String(mBoekingsDatumEnBedrag.group(4).replace(',', '.').concat(digits).concat("0")); //Bedrag
 				} else {
 					boeking[3]=mBoekingsDatumEnBedrag.group(4).replace(',', '.')+digits; //Bedrag					
 				}
