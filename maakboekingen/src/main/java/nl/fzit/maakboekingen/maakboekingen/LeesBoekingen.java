@@ -153,6 +153,12 @@ public class LeesBoekingen {
 	
 	}
 	
+	public void inlezenBestandTXT(String file,String accountNumberRegex,String regexBoekingsDatumEnBedrag) throws IOException{
+		
+		
+	}
+	
+	
 	public Double getBeginSaldo(){
 		
 		return beginSaldo;

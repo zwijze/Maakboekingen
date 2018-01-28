@@ -37,34 +37,30 @@ public class Maakboekingen {
 		
 		Maakboekingen maakboekingen=new Maakboekingen();
 		maakboekingen.unMarschallConfigFile(args[0]);
+
+		//LeesBoeking object maken t.b.v. inlezen boekingen uit een bestand
+		LeesBoekingen leesBoekingen=new LeesBoekingen();
 		
 		FilesDirectories filesDirectories=new FilesDirectories();
 		bestandenList=filesDirectories.bepaalInTeLezenBestanden(maakboekingen.config.getMT940TransactionsFiles().getDirectoryTransactionFiles(),maakboekingen.config.getMT940TransactionsFiles().getTransactionFilesToReadRegex());
 		
-		//LeesBoeking object maken t.b.v. inlezen boekingen uit een bestand
-		LeesBoekingen leesBoekingen=new LeesBoekingen();
-		
-		
+		//Read MT940 files
 		for (String bestand :bestandenList){
 			leesBoekingen.inlezenBestandMT940(bestand,maakboekingen.config.getMT940TransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getMT940TransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getMT940TransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getMT940TransactionsFiles().getEndBalanceRegex());
 		}
 
+		bestandenList=filesDirectories.bepaalInTeLezenBestanden(maakboekingen.config.getTXTTransactionsFiles().getDirectoryTransactionFiles(),maakboekingen.config.getTXTTransactionsFiles().getTransactionFilesToReadRegex());
+		
+		//Read TXT extra bookings, not mentioned on the bankaccount
+		for (String bestand :bestandenList){
+			leesBoekingen.inlezenBestandTXT(bestand,maakboekingen.config.getTXTTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTXTTransactionsFiles().getBookingDateAndAmountRegex());
+		}
+		
 		///Stel de boekingLines samen
 		BoekingLines boekingLines=new BoekingLines();
 		boekingLines.stelSamenBoekingenLines(maakboekingen.config, leesBoekingen.getBoekingen());
-		
-		
-		//Creer Sql connection naar database waarin de boekingen moet komen o.b.v. plugin
-//		ISql sql=maakSqlObject(maakboekingen.config);
-//		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it-jaar-2016.gnucash", "", "", "");
-		//		sql.makeConnection(maakboekingen.config.getDatabaseBookingProgram().getDbms(),"","","",maakboekingen.config.getDatabaseBookingProgram().getDbName(),"","", "");
-		//MaakBoeking object maken o.b.v. plugin
-		//IMakebooking maakBoeking=maakBoekingObject(maakboekingen.config);
-		//IMakebooking maakBoeking=maakboekingen.maakBoekingObject(maakboekingen.config);
-		//Maakboekingen.method.invoke(maakBoeking, null);
+				
 		maakboekingen.invokeInsertBookingLinesOfPluginBookingProgram(maakboekingen.config,boekingLines.getBoekingenLines());
-		
-//		maakBoeking.insertBookingLines(sql,boekingLines.getBoekingenLines());
 		
 		//To avoid the problem 'JDWP Unable to get JNI 1.2 environment' put this at the end of the main method:
 		System.exit(0);	
