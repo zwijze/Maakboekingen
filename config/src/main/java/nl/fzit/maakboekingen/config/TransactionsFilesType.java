@@ -8,10 +8,10 @@ package nl.fzit.maakboekingen.config;
  *   &lt;xs:sequence>
  *     &lt;xs:element type="xs:string" name="DirectoryTransactionFiles"/>
  *     &lt;xs:element type="xs:string" name="TransactionFilesToReadRegex"/>
- *     &lt;xs:element type="xs:string" name="BeginBalanceRegex"/>
- *     &lt;xs:element type="xs:string" name="BookingDateAndAmountRegex"/>
- *     &lt;xs:element type="xs:string" name="EndBalanceRegex"/>
- *     &lt;xs:element type="xs:string" name="AccountNumberRegex"/>
+ *     &lt;xs:element type="xs:string" name="BeginBalanceRegex" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="BookingDateAndAmountRegex" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="EndBalanceRegex" minOccurs="0"/>
+ *     &lt;xs:element type="xs:string" name="AccountNumberRegex" minOccurs="0"/>
  *   &lt;/xs:sequence>
  * &lt;/xs:complexType>
  * </pre>

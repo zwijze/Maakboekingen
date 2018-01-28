@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://fzit.nl/maakboekingen/config">
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
-  <TransactionsFiles>
-    <DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2017\GnuCash\transacties\Q4</DirectoryTransactionFiles>
+  <MT940TransactionsFiles>
+    <DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\MT940</DirectoryTransactionFiles>
     <TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
     <BeginBalanceRegex>:60F:([CD])(\d{6})(EUR)(\d+,)(\d*)</BeginBalanceRegex>
     <BookingDateAndAmountRegex>:61:(\d{2})\d*?(\d{4})([CD])(\d+,)(\d*?)[A-Z]{4}(.*)</BookingDateAndAmountRegex>
     <EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,)(\d*)</EndBalanceRegex>
     <AccountNumberRegex>:25:(.*?)((\s.*?$)|($))</AccountNumberRegex>
-  </TransactionsFiles>
+  </MT940TransactionsFiles>
+  <TXTTransactionsFiles>
+    <DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\TXT</DirectoryTransactionFiles>
+    <TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
+  </TXTTransactionsFiles>
   <Accounts>
     <Account AccountNumber="NL87BUNQ2291624857">
       <BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening BUNQ</BookingAccountForAccountNumber>

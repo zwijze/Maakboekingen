@@ -8,7 +8,8 @@ package nl.fzit.maakboekingen.config;
  *   &lt;xs:complexType>
  *     &lt;xs:sequence>
  *       &lt;xs:element type="xs:string" name="ClassNamePluginBookingProgram"/>
- *       &lt;xs:element type="ns:TransactionsFilesType" name="TransactionsFiles"/>
+ *       &lt;xs:element type="ns:TransactionsFilesType" name="MT940TransactionsFiles"/>
+ *       &lt;xs:element type="ns:TransactionsFilesType" name="TXTTransactionsFiles"/>
  *       &lt;xs:element type="ns:AccountsType" name="Accounts"/>
  *     &lt;/xs:sequence>
  *   &lt;/xs:complexType>
@@ -18,7 +19,8 @@ package nl.fzit.maakboekingen.config;
 public class Config
 {
     private String classNamePluginBookingProgram;
-    private TransactionsFilesType transactionsFiles;
+    private TransactionsFilesType MT940TransactionsFiles;
+    private TransactionsFilesType TXTTransactionsFiles;
     private AccountsType accounts;
 
     /** 
@@ -41,21 +43,41 @@ public class Config
     }
 
     /** 
-     * Get the 'TransactionsFiles' element value.
+     * Get the 'MT940TransactionsFiles' element value.
      * 
      * @return value
      */
-    public TransactionsFilesType getTransactionsFiles() {
-        return transactionsFiles;
+    public TransactionsFilesType getMT940TransactionsFiles() {
+        return MT940TransactionsFiles;
     }
 
     /** 
-     * Set the 'TransactionsFiles' element value.
+     * Set the 'MT940TransactionsFiles' element value.
      * 
-     * @param transactionsFiles
+     * @param MT940TransactionsFiles
      */
-    public void setTransactionsFiles(TransactionsFilesType transactionsFiles) {
-        this.transactionsFiles = transactionsFiles;
+    public void setMT940TransactionsFiles(
+            TransactionsFilesType MT940TransactionsFiles) {
+        this.MT940TransactionsFiles = MT940TransactionsFiles;
+    }
+
+    /** 
+     * Get the 'TXTTransactionsFiles' element value.
+     * 
+     * @return value
+     */
+    public TransactionsFilesType getTXTTransactionsFiles() {
+        return TXTTransactionsFiles;
+    }
+
+    /** 
+     * Set the 'TXTTransactionsFiles' element value.
+     * 
+     * @param TXTTransactionsFiles
+     */
+    public void setTXTTransactionsFiles(
+            TransactionsFilesType TXTTransactionsFiles) {
+        this.TXTTransactionsFiles = TXTTransactionsFiles;
     }
 
     /** 

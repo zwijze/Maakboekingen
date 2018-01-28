@@ -39,14 +39,14 @@ public class Maakboekingen {
 		maakboekingen.unMarschallConfigFile(args[0]);
 		
 		FilesDirectories filesDirectories=new FilesDirectories();
-		bestandenList=filesDirectories.bepaalInTeLezenBestanden(maakboekingen.config.getTransactionsFiles().getDirectoryTransactionFiles(),maakboekingen.config.getTransactionsFiles().getTransactionFilesToReadRegex());
+		bestandenList=filesDirectories.bepaalInTeLezenBestanden(maakboekingen.config.getMT940TransactionsFiles().getDirectoryTransactionFiles(),maakboekingen.config.getMT940TransactionsFiles().getTransactionFilesToReadRegex());
 		
 		//LeesBoeking object maken t.b.v. inlezen boekingen uit een bestand
 		LeesBoekingen leesBoekingen=new LeesBoekingen();
 		
 		
 		for (String bestand :bestandenList){
-			leesBoekingen.inlezenBestand(bestand,maakboekingen.config.getTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getTransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getTransactionsFiles().getEndBalanceRegex());
+			leesBoekingen.inlezenBestandMT940(bestand,maakboekingen.config.getMT940TransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getMT940TransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getMT940TransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getMT940TransactionsFiles().getEndBalanceRegex());
 		}
 
 		///Stel de boekingLines samen

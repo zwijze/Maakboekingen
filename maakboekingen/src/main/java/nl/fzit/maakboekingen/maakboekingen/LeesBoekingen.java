@@ -20,7 +20,7 @@ public class LeesBoekingen {
 		return boekingen;
 	}
 
-	public void inlezenBestand(String file,String accountNumberRegex,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexEindSaldo) throws IOException{
+	public void inlezenBestandMT940(String file,String accountNumberRegex,String regexBeginSaldo,String regexBoekingsDatumEnBedrag,String regexEindSaldo) throws IOException{
 		FileInputStream fis=new FileInputStream(file);
 		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
 		String line=null;
