@@ -4,17 +4,22 @@
   <format label="ns1:DebitCreditType" type="nl.fzit.maakboekingen.config.DebitCreditType"/>
   <mapping class="nl.fzit.maakboekingen.config.Config" name="config">
     <value style="element" name="ClassNamePluginBookingProgram" get-method="getClassNamePluginBookingProgram" set-method="setClassNamePluginBookingProgram"/>
-    <structure map-as="ns1:TransactionsFilesType" get-method="getMT940TransactionsFiles" set-method="setMT940TransactionsFiles" name="MT940TransactionsFiles"/>
-    <structure map-as="ns1:TransactionsFilesType" get-method="getTXTTransactionsFiles" set-method="setTXTTransactionsFiles" name="TXTTransactionsFiles"/>
+    <structure map-as="ns1:MT940TransactionsFilesType" get-method="getMT940TransactionsFiles" set-method="setMT940TransactionsFiles" name="MT940TransactionsFiles"/>
+    <structure map-as="ns1:AdditionalTransactionsFilesType" get-method="getAdditionalTransactionsFiles" set-method="setAdditionalTransactionsFiles" name="AdditionalTransactionsFiles"/>
     <structure map-as="ns1:AccountsType" get-method="getAccounts" set-method="setAccounts" name="Accounts"/>
   </mapping>
-  <mapping abstract="true" type-name="ns1:TransactionsFilesType" class="nl.fzit.maakboekingen.config.TransactionsFilesType">
+  <mapping abstract="true" type-name="ns1:MT940TransactionsFilesType" class="nl.fzit.maakboekingen.config.MT940TransactionsFilesType">
     <value style="element" name="DirectoryTransactionFiles" get-method="getDirectoryTransactionFiles" set-method="setDirectoryTransactionFiles"/>
     <value style="element" name="TransactionFilesToReadRegex" get-method="getTransactionFilesToReadRegex" set-method="setTransactionFilesToReadRegex"/>
-    <value style="element" name="BeginBalanceRegex" get-method="getBeginBalanceRegex" set-method="setBeginBalanceRegex" usage="optional"/>
-    <value style="element" name="BookingDateAndAmountRegex" get-method="getBookingDateAndAmountRegex" set-method="setBookingDateAndAmountRegex" usage="optional"/>
-    <value style="element" name="EndBalanceRegex" get-method="getEndBalanceRegex" set-method="setEndBalanceRegex" usage="optional"/>
-    <value style="element" name="AccountNumberRegex" get-method="getAccountNumberRegex" set-method="setAccountNumberRegex" usage="optional"/>
+    <value style="element" name="BeginBalanceRegex" get-method="getBeginBalanceRegex" set-method="setBeginBalanceRegex"/>
+    <value style="element" name="BookingDateAndAmountRegex" get-method="getBookingDateAndAmountRegex" set-method="setBookingDateAndAmountRegex"/>
+    <value style="element" name="EndBalanceRegex" get-method="getEndBalanceRegex" set-method="setEndBalanceRegex"/>
+    <value style="element" name="AccountNumberRegex" get-method="getAccountNumberRegex" set-method="setAccountNumberRegex"/>
+  </mapping>
+  <mapping abstract="true" type-name="ns1:AdditionalTransactionsFilesType" class="nl.fzit.maakboekingen.config.AdditionalTransactionsFilesType">
+    <value style="element" name="DirectoryTransactionFiles" get-method="getDirectoryTransactionFiles" set-method="setDirectoryTransactionFiles"/>
+    <value style="element" name="TransactionFilesToReadRegex" get-method="getTransactionFilesToReadRegex" set-method="setTransactionFilesToReadRegex"/>
+    <value style="element" name="BookingRegex" get-method="getBookingRegex" set-method="setBookingRegex"/>
   </mapping>
   <mapping abstract="true" type-name="ns1:DatabaseType" class="nl.fzit.maakboekingen.config.DatabaseType">
     <value style="element" name="Dbms" get-method="getDbms" set-method="setDbms"/>

@@ -49,11 +49,11 @@ public class Maakboekingen {
 			leesBoekingen.inlezenBestandMT940(bestand,maakboekingen.config.getMT940TransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getMT940TransactionsFiles().getBeginBalanceRegex(),maakboekingen.config.getMT940TransactionsFiles().getBookingDateAndAmountRegex(),maakboekingen.config.getMT940TransactionsFiles().getEndBalanceRegex());
 		}
 
-		bestandenList=filesDirectories.bepaalInTeLezenBestanden(maakboekingen.config.getTXTTransactionsFiles().getDirectoryTransactionFiles(),maakboekingen.config.getTXTTransactionsFiles().getTransactionFilesToReadRegex());
+		bestandenList=filesDirectories.bepaalInTeLezenBestanden(maakboekingen.config.getAdditionalTransactionsFiles().getDirectoryTransactionFiles(),maakboekingen.config.getAdditionalTransactionsFiles().getTransactionFilesToReadRegex());
 		
-		//Read TXT extra bookings, not mentioned on the bankaccount
+		//Read Additional extra bookings, not mentioned on the bankaccount
 		for (String bestand :bestandenList){
-			leesBoekingen.inlezenBestandTXT(bestand,maakboekingen.config.getTXTTransactionsFiles().getAccountNumberRegex(),maakboekingen.config.getTXTTransactionsFiles().getBookingDateAndAmountRegex());
+			leesBoekingen.inlezenBestandAdditional(bestand,maakboekingen.config.getAdditionalTransactionsFiles().getBookingRegex());
 		}
 		
 		///Stel de boekingLines samen

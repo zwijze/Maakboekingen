@@ -153,9 +153,29 @@ public class LeesBoekingen {
 	
 	}
 	
-	public void inlezenBestandTXT(String file,String accountNumberRegex,String regexBoekingsDatumEnBedrag) throws IOException{
+	public void inlezenBestandAdditional(String file,String bookingRegex) throws IOException{
+		FileInputStream fis=new FileInputStream(file);
+		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
+		String line=null;
+		String[] boeking=new String[7];
+		Boolean bBooking;
 		
-		
+        Pattern pBookingRegex = Pattern.compile(bookingRegex);	
+        Matcher mBooking;
+        
+		while ((line=br.readLine())!=null){
+			mBooking = pBookingRegex.matcher(line);
+			bBooking=mBooking.matches();
+			boeking[0]=mBooking.group(1);
+			boeking[1]=mBooking.group(2);
+			boeking[2]=mBooking.group(3);
+			boeking[3]=mBooking.group(4);
+			boeking[4]="";
+			boeking[5]=mBooking.group(6);
+			boeking[6]=mBooking.group(5);
+
+			boekingen.add(boeking);
+		}
 	}
 	
 	

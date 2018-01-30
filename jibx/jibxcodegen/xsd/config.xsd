@@ -7,22 +7,29 @@
 			    <xsd:documentation>Classname plugin booking program that creates a booking.</xsd:documentation>
 			  </xsd:annotation>			
 		    </xsd:element>										
-			<xsd:element type="TransactionsFilesType" name="MT940TransactionsFiles"/>
-			<xsd:element type="TransactionsFilesType" name="TXTTransactionsFiles"/>			
+			<xsd:element type="MT940TransactionsFilesType" name="MT940TransactionsFiles"/>
+			<xsd:element type="AdditionalTransactionsFilesType" name="AdditionalTransactionsFiles"/>			
 			<xsd:element type="AccountsType" name="Accounts"/>		
 		</xsd:sequence>		
 	</xsd:complexType>					
 </xsd:element>
-  <xsd:complexType name="TransactionsFilesType">
+  <xsd:complexType name="MT940TransactionsFilesType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="DirectoryTransactionFiles"/>
 	  <xsd:element type="xsd:string" name="TransactionFilesToReadRegex"/>
-	  <xsd:element  minOccurs="0" type="xsd:string" name="BeginBalanceRegex"/>
-	  <xsd:element  minOccurs="0" type="xsd:string" name="BookingDateAndAmountRegex"/>	  
-	  <xsd:element  minOccurs="0" type="xsd:string" name="EndBalanceRegex"/>	  
-	  <xsd:element  minOccurs="0" type="xsd:string" name="AccountNumberRegex"/>	  	  
+	  <xsd:element type="xsd:string" name="BeginBalanceRegex"/>
+	  <xsd:element type="xsd:string" name="BookingDateAndAmountRegex"/>	  
+	  <xsd:element type="xsd:string" name="EndBalanceRegex"/>	  
+	  <xsd:element type="xsd:string" name="AccountNumberRegex"/>	  	  
     </xsd:sequence>
   </xsd:complexType>
+   <xsd:complexType name="AdditionalTransactionsFilesType">
+    <xsd:sequence>
+	  <xsd:element type="xsd:string" name="DirectoryTransactionFiles"/>
+	  <xsd:element type="xsd:string" name="TransactionFilesToReadRegex"/>
+	  <xsd:element type="xsd:string" name="BookingRegex"/>  
+    </xsd:sequence>
+  </xsd:complexType> 
   <xsd:complexType name="DatabaseType">
     <xsd:sequence>
 	  <xsd:element type="xsd:string" name="Dbms"/>

@@ -9,10 +9,11 @@
     <EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,)(\d*)</EndBalanceRegex>
     <AccountNumberRegex>:25:(.*?)((\s.*?$)|($))</AccountNumberRegex>
   </MT940TransactionsFiles>
-  <TXTTransactionsFiles>
-    <DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\TXT</DirectoryTransactionFiles>
+  <AdditionalTransactionsFiles>
+    <DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\Additional</DirectoryTransactionFiles>
     <TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
-  </TXTTransactionsFiles>
+    <BookingRegex>(.*?)|(.*?)|(.*?)|(.*?)|(.*?)|(.*?)|()</BookingRegex>
+  </AdditionalTransactionsFiles>
   <Accounts>
     <Account AccountNumber="NL87BUNQ2291624857">
       <BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening BUNQ</BookingAccountForAccountNumber>
