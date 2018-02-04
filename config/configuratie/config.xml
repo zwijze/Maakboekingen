@@ -2,7 +2,7 @@
 <config xmlns="http://fzit.nl/maakboekingen/config">
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
   <MT940TransactionsFiles>
-	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\MT940</DirectoryTransactionFiles>
+	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q2\MT940</DirectoryTransactionFiles>
 	<TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
 	<BeginBalanceRegex>:60F:([CD])(\d{6})(EUR)(\d+,)(\d*)</BeginBalanceRegex>
 	<BookingDateAndAmountRegex>:61:(\d{2})\d*?(\d{4})([CD])(\d+,)(\d*?)[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
@@ -567,6 +567,29 @@
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>		
+			</Bookings>				
+		</Account>
+		<Account AccountNumber="Debiteuren">
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Debiteuren</BookingAccountForAccountNumber>
+			<Bookings>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>factuur kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>factuur Headfirst yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Inkomen:Geleverde arbeid</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Passiva:Te betalen BTW hoog tarief</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>				
 			</Bookings>				
 		</Account>		
   </Accounts>

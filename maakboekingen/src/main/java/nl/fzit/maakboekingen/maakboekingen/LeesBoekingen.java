@@ -157,13 +157,13 @@ public class LeesBoekingen {
 		FileInputStream fis=new FileInputStream(file);
 		BufferedReader br=new BufferedReader(new InputStreamReader(fis));
 		String line=null;
-		String[] boeking=new String[7];
 		Boolean bBooking;
 		
         Pattern pBookingRegex = Pattern.compile(bookingRegex);	
         Matcher mBooking;
         
 		while ((line=br.readLine())!=null){
+			String[] boeking=new String[7];
 			mBooking = pBookingRegex.matcher(line);
 			bBooking=mBooking.matches();
 			boeking[0]=mBooking.group(1);

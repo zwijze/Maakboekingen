@@ -114,7 +114,7 @@ public class MaakBoeking implements IMakebooking {
 			
 			bookingNbrPrevious=bookingNbr;
 		}
-		System.out.printf("BookingBookings made in GnuCash!\r\n");
+		System.out.printf("Bookings made in GnuCash!\r\n");
 
 	}
 	

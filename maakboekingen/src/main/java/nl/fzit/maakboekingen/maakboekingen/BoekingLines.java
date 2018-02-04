@@ -85,7 +85,7 @@ public class BoekingLines {
 			boekingline[2]=account.getBookingAccountForAccountNumber();
 
 			//Bedrag
-			if (boeking[1]=="D") {
+			if (boeking[1].equals("D")) {
 				boekingline[3]=boeking[3];
 			} else {
 				boekingline[3]="-" + boeking[3];
