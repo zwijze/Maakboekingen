@@ -574,7 +574,7 @@
 			<Bookings>
 				<Booking>
 					<CounterAccountNumber></CounterAccountNumber>
-					<BookingDescription>factuur kwartaal</BookingDescription>
+					<BookingDescription>e factuur kwartaal</BookingDescription>
 					<BookingDescriptionUsedToBook>factuur Headfirst yyyymm</BookingDescriptionUsedToBook>
 					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
 					<CounterBookingLines>
@@ -590,7 +590,25 @@
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>				
-			</Bookings>				
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>e inkoopfactuur kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Inkoopfactuur Headfirst yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Commissies</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>	
+				</Bookings>				
 		</Account>		
   </Accounts>
  </config>

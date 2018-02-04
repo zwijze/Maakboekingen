@@ -163,6 +163,7 @@ public class LeesBoekingen {
         Matcher mBooking;
         
 		while ((line=br.readLine())!=null){
+			if (line.substring(0, 1).equals("#")) continue;//Skip comment line that begins with #
 			String[] boeking=new String[7];
 			mBooking = pBookingRegex.matcher(line);
 			bBooking=mBooking.matches();
