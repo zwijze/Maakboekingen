@@ -74,7 +74,7 @@ public class BoekingLines {
 			if (bookingDescriptionUsedToBook.equals("")){
 				bookingDescriptionUsedToBook=boeking[5];
 			}
-			if (bookingDescriptionUsedToBook.contains("yyyy")){
+			if (bookingDescriptionUsedToBook.contains("yyyy") || bookingDescriptionUsedToBook.contains("qqqq")){
 				bookingDescriptionUsedToBook=fillDateInBookingDescriptionToBook(booking,bookingDescriptionUsedToBook,boeking[2]);
 			}
 			
@@ -145,6 +145,7 @@ public class BoekingLines {
 		private String fillDateInBookingDescriptionToBook(BookingType booking,String bookingDescriptionUsedToBook,String dateString) throws ParseException
 		{	
 			String dateMonth,dateDay;
+			int month;
 			int AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook=0;
 			Calendar calendar = Calendar.getInstance();
 			SimpleDateFormat sdfYyyyymmdd = new SimpleDateFormat("yyyy-MM-dd");
@@ -174,7 +175,28 @@ public class BoekingLines {
 				return bookingDescriptionUsedToBook.replace("yyyymm",String.valueOf(calendar.get(Calendar.YEAR))+dateMonth);
 			} else if (bookingDescriptionUsedToBook.contains("yyyy")){
 				calendar.add(Calendar.YEAR, AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook);
-				return bookingDescriptionUsedToBook.replace("yyyy",String.valueOf(calendar.get(Calendar.YEAR)));			
+				return bookingDescriptionUsedToBook.replace("yyyy",String.valueOf(calendar.get(Calendar.YEAR)));	
+			} else if (bookingDescriptionUsedToBook.contains("qqqq")){
+				month=calendar.get(Calendar.MONTH)+1+AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook;
+				if (month>=1 && month<=3) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q1");									
+				} else if (month>=4 && month<=6) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q2");														
+				} else if (month>=7 && month<=9) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q3");														
+				} else if (month>=10 && month<=12) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q4");	
+				} else if (month>=-2 && month<=0) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q4");							
+				} else if (month>=-5 && month<=-3) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q3");		
+				} else if (month>=-8 && month<=-4) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q2");		
+				} else if (month>=-11 && month<=-9) {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q1");		
+				} else {
+					return bookingDescriptionUsedToBook.replace("qqqq","Q4");
+				}	
 			} else {
 				return bookingDescriptionUsedToBook;
 			}	

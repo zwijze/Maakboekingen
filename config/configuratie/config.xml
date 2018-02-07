@@ -610,5 +610,39 @@
 				</Booking>	
 				</Bookings>				
 		</Account>		
-  </Accounts>
+		<Account AccountNumber="Naar prive">
+			<BookingAccountForAccountNumber>Passiva:Vanaf prive</BookingAccountForAccountNumber>
+			<Bookings>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Betaald te betalen hoog BTW kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Betaling BTW qqqq</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Passiva:Te betalen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>	
+				</Booking>							
+			</Bookings>				
+		</Account>		
+		<Account AccountNumber="Vanaf prive">
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Naar prive</BookingAccountForAccountNumber>
+			<Bookings>	
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Ontvangen te vorderen hoog BTW kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Betaling BTW qqqq</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>	
+				</Booking>				
+			</Bookings>				
+		</Account>		
+	</Accounts>
  </config>
