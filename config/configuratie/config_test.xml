@@ -625,6 +625,17 @@
             </CounterBookingLine>
           </CounterBookingLines>
         </Booking>
+        <Booking>
+          <CounterAccountNumber/>
+          <BookingDescription>Te vorderen BTW brandstof kwartaal</BookingDescription>
+          <BookingDescriptionUsedToBook>Te vorderen BTW brandstof kwartaal qqqq</BookingDescriptionUsedToBook>
+          <CounterBookingLines>
+            <CounterBookingLine>
+              <BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+              <DebitCredit>D</DebitCredit>
+            </CounterBookingLine>
+          </CounterBookingLines>
+        </Booking>
       </Bookings>
     </Account>
     <Account AccountNumber="Vanaf prive">
