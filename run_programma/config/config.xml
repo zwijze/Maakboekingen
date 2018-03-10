@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns="http://fzit.nl/maakboekingen/config">
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
-  <TransactionsFiles>
-	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2017\GnuCash\transacties\Q4</DirectoryTransactionFiles>
+  <MT940TransactionsFiles>
+	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q2\MT940</DirectoryTransactionFiles>
 	<TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
 	<BeginBalanceRegex>:60F:([CD])(\d{6})(EUR)(\d+,)(\d*)</BeginBalanceRegex>
 	<BookingDateAndAmountRegex>:61:(\d{2})\d*?(\d{4})([CD])(\d+,)(\d*?)[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
 	<EndBalanceRegex>:62F:([CD])\d{6}EUR(\d+,)(\d*)</EndBalanceRegex>
 	<AccountNumberRegex>:25:(.*?)((\s.*?$)|($))</AccountNumberRegex>
-  </TransactionsFiles>
+  </MT940TransactionsFiles>
+   <AdditionalTransactionsFiles>
+	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\Additional</DirectoryTransactionFiles>
+	<TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
+	<BookingRegex>(.*?)\|(.*?)\|(.*?)\|(.*?)\|(.*?)\|(.*?)</BookingRegex>
+  </AdditionalTransactionsFiles>
   <Accounts>
   		<Account AccountNumber="NL87BUNQ2291624857">
 			<BookingAccountForAccountNumber>Activa:Huidige Activa:Lopende Rekening BUNQ</BookingAccountForAccountNumber>
@@ -563,7 +568,93 @@
 					</CounterBookingLines>
 				</Booking>		
 			</Bookings>				
+		</Account>
+		<Account AccountNumber="Debiteuren">
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Debiteuren</BookingAccountForAccountNumber>
+			<Bookings>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>e factuur kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>factuur Headfirst yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Inkomen:Geleverde arbeid</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Passiva:Te betalen BTW hoog tarief</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>				
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>e inkoopfactuur kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Inkoopfactuur Headfirst yyyymm</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Commissies</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+						</CounterBookingLine>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+						</CounterBookingLine>						
+					</CounterBookingLines>	
+				</Booking>	
+				</Bookings>				
 		</Account>		
-  </Accounts>
+		<Account AccountNumber="Vanaf prive">
+			<BookingAccountForAccountNumber>Passiva:Vanaf prive</BookingAccountForAccountNumber>
+			<Bookings>
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Betaald te betalen hoog BTW kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Betaling BTW qqqq</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Passiva:Te betalen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>	
+				</Booking>							
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Te vorderen BTW brandstof kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Te vorderen BTW brandstof kwartaal qqqq</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>	
+				</Booking>							
+			</Bookings>				
+		</Account>		
+		<Account AccountNumber="Naar prive">
+			<BookingAccountForAccountNumber>Activa:Huidige Activa:Naar prive</BookingAccountForAccountNumber>
+			<Bookings>	
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>Ontvangen te vorderen hoog BTW kwartaal</BookingDescription>
+					<BookingDescriptionUsedToBook>Betaling BTW qqqq</BookingDescriptionUsedToBook>
+					<AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>-1</AddExtraYearsMonthsDaysToDateInBookingDescriptionUsedToBook>				
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
+							<DebitCredit>C</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>	
+				</Booking>				
+			</Bookings>				
+		</Account>		
+	</Accounts>
  </config>
 
