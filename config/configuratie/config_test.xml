@@ -610,7 +610,7 @@
         </Booking>
       </Bookings>
     </Account>
-    <Account AccountNumber="Naar prive">
+    <Account AccountNumber="Vanaf prive">
       <BookingAccountForAccountNumber>Passiva:Vanaf prive</BookingAccountForAccountNumber>
       <Bookings>
         <Booking>
@@ -638,7 +638,7 @@
         </Booking>
       </Bookings>
     </Account>
-    <Account AccountNumber="Vanaf prive">
+    <Account AccountNumber="Naar prive">
       <BookingAccountForAccountNumber>Activa:Huidige Activa:Naar prive</BookingAccountForAccountNumber>
       <Bookings>
         <Booking>
