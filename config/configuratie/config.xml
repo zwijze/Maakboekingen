@@ -2,7 +2,7 @@
 <config xmlns="http://fzit.nl/maakboekingen/config">
   <ClassNamePluginBookingProgram>nl.fzit.MaakBoekingGnuCash.MaakBoeking</ClassNamePluginBookingProgram>
   <MT940TransactionsFiles>
-	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q2\MT940</DirectoryTransactionFiles>
+	<DirectoryTransactionFiles>C:\Users\zwijze\Google Drive\FZ-IT\administratie\jaar 2018\GnuCash\transacties\Q1\MT940</DirectoryTransactionFiles>
 	<TransactionFilesToReadRegex>.*</TransactionFilesToReadRegex>
 	<BeginBalanceRegex>:60F:([CD])(\d{6})(EUR)(\d+,)(\d*)</BeginBalanceRegex>
 	<BookingDateAndAmountRegex>:61:(\d{2})\d*?(\d{4})([CD])(\d+,)(\d*?)[A-Z]{4}(.*)</BookingDateAndAmountRegex>-->
@@ -132,12 +132,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Telefoon</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
@@ -172,12 +172,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Online-diensten</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
@@ -215,6 +215,17 @@
 					</CounterBookingLines>
 				</Booking>				
 				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>naar prive</BookingDescription>
+					<BookingDescriptionUsedToBook>Overboeking naar prive</BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Activa:Huidige Activa:Naar prive</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
+				<Booking>
 					<CounterAccountNumber>NL85SNSB0918663318</CounterAccountNumber>
 					<BookingDescription></BookingDescription>
 					<BookingDescriptionUsedToBook>Vanaf prive</BookingDescriptionUsedToBook>
@@ -233,12 +244,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Computer</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
@@ -250,12 +261,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Computer</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>		
@@ -267,12 +278,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Computer</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>				
@@ -362,12 +373,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Telefoon</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
@@ -402,12 +413,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Online-diensten</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
@@ -463,12 +474,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Computer</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>
@@ -480,12 +491,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Computer</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>		
@@ -497,12 +508,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Computer</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>				
@@ -567,6 +578,28 @@
 						</CounterBookingLine>
 					</CounterBookingLines>
 				</Booking>		
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>TRANSACTIERAPPORTAGEKOSTEN</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
+				<Booking>
+					<CounterAccountNumber></CounterAccountNumber>
+					<BookingDescription>ABONNEMENTSKOSTEN</BookingDescription>
+					<BookingDescriptionUsedToBook></BookingDescriptionUsedToBook>
+					<CounterBookingLines>
+						<CounterBookingLine>
+							<BookingAccount>Onkosten:Bankkosten</BookingAccount>
+							<DebitCredit>D</DebitCredit>
+						</CounterBookingLine>
+					</CounterBookingLines>
+				</Booking>				
 			</Bookings>				
 		</Account>
 		<Account AccountNumber="Debiteuren">
@@ -581,12 +614,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Inkomen:Geleverde arbeid</BookingAccount>
 							<DebitCredit>C</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Passiva:Te betalen BTW hoog tarief</BookingAccount>
 							<DebitCredit>C</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.3553719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>				
@@ -599,12 +632,12 @@
 						<CounterBookingLine>
 							<BookingAccount>Onkosten:Commissies</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>82.65</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>82.6446281</PercentageOfTotalAmount>
 						</CounterBookingLine>
 						<CounterBookingLine>
 							<BookingAccount>Activa:Huidige Activa:Te vorderen BTW hoog tarief</BookingAccount>
 							<DebitCredit>D</DebitCredit>
-							<PercentageOfTotalAmount>17.35</PercentageOfTotalAmount>
+							<PercentageOfTotalAmount>17.355371953719</PercentageOfTotalAmount>
 						</CounterBookingLine>						
 					</CounterBookingLines>	
 				</Booking>	
@@ -657,3 +690,4 @@
 		</Account>		
 	</Accounts>
  </config>
+
