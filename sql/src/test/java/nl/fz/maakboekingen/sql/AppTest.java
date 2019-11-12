@@ -43,8 +43,11 @@ public class AppTest
 		String[] element;
 		Sql sql=new Sql();
 		//sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Sqlite_test\\Sqlite_test\\test.db", "", "", "");
-		sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it jaar-2017.gnucash", "", "", "");
-		
+		if (System.getProperty("os.name").startsWith("Windows")) {
+			sql.makeConnection("sqlite", "", "", "" ,"C:\\mijn documenten\\Maakboekingen\\GnuCashSqlite\\fz-it jaar-2019.gnucash", "", "", "");
+		}else {
+			sql.makeConnection("sqlite", "", "", "" ,"/home/frank/fz-it jaar-2019.gnucash", "", "", "");
+		}
 		//Selectie van leningen ophalen
 		ArrayList <String[]> elementenLijst=sql.sqlQueryResult("select * from transactions");
 		//ArrayList <String[]> elementenLijst=sql.sqlQueryResult("SELECT date('now');");

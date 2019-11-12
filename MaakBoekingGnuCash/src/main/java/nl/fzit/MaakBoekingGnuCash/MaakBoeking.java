@@ -26,8 +26,11 @@ public class MaakBoeking implements IMakebooking {
 	
 	public MaakBoeking() throws ClassNotFoundException, SQLException{
 		ConfigGnuCash configGnuCash=new ConfigGnuCash();
-		configPath="plugins\\config\\configGnuCash.xml";
-	
+		if (System.getProperty("os.name").startsWith("Windows")) {
+			configPath="plugins\\config\\configGnuCash.xml";
+		} else {
+			configPath="plugins/config/configGnuCash.xml";				
+		}
 		try {
 			
             // note that you can use multiple bindings with the same class, in

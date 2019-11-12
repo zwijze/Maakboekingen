@@ -1,0 +1,3 @@
+Loaded plugin: nl.fzit.MaakBoekingGnuCash.MaakBoeking
+Connected to database: /home/frank/fz-it jaar-2019.gnucash
+Bookings made in GnuCash!

@@ -54,7 +54,7 @@ public class AppTest
             // unmarshal customer information from file
             IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
 //            FileInputStream in = new FileInputStream("src\\main\\config\\config.xml");
-            FileInputStream in = new FileInputStream("C:\\mijn documenten\\Maakboekingen\\maakboekingen\\plugins\\config\\configGnuCash.xml");            
+            FileInputStream in = new FileInputStream("/home/frank/git/Maakboekingen/maakboekingen/plugins/config/configGnuCash.xml");            
             ConfigGnuCash configGnuCash = (ConfigGnuCash)uctx.unmarshalDocument(in, null);
             // you can add code here to alter the unmarshalled customer
             

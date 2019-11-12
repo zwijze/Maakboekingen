@@ -54,14 +54,14 @@ public class AppTest
             // unmarshal customer information from file
             IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
 //            FileInputStream in = new FileInputStream("src\\main\\config\\config.xml");
-            FileInputStream in = new FileInputStream("configuratie\\config.xml");            
+            FileInputStream in = new FileInputStream("configuratie/config.xml");            
             Config config = (Config)uctx.unmarshalDocument(in, null);
             // you can add code here to alter the unmarshalled customer
             
 			// marshal object back out to file (with nice indentation, as UTF-8)
 			IMarshallingContext mctx = bfact.createMarshallingContext();
 			mctx.setIndent(2);
-			FileOutputStream out = new FileOutputStream("configuratie\\config_test.xml");
+			FileOutputStream out = new FileOutputStream("configuratie/config_test2.xml");
 			mctx.marshalDocument(config, "UTF-8", null, out);
 			
 		} catch (FileNotFoundException e) {

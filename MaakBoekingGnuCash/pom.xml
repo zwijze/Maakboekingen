@@ -11,6 +11,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -35,6 +37,11 @@
     	<artifactId>configGnuCash</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
     </dependency>
+	<dependency>
+	    <groupId>com.microsoft.sqlserver</groupId>
+	    <artifactId>mssql-jdbc</artifactId>
+	    <version>7.4.1.jre11</version>
+	</dependency>
   </dependencies>
   <artifactId>MaakBoekingGnuCash</artifactId>
 </project>
